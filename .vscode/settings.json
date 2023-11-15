@@ -1,6 +1,36 @@
 {
     "latex-workshop.latex.outDir": "./out",
-    "latex-workshop.synctex.afterBuild.enabled": true,
     "latex-workshop.view.pdf.viewer": "tab",
-    "latex-workshop.synctex.afterBuild.enabled": true
+    "latex-workshop.synctex.afterBuild.enabled": true,
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "lualatex->biber->lualatex",
+            "tools": [
+                "lualatex",
+                "biber",
+                "lualatex"
+            ]
+        }
+    ],
+    "latex-workshop.latex.tools": [
+        {
+            "name": "lualatex",
+            "command": "lualatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "biber",
+            "command": "biber",
+            "args": [
+                "%DOCFILE%"
+            ]
+        }
+    ]
+
 }

@@ -26,7 +26,10 @@ RUN apt update && \
         texlive-science \
         texlive-latex-recommended \
         latexmk \
-        procps 
+        procps zip \
+        biber \ 
+        texlive-bibtex-extra
+        
 
 # Times New Roman and other fonts
 RUN apt install --no-install-recommends --reinstall -y \

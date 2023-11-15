@@ -15,8 +15,8 @@
 
 Пример компиляции проекта с помощью Makefile:
 ```shell
-git clone https://github.com/
-cd 
+git clone https://github.com/foxybbb/diploma-bachelor.git
+cd diploma-bachelor
 make
 ```
 
