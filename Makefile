@@ -2,7 +2,7 @@ all: build run
 
 
 build:
-	latexmk -xelatex -synctex=1 -jobname=diploma-bachelor main.tex
+	lualatex -synctex=1 -interaction=nonstopmode -jobname=diploma-bachelor -file-line-error main.tex
 
 run:
 	docker run -t -d -v ${PWD}:/diploma-bachelor:Z latex-docker

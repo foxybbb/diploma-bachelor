@@ -1,8 +1,25 @@
 \documentclass[12pt, fleqn, a4paper]{article}
+\input{Src/config.tex}
 
+% Не редактируем: используемые пакеты
+\include{Src/settings/packages.tex}
+
+% Не редактируем: параметры используемых пакетов и не только
+\include{Src/settings/preferences.tex}
 
 \begin{document}
 
+%\includepdf[pages={1,2,3,4}]{final.pdf}
+\setcounter{page}{5}
+
+% Не редактируем: Титульная страница (формируется автоматически из заданной конфигурации)
+\include{Src/templates/tocpage.tex}
+
+% Редактируем: всё остальное: вступление, др. этапы, заключение, приложение
+\include{Src/content.tex}
+
+% Не редактируем: Страница библиографии (формируется автоматически из книжек, указанных в refs.bib и пометок \cite{имя_источника} в тексте)
+\include{Src/templates/bibpage.tex}
 
 
 \end{document}

@@ -28,8 +28,9 @@ RUN apt update && \
         latexmk \
         procps zip \
         biber \ 
-        texlive-bibtex-extra
-        
+        texlive-bibtex-extra \
+        locales \
+        python3-pygments
 
 # Times New Roman and other fonts
 RUN apt install --no-install-recommends --reinstall -y \
@@ -42,12 +43,12 @@ RUN apt install --no-install-recommends --reinstall -y \
     unzip -o PTSansOFL.zip -d /usr/share/fonts/ && unzip -o PTMonoOFL.zip -d /usr/share/fonts/ && \
     rm -f PTSansOFL.zip PTMonoOFL.zip && \
     fc-cache -f -v
-
+    
 # generating locales
-# RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
-#     dpkg-reconfigure --frontend=noninteractive locales && \
-#     update-locale LANG=en_US.UTF-8
-# ENV LANGUAGE=en_US.UTF-8 LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
+RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
+    dpkg-reconfigure --frontend=noninteractive locales && \
+    update-locale LANG=en_US.UTF-8
+ENV LANGUAGE=en_US.UTF-8 LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
 
 VOLUME $DIR
 WORKDIR $DIR
