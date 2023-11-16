@@ -1,4 +1,0 @@
-\contentsline {section}{List Of Used Abbreviations}{6}{Doc-Start}%
-\selectlanguage *{english}
-\contentsline {section}{Introduction}{7}{DTLrowi.1.1}%
-\contentsfinish 
