@@ -8,3 +8,6 @@
 *.synctex.gz 
 *.xdv 
 *.toc
+*.xwm
+*.run.xml
+*.bbl 
