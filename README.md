@@ -3,14 +3,25 @@
 # Структура
 
 ```
+.
+├── .devcontainer
+├── .git
+├── .vscode
+├── Src
+    ├── extra
+    ├── images
+    ├── settings
+    └── templates
 
 ```
 
 
-Каталог `extra/`
-
-Каталог `images/`
-
+Каталог `.devcontainer/`
+Каталог `.git/`
+Каталог `Src/extra`
+Каталог `Src/images`
+Каталог `Src/settings`
+Каталог `Src/templates`
 ## Работа с LaTeX
 
 Пример компиляции проекта с помощью Makefile:
