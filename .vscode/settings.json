@@ -34,8 +34,8 @@
         },
     
         {
-        "name": "biber",
-        "command": "biber",
+        "name": "bibtex",
+        "command": "bibtex",
         "args": [
             "%DOCFILE%"
         ],
@@ -51,13 +51,16 @@
         },
     
         {
-            "name": "pdflatex -> biber -> pdflatex TWICE",
+            "name": "lualatex -> bibtex -> lualatex TWICE",
             "tools": [
-                "pdflatex",
-                "biber",
-                "pdflatex"
+                "lualatex",
+                "bibtex",
+                "lualatex"
+                
             ]
         }        
     ],
+
+
 
 }
