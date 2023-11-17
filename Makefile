@@ -17,7 +17,9 @@ clean:
 	*.out \
 	*.synctex.gz \
 	*.xdv \
-	*.toc
+	*.toc \
+	*.xwm \
+	*.aux
 
 docker: 
 	docker build -t latex-docker .

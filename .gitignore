@@ -11,3 +11,4 @@
 *.xwm
 *.run.xml
 *.bbl 
+_minted-main/

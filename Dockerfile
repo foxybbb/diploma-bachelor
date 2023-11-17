@@ -30,7 +30,10 @@ RUN apt update && \
         biber \ 
         texlive-bibtex-extra \
         locales \
-        python3-pygments
+        python3-pygments \
+        cpan -i App::cpanminus \
+        cpanm YAML::Tiny \
+        cpanm File::HomeDir \
 
 # Times New Roman and other fonts
 RUN apt install --no-install-recommends --reinstall -y \
