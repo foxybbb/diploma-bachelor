@@ -50,7 +50,8 @@
 
 % подпись таблицы
 \DeclareCaptionFormat{hfillstart}{\hfill#1#2#3\par}
-\captionsetup[table]{format=hfillstart,labelsep=newline,justification=centering,skip=-10pt,textfont=bf}
+\captionsetup[table]{format=hfillstart,labelsep=newline,justification=centering,skip=10pt,textfont=bf}
+
 
 % путь к каталогу с рисунками
 \graphicspath{{images/}}
@@ -93,33 +94,21 @@
   \DTLnewdbentry{list}{description}{\boldenfirstword{#1}}% Add entry as description
 }
 
-\newenvironment{sortedlist}{%
-  \DTLifdbexists{list}{\DTLcleardb{list}}{\DTLnewdb{list}}% Create new/discard old list
-}{%
-  \DTLsort{description}{list}% Sort list
-  \begin{itemize}%
-    \DTLforeach*{list}{\theDesc=description}{%
-\item[] \theDesc}% Print each item
-  \end{itemize}%
-}
-
-% Капс на загаловках
-\usepackage{sectsty}
-\newcommand{\HeaderSize}{\fontsize{14}{15}\selectfont\MakeUppercase}
-\sectionfont{\HeaderSize}
+\titleformat{\section}
+      {\normalfont\fontsize{14}{16}\bfseries}{\thesection}{1em}{\MakeUppercase}[]
+    
+      \titleformat{name=\section,numberless}
+      {\normalfont\fontsize{14}{16}\bfseries\centering}{\llap}{1em}{\MakeUppercase}
+    
+    \titleformat{\subsection}
+      {\normalfont\fontsize{12}{14}\bfseries}{\thesubsection}{1em}{}
+    
+    \titleformat{\subsubsection}
+      {\normalfont\fontsize{12}{14}\bfseries}{\thesubsubsection}{1em}{}
+     
 
 
-\usepackage{subcaption}
-\DeclareCaptionLabelFormat{custom}
-{%
-	\FixCaptionLabel{#2}. #1.
-}
-
-\DeclareCaptionLabelFormat{customappendix}
-{
-	#2. \figurefix{#1}
-}
-
+  
 \usepackage{enumitem}
 \setlist[enumerate]{label*=\arabic*.}
 \AddToHook{cmd/section/before}{\clearpage}
@@ -134,7 +123,21 @@
 \renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}.{}}
 \renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.{}}
 
-
+\usepackage{xstring}
+\def\FixCaptionLabel#1{%
+  \IfSubStr{#1}{.}{%
+	\StrSubstitute[1]{#1}{.}{}}{#1}}
+  
+  \usepackage{subcaption}
+  \DeclareCaptionLabelFormat{custom}
+  {%
+     #1. \FixCaptionLabel{#2}
+  }
+  
+  \DeclareCaptionLabelFormat{customappendix}
+  {
+    #2. \figurefix{#1}
+  }
 % Separator style
 \DeclareCaptionLabelSeparator{custom}{ }
 
@@ -156,6 +159,7 @@
     labelformat=custom,%
     labelsep=custom
 }
+
 
 
 \newcommand\signature[2]{% Name; Department
@@ -229,3 +233,4 @@ splittopskip=2\baselineskip
        \setlength{\itemsep}{\bibsep}\setlength{\parsep}{\z@}}
 \makeatother
 \bibliographystyle{agsm}
+
