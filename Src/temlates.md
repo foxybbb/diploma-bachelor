@@ -52,6 +52,20 @@
 \end{itemize}
 ```
 
+## Items Center 
+
+```tex
+\begin{center}
+	\begin{minipage}[c]{0.5\linewidth}
+		\begin{itemize}[label={}]
+			\item $ \mathbf{e} $ - euler's number 2.71828
+			\item Item 2
+			\item Item 3
+		\end{itemize}
+	\end{minipage}
+\end{center}
+```
+
 ## Code
 
 ```tex
@@ -64,3 +78,4 @@
 \end{figure}
 
 ```
+

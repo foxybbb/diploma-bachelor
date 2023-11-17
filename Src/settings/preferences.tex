@@ -118,7 +118,20 @@
 {\normalfont\fontsize{12}{14}\bfseries}{\thesubsubsection}{1em}{}
 
 
-
+% Делает заголовки в TOC ->  Uppercase 
+\makeatletter   %tex.stackexchange.com/questions/129677/
+% Always capitalize section headings in ToC (tex.stackexchange.com/a/156917)
+\let\@oldcontentsline\contentsline
+\def\contentsline#1#2{%
+    \expandafter\ifx\csname l@#1\endcsname\l@section
+        \expandafter\@firstoftwo
+    \else
+        \expandafter\@secondoftwo
+    \fi
+    {\@oldcontentsline{#1}{\MakeUppercase{#2}}}%
+    {\@oldcontentsline{#1}{#2}}%
+}
+\makeatother
 
 \usepackage{enumitem}
 \setlist[enumerate]{label*=\arabic*.}
