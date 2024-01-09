@@ -18,7 +18,7 @@
 ## Table
 
 ```tex
- \begin{table}[]
+ \begin{table}[H]
     \caption{Title of the table}\label{tab:first}
     \centering
     \begin{tabular}{|l|l|l|l|l|}
@@ -79,3 +79,7 @@
 
 ```
 
+
+```
+dwebp file.webp -o file.png
+```

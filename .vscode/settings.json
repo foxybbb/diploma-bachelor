@@ -13,7 +13,6 @@
             "-synctex=1",
             "-interaction=nonstopmode",
             "-file-line-error",
-            "-pdf",
             "-output-directory=%OUTDIR%",           
             "%DOC%"
         ],
