@@ -54,7 +54,7 @@
 
 
 % путь к каталогу с рисунками
-\graphicspath{{images/}}
+\graphicspath{{Src/images/}}
 
 
 \counterwithin{figure}{section}
@@ -143,7 +143,7 @@
 
 \usepackage{lipsum}
 \usepackage{titlesec}
-\renewcommand{\thesection}{\arabic{section}.{}}
+\renewcommand{\thesection}{\arabic{section}{}}
 \renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}.{}}
 \renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.{}}
 
@@ -152,37 +152,40 @@
 	\IfSubStr{#1}{.}{%
 		\StrSubstitute[1]{#1}{.}{}}{#1}}
 
+
+
 \usepackage{subcaption}
-\DeclareCaptionLabelFormat{custom}
-{%
-	#1. \FixCaptionLabel{#2}
-}
 
-\DeclareCaptionLabelFormat{customappendix}
-{
-	#2. \figurefix{#1}
-}
-% Separator style
-\DeclareCaptionLabelSeparator{custom}{ }
+% \DeclareCaptionLabelFormat{custom}
+% {%
+% 	#1. \FixCaptionLabel{#2}
+% }
 
-% Caption format    
-\DeclareCaptionFormat{custom}
-{%
-	#1#2\textbf{#3}
-}
+% \DeclareCaptionLabelFormat{customappendix}
+% {
+% 	#2. \figurefix{#1}
+% }
+% % Separator style
+% \DeclareCaptionLabelSeparator{custom}{ }
 
-\DeclareCaptionFormat{customappendix}
-{%
-	#2#1  \\ \textbf{#3}
-}
+% % Caption format    
+% \DeclareCaptionFormat{custom}
+% {%
+% 	#1#2\textbf{#3}
+% }
+
+% \DeclareCaptionFormat{customappendix}
+% {%
+% 	#2#1  \\ \textbf{#3}
+% }
 
 
-\captionsetup
-{
-	format=custom,%
-	labelformat=custom,%
-	labelsep=custom
-}
+% \captionsetup
+% {
+% 	format=custom,%
+% 	labelformat=custom,%
+% 	labelsep=custom
+% }
 
 
 
@@ -262,5 +265,5 @@
 \BeforeBeginEnvironment{minted}{\begin{tcolorbox}}%
 \AfterEndEnvironment{minted}{\end{tcolorbox}}%
 
-\usepackage{cleveref}
+% \usepackage[nameinlink]{cleveref}
 
