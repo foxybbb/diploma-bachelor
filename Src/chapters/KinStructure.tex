@@ -2,17 +2,54 @@ The design of a robot manipulator can usually be divided into many parts.
 It is divided into several structural elements that perform different functions and movements: the base, the body, the mechanical arm, the gripper. The latter, depending on the production requirements, is performed by: a gripper, when something needs to be moved, held or assembled; a welder - directly for welding products; a suction tool - to hold or move an object. From the base to the gripper, the robot is made up of links forming a kinematic chain. Two adjacent links form a kinematic pair. The distance from one link to another is called the link length. The distance from one degree of freedom to another is called the link distance. 
 
 
+% \begin{figure}[H]
+% 	\centering
+% 	\includegraphics[width=0.7\textwidth]{Src/images/KinStr.png}
+% 	\caption{Kinematic structure of robot manipulator}
+%     \label{kinematic1}
+% \end{figure}
+
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\textwidth]{Src/images/KinStr.png}
-	\caption{Kinematic structure of robot manipulator}
-    \label{kinematic1}
+\input{Src/extra/KinStructureTikZ.tex}
+
+\caption{Kinematic structure of robot manipulator} \label{fig:kinematic1}
 \end{figure}
 
-Kinematic diagram of the manipulator robot presented in figure \ref{kinematic1} 
+Kinematic diagram of the manipulator robot presented in figure \ref{fig:kinematic1} 
 
-\textbf{d5,d6} - Link distances 
 
-\textbf{a2, a3, a4} - Link lengths 
+% \textbf{d5,d6} - Link distances 
+\begin{math}d_1 , d_2, d_3,d_4,d_5 \end{math} - Link distances
+% \textbf{a2, a3, a4} - Link lengths 
 
-\textbf{ \phi 1, \phi a2,\phi  a3,\phi a4, \phi 5 ,\phi 6} - Link angles
+\begin{math}\theta_1 , \theta_2, \theta_3,\theta_4,\theta_5,\theta_6\end{math} - Link angles
+
+\begin{math} X_0, Y_0, Z_0 \end{math} - Base coordinates
+
+\begin{math} X_1, Y_1, Z_1 \end{math} - Arm coordinates
+
+\begin{math} X_2, Y_2, Z_2 \end{math} - Elbow coordinates
+
+\begin{math} X_4, Y_4, Z_4 \end{math} - Fore Arm coordinates
+
+\begin{math} X_5, Y_5, Z_5 \end{math} - Wirst coordinates
+
+\begin{math} X_6, Y_6, Z_6 \end{math} - Tool coordinates
+
+\begin{table}[H]
+	\caption{Denavit Hartenberg table of kinematic parameters of the robot}\label{tab:DH}
+	\centering
+	\setlength{\tabcolsep}{18pt}
+	\begin{tabular}{lllll}
+	\hline 
+	Joints & $\theta_i$ & $d_i$ & $a_i$ & $a_i$ \\ \hline
+	1      & $\theta_1$ & $d_1$ & $a_1$ & $-90 $ \\
+	2      & $\theta_2$ & $0  $ & $0  $ & $0   $ \\
+	3      & $\theta_3$ & $0  $ & $0  $ & $90  $ \\
+	4      & $\theta_4$ & $d_4$ & $0  $ & $90  $ \\
+	5      & $\theta_5$ & $d_5$ & $0  $ & $90  $ \\
+	6      & $\theta_6$ & $d_6$ & $0  $ & $0   $ \\ \hline
+	\end{tabular}
+
+	\end{table}
