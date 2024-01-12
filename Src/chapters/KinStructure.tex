@@ -25,15 +25,10 @@ Kinematic diagram of the manipulator robot presented in figure \ref{fig:kinemati
 
 \begin{math}\theta_1 , \theta_2, \theta_3,\theta_4,\theta_5,\theta_6\end{math} - Link angles
 
+\begin{math}a_1 , a_2\end{math} - Link lengths
+
+
 \begin{math} X_0, Y_0, Z_0 \end{math} - Base coordinates
-
-\begin{math} X_1, Y_1, Z_1 \end{math} - Arm coordinates
-
-\begin{math} X_2, Y_2, Z_2 \end{math} - Elbow coordinates
-
-\begin{math} X_4, Y_4, Z_4 \end{math} - Fore Arm coordinates
-
-\begin{math} X_5, Y_5, Z_5 \end{math} - Wirst coordinates
 
 \begin{math} X_6, Y_6, Z_6 \end{math} - Tool coordinates
 
@@ -43,13 +38,29 @@ Kinematic diagram of the manipulator robot presented in figure \ref{fig:kinemati
 	\setlength{\tabcolsep}{18pt}
 	\begin{tabular}{lllll}
 	\hline 
-	Joints & $\theta_i$ & $d_i$ & $a_i$ & $a_i$ \\ \hline
-	1      & $\theta_1$ & $d_1$ & $a_1$ & $-90 $ \\
-	2      & $\theta_2$ & $0  $ & $0  $ & $0   $ \\
-	3      & $\theta_3$ & $0  $ & $0  $ & $90  $ \\
-	4      & $\theta_4$ & $d_4$ & $0  $ & $90  $ \\
-	5      & $\theta_5$ & $d_5$ & $0  $ & $90  $ \\
-	6      & $\theta_6$ & $d_6$ & $0  $ & $0   $ \\ \hline
+	Joints & $\theta_i$ 	& $d_i$ & $a_i$ & $a_i$ \\ \hline
+	1      & $\theta_1$ 	& $d_1$ & $a_1$ & $-90 $ \\
+	2      & $\theta_2+90$  & $0  $ & $-d_2$ & $0   $ \\
+	3      & $\theta_3$ 	& $0  $ & $-a_2  $ & $90  $ \\
+	4      & $\theta_4$ 	& $d_3$ & $0  $ & $-90  $ \\
+	5      & $\theta_5$ 	& $d_4$ & $0  $ & $90  $ \\
+	6      & $\theta_6$ 	& $d_5$ & $0  $ & $0   $ \\ \hline
 	\end{tabular}
 
 	\end{table}
+
+
+	On the basis of the design proposal, Table 1 shows the DH pa
+parameters of the robot arm.
+Using the parameters from Table 1, the following forward kinematic
+kinematic equation for the determination of the transformation matrix of the robot arm can be
+of the connecting rod:
+
+\[
+	{}^{0}_{}A_1 = \begin{bmatrix}
+	\cos(\theta_1)& 0& -\sin(\theta_1)  & a_1\cos(\theta) \\
+	\sin(\theta_1)& 0 & \cos(\theta_1) & a_1\sin(\theta) \\
+	0 & -1 & 0 & d1 \\
+	0 & 0 & 0 & 1 \\
+\end{bmatrix}
+\]
