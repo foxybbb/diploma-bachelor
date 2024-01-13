@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-01-13T15:43:51.749Z" agent="Mozilla/5.0 (X11; Linux x86_64; rv:121.0) Gecko/20100101 Firefox/121.0" etag="ThifqezqUtHXPGBCwCyV" version="22.1.18" type="github">
+<mxfile host="app.diagrams.net" modified="2024-01-13T15:45:39.077Z" agent="Mozilla/5.0 (X11; Linux x86_64; rv:121.0) Gecko/20100101 Firefox/121.0" etag="1v4f4ULkPhoR_M8_j29I" version="22.1.18" type="github">
   <diagram name="Page-1" id="clxEMwsv4-gXJVvuC8Vo">
     <mxGraphModel dx="1434" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -214,6 +214,12 @@
         </mxCell>
         <mxCell id="GHb1S6WIt9s_oIQN8Uci-97" value="Mini Robot Arm" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="1250" y="120" width="88" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GHb1S6WIt9s_oIQN8Uci-103" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;startArrow=classic;startFill=1;" edge="1" parent="1" source="GHb1S6WIt9s_oIQN8Uci-102" target="GHb1S6WIt9s_oIQN8Uci-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GHb1S6WIt9s_oIQN8Uci-102" value="Control device" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="20" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
