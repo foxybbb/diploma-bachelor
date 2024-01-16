@@ -1,9 +1,12 @@
-<mxfile host="app.diagrams.net" modified="2024-01-16T21:48:57.649Z" agent="Mozilla/5.0 (X11; Linux x86_64; rv:121.0) Gecko/20100101 Firefox/121.0" etag="rbV6zn7s5ETxdDy2d_9q" version="22.1.19" type="github">
+<mxfile host="app.diagrams.net" modified="2024-01-16T21:52:51.045Z" agent="Mozilla/5.0 (X11; Linux x86_64; rv:121.0) Gecko/20100101 Firefox/121.0" etag="NlmiVnNBa0aNydiYer-Y" version="22.1.19" type="github">
   <diagram name="Page-1" id="clxEMwsv4-gXJVvuC8Vo">
     <mxGraphModel dx="1195" dy="635" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="zjS7LISIj2NBmfZDwGwE-1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;arcSize=5;dashed=1;dashPattern=12 12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="350" width="860" height="260" as="geometry" />
+        </mxCell>
         <mxCell id="GHb1S6WIt9s_oIQN8Uci-96" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;dashed=1;glass=0;arcSize=3;" parent="1" vertex="1">
           <mxGeometry x="470" y="110" width="880" height="525" as="geometry" />
         </mxCell>
@@ -18,11 +21,11 @@
             <mxPoint x="1020" y="190" as="targetPoint" />
           </mxGeometry>
         </mxCell>
+        <mxCell id="zjS7LISIj2NBmfZDwGwE-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="GHb1S6WIt9s_oIQN8Uci-4" target="GHb1S6WIt9s_oIQN8Uci-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="GHb1S6WIt9s_oIQN8Uci-4" value="&lt;div&gt;Tactical control&amp;nbsp;&lt;/div&gt;&lt;div&gt;devices&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="860" y="160" width="130" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="GHb1S6WIt9s_oIQN8Uci-100" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="GHb1S6WIt9s_oIQN8Uci-5" target="GHb1S6WIt9s_oIQN8Uci-4" edge="1">
-          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="GHb1S6WIt9s_oIQN8Uci-5" value="Indication panel" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1160.06" y="160" width="85" height="60" as="geometry" />
@@ -42,7 +45,7 @@
         <mxCell id="GHb1S6WIt9s_oIQN8Uci-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" parent="1" source="GHb1S6WIt9s_oIQN8Uci-10" target="GHb1S6WIt9s_oIQN8Uci-9" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="GHb1S6WIt9s_oIQN8Uci-10" value="Motor" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+        <mxCell id="GHb1S6WIt9s_oIQN8Uci-10" value="Mechanical Device Nr1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
           <mxGeometry x="560" y="520" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="GHb1S6WIt9s_oIQN8Uci-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="GHb1S6WIt9s_oIQN8Uci-18" target="GHb1S6WIt9s_oIQN8Uci-20" edge="1">
@@ -54,7 +57,7 @@
         <mxCell id="GHb1S6WIt9s_oIQN8Uci-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" parent="1" source="GHb1S6WIt9s_oIQN8Uci-20" target="GHb1S6WIt9s_oIQN8Uci-18" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="GHb1S6WIt9s_oIQN8Uci-20" value="Motor" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+        <mxCell id="GHb1S6WIt9s_oIQN8Uci-20" value="Mechanical Device Nr2" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
           <mxGeometry x="690.03" y="520" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="GHb1S6WIt9s_oIQN8Uci-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="GHb1S6WIt9s_oIQN8Uci-22" target="GHb1S6WIt9s_oIQN8Uci-24" edge="1">
@@ -66,7 +69,7 @@
         <mxCell id="GHb1S6WIt9s_oIQN8Uci-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" parent="1" source="GHb1S6WIt9s_oIQN8Uci-24" target="GHb1S6WIt9s_oIQN8Uci-22" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="GHb1S6WIt9s_oIQN8Uci-24" value="Motor" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+        <mxCell id="GHb1S6WIt9s_oIQN8Uci-24" value="Mechanical Device Nr3" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
           <mxGeometry x="820.06" y="520" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="GHb1S6WIt9s_oIQN8Uci-46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="GHb1S6WIt9s_oIQN8Uci-47" target="GHb1S6WIt9s_oIQN8Uci-49" edge="1">
@@ -78,7 +81,7 @@
         <mxCell id="GHb1S6WIt9s_oIQN8Uci-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" parent="1" source="GHb1S6WIt9s_oIQN8Uci-49" target="GHb1S6WIt9s_oIQN8Uci-47" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="GHb1S6WIt9s_oIQN8Uci-49" value="Motor" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+        <mxCell id="GHb1S6WIt9s_oIQN8Uci-49" value="Mechanical Device Nr4" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
           <mxGeometry x="950.03" y="520" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="GHb1S6WIt9s_oIQN8Uci-50" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="GHb1S6WIt9s_oIQN8Uci-51" target="GHb1S6WIt9s_oIQN8Uci-53" edge="1">
@@ -95,7 +98,7 @@
         <mxCell id="GHb1S6WIt9s_oIQN8Uci-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" parent="1" source="GHb1S6WIt9s_oIQN8Uci-53" target="GHb1S6WIt9s_oIQN8Uci-51" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="GHb1S6WIt9s_oIQN8Uci-53" value="Motor" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+        <mxCell id="GHb1S6WIt9s_oIQN8Uci-53" value="Mechanical Device Nr5" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
           <mxGeometry x="1080.06" y="520" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="GHb1S6WIt9s_oIQN8Uci-54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="GHb1S6WIt9s_oIQN8Uci-55" target="GHb1S6WIt9s_oIQN8Uci-57" edge="1">
@@ -112,7 +115,7 @@
         <mxCell id="GHb1S6WIt9s_oIQN8Uci-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" parent="1" source="GHb1S6WIt9s_oIQN8Uci-57" target="GHb1S6WIt9s_oIQN8Uci-55" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="GHb1S6WIt9s_oIQN8Uci-57" value="Motor" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+        <mxCell id="GHb1S6WIt9s_oIQN8Uci-57" value="Mechanical Device Nr6" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
           <mxGeometry x="1210" y="520" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="GHb1S6WIt9s_oIQN8Uci-61" value="&amp;nbsp;" style="text;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -215,11 +218,8 @@
         <mxCell id="GHb1S6WIt9s_oIQN8Uci-103" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;startArrow=classic;startFill=1;" parent="1" source="GHb1S6WIt9s_oIQN8Uci-102" target="GHb1S6WIt9s_oIQN8Uci-7" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="GHb1S6WIt9s_oIQN8Uci-102" value="Control device" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="GHb1S6WIt9s_oIQN8Uci-102" value="Intellectual control device" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="680" y="20" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="zjS7LISIj2NBmfZDwGwE-1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;arcSize=5;dashed=1;dashPattern=12 12;" vertex="1" parent="1">
-          <mxGeometry x="480" y="350" width="860" height="260" as="geometry" />
         </mxCell>
         <mxCell id="zjS7LISIj2NBmfZDwGwE-2" value="Executive control devices" style="text;whiteSpace=wrap;align=left;fontSize=14;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="570" y="690" width="190" height="40" as="geometry" />
