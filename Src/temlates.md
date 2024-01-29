@@ -38,6 +38,16 @@
 	\centering
 	\includegraphics[width=0.5\textwidth]{PATH}
 	\caption{CAPTION NAME}
+	\label{123}
+\end{figure}
+
+------svg
+
+\begin{figure}[H]
+	\centering
+	\includesvg{Src/images/Hierarchy(1).svg}
+	\caption{CAPTION NAME}
+	\label{Hierar}
 \end{figure}
 ```
 
