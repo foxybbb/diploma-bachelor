@@ -1,11 +1,10 @@
 ## Equation
 ```tex
-\begin{equ}[!ht]
-    \begin{equation}
-        a=b+c
-      \end{equation}
-    \caption{Caption of the equation}
-\end{equ}
+\begin{ceqn} 
+\begin{align} \label{kops}
+    kOPS= \frac{1000}{T_{cal} - T_{io}}
+ \end{align}
+ \end{ceqn}
 ```
 
 
