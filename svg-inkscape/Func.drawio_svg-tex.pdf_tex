@@ -1,0 +1,366 @@
+%% Creator: Inkscape 1.3.2 (091e20ef0f, 2023-11-25, custom), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'Func.drawio_svg-tex.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{1096.875bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.67760684)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{Func.drawio_svg-tex.pdf}}%
+    \put(0.96410256,0.54461538){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}M\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{Func.drawio_svg-tex.pdf}}%
+    \put(0.91350427,0.58632479){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}U1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{Func.drawio_svg-tex.pdf}}%
+    \put(0.91487179,0.55897436){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}V1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{Func.drawio_svg-tex.pdf}}%
+    \put(0.91487179,0.53162393){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}W1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{Func.drawio_svg-tex.pdf}}%
+    \put(0.95042735,0.52957265){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}3\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{Func.drawio_svg-tex.pdf}}%
+    \put(0.85059829,0.57880342){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}UO\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{Func.drawio_svg-tex.pdf}}%
+    \put(0.85059829,0.55145299){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}VO\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{Func.drawio_svg-tex.pdf}}%
+    \put(0.85059829,0.52410256){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}WO\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{Func.drawio_svg-tex.pdf}}%
+    \put(0.72888889,0.58222222){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}CAN_H\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{Func.drawio_svg-tex.pdf}}%
+    \put(0.72888889,0.5617094){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}CAN_L\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{Func.drawio_svg-tex.pdf}}%
+    \put(0.72888889,0.54119658){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}VCC_24V\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{Func.drawio_svg-tex.pdf}}%
+    \put(0.79452991,0.55145299){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}ACD...\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=13]{Func.drawio_svg-tex.pdf}}%
+    \put(0.72888889,0.52068376){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}GND\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=14]{Func.drawio_svg-tex.pdf}}%
+    \put(0.96410256,0.44888889){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}M\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=15]{Func.drawio_svg-tex.pdf}}%
+    \put(0.91350427,0.49059829){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}U1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=16]{Func.drawio_svg-tex.pdf}}%
+    \put(0.91487179,0.46324786){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}V1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=17]{Func.drawio_svg-tex.pdf}}%
+    \put(0.91487179,0.43589744){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}W1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=18]{Func.drawio_svg-tex.pdf}}%
+    \put(0.95042735,0.43384615){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}3\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=19]{Func.drawio_svg-tex.pdf}}%
+    \put(0.85059829,0.48307692){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}UO\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=20]{Func.drawio_svg-tex.pdf}}%
+    \put(0.85059829,0.4557265){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}VO\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=21]{Func.drawio_svg-tex.pdf}}%
+    \put(0.85059829,0.42837607){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}WO\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=22]{Func.drawio_svg-tex.pdf}}%
+    \put(0.72888889,0.48649573){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}CAN_H\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=23]{Func.drawio_svg-tex.pdf}}%
+    \put(0.72888889,0.46598291){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}CAN_L\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=24]{Func.drawio_svg-tex.pdf}}%
+    \put(0.72888889,0.44547009){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}VCC_24V\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=25]{Func.drawio_svg-tex.pdf}}%
+    \put(0.79452991,0.4557265){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}ACD...\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=26]{Func.drawio_svg-tex.pdf}}%
+    \put(0.72888889,0.42495726){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}GND\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=27]{Func.drawio_svg-tex.pdf}}%
+    \put(0.96410256,0.35316239){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}M\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=28]{Func.drawio_svg-tex.pdf}}%
+    \put(0.91350427,0.39487179){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}U1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=29]{Func.drawio_svg-tex.pdf}}%
+    \put(0.91487179,0.36752137){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}V1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=30]{Func.drawio_svg-tex.pdf}}%
+    \put(0.91487179,0.34017094){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}W1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=31]{Func.drawio_svg-tex.pdf}}%
+    \put(0.95042735,0.33811966){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}3\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=32]{Func.drawio_svg-tex.pdf}}%
+    \put(0.85059829,0.38735043){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}UO\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=33]{Func.drawio_svg-tex.pdf}}%
+    \put(0.85059829,0.36){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}VO\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=34]{Func.drawio_svg-tex.pdf}}%
+    \put(0.85059829,0.33264957){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}WO\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=35]{Func.drawio_svg-tex.pdf}}%
+    \put(0.72888889,0.39076923){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}CAN_H\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=36]{Func.drawio_svg-tex.pdf}}%
+    \put(0.72888889,0.37025641){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}CAN_L\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=37]{Func.drawio_svg-tex.pdf}}%
+    \put(0.72888889,0.34974359){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}VCC_24V\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=38]{Func.drawio_svg-tex.pdf}}%
+    \put(0.79452991,0.36){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}ACD...\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=39]{Func.drawio_svg-tex.pdf}}%
+    \put(0.72888889,0.32923077){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}GND\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=40]{Func.drawio_svg-tex.pdf}}%
+    \put(0.96478632,0.25811966){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}M\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=41]{Func.drawio_svg-tex.pdf}}%
+    \put(0.91418803,0.2991453){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}U1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=42]{Func.drawio_svg-tex.pdf}}%
+    \put(0.91555556,0.27179487){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}V1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=43]{Func.drawio_svg-tex.pdf}}%
+    \put(0.91555556,0.24444444){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}W1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=44]{Func.drawio_svg-tex.pdf}}%
+    \put(0.95111111,0.24239316){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}3\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=45]{Func.drawio_svg-tex.pdf}}%
+    \put(0.85059829,0.29162393){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}UO\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=46]{Func.drawio_svg-tex.pdf}}%
+    \put(0.85059829,0.2642735){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}VO\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=47]{Func.drawio_svg-tex.pdf}}%
+    \put(0.85059829,0.23692308){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}WO\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=48]{Func.drawio_svg-tex.pdf}}%
+    \put(0.72888889,0.29504274){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}CAN_H\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=49]{Func.drawio_svg-tex.pdf}}%
+    \put(0.72888889,0.27452991){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}CAN_L\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=50]{Func.drawio_svg-tex.pdf}}%
+    \put(0.72888889,0.25401709){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}VCC_24V\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=51]{Func.drawio_svg-tex.pdf}}%
+    \put(0.79452991,0.2642735){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}ACD...\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=52]{Func.drawio_svg-tex.pdf}}%
+    \put(0.72888889,0.23350427){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}GND\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=53]{Func.drawio_svg-tex.pdf}}%
+    \put(0.85059829,0.19589744){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}UO\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=54]{Func.drawio_svg-tex.pdf}}%
+    \put(0.85059829,0.16854701){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}VO\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=55]{Func.drawio_svg-tex.pdf}}%
+    \put(0.85059829,0.14119658){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}WO\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=56]{Func.drawio_svg-tex.pdf}}%
+    \put(0.72888889,0.19931624){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}CAN_H\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=57]{Func.drawio_svg-tex.pdf}}%
+    \put(0.72888889,0.17880342){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}CAN_L\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=58]{Func.drawio_svg-tex.pdf}}%
+    \put(0.72888889,0.1582906){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}VCC_24V\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=59]{Func.drawio_svg-tex.pdf}}%
+    \put(0.79452991,0.16854701){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}ACD...\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=60]{Func.drawio_svg-tex.pdf}}%
+    \put(0.72888889,0.13777778){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}GND\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=61]{Func.drawio_svg-tex.pdf}}%
+    \put(0.85059829,0.10017094){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}UO\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=62]{Func.drawio_svg-tex.pdf}}%
+    \put(0.85059829,0.07282051){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}VO\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=63]{Func.drawio_svg-tex.pdf}}%
+    \put(0.85059829,0.04547009){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}WO\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=64]{Func.drawio_svg-tex.pdf}}%
+    \put(0.72888889,0.10358974){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}CAN_H\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=65]{Func.drawio_svg-tex.pdf}}%
+    \put(0.72888889,0.08307692){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}CAN_L\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=66]{Func.drawio_svg-tex.pdf}}%
+    \put(0.72888889,0.0625641){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}VCC_24V\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=67]{Func.drawio_svg-tex.pdf}}%
+    \put(0.79452991,0.07282051){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}ACD...\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=68]{Func.drawio_svg-tex.pdf}}%
+    \put(0.72888889,0.04205128){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}GND\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=69]{Func.drawio_svg-tex.pdf}}%
+    \put(0.68512821,0.6157265){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}+24V\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=70]{Func.drawio_svg-tex.pdf}}%
+    \put(0.11213675,0.54119658){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}RPI_MOSI\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=71]{Func.drawio_svg-tex.pdf}}%
+    \put(0.11213675,0.52068376){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}RPI_MISO\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=72]{Func.drawio_svg-tex.pdf}}%
+    \put(0.11213675,0.50017094){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}RPI_SCLK\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=73]{Func.drawio_svg-tex.pdf}}%
+    \put(0.11213675,0.57333333){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}VCC_5V\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=74]{Func.drawio_svg-tex.pdf}}%
+    \put(0.03418803,0.52752137){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Raspberry PI...\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=75]{Func.drawio_svg-tex.pdf}}%
+    \put(0.11213675,0.48307692){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}RPI_RX...\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=76]{Func.drawio_svg-tex.pdf}}%
+    \put(0.11213675,0.46940171){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}RPI_TX\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=77]{Func.drawio_svg-tex.pdf}}%
+    \put(0.34735043,0.40444444){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}SCD\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=78]{Func.drawio_svg-tex.pdf}}%
+    \put(0.55316239,0.62051282){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}CAN_H\end{tabular}}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=79]{Func.drawio_svg-tex.pdf}}%
+    \put(0.57367521,0.62051282){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}CAN_L\end{tabular}}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=80]{Func.drawio_svg-tex.pdf}}%
+    \put(0.51213675,0.62051282){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}CAN_TX\end{tabular}}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=81]{Func.drawio_svg-tex.pdf}}%
+    \put(0.53264957,0.62051282){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}CAN_RX\end{tabular}}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=82]{Func.drawio_svg-tex.pdf}}%
+    \put(0.45811966,0.54119658){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}PB9 --> CAN_TX\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=83]{Func.drawio_svg-tex.pdf}}%
+    \put(0.45811966,0.52068376){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}PB8 <-- CAN_RX\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=84]{Func.drawio_svg-tex.pdf}}%
+    \put(0.54017094,0.66700855){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Transiver TCAN1462\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=85]{Func.drawio_svg-tex.pdf}}%
+    \put(0.2365812,0.54119658){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}PA7 -->  RPI_MOSI\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=86]{Func.drawio_svg-tex.pdf}}%
+    \put(0.2365812,0.52068376){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}PA6 <-- RPI_MISO\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=87]{Func.drawio_svg-tex.pdf}}%
+    \put(0.2365812,0.50017094){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}PA5 --> RPI_SCLK\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=88]{Func.drawio_svg-tex.pdf}}%
+    \put(0.11213675,0.43863248){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}LED_RED\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=89]{Func.drawio_svg-tex.pdf}}%
+    \put(0.03418803,0.4174359){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Indication Panel...\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=90]{Func.drawio_svg-tex.pdf}}%
+    \put(0.2365812,0.43863248){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}PB0 --> LED_RED\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=91]{Func.drawio_svg-tex.pdf}}%
+    \put(0.2365812,0.37709402){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}PB7 --> OUT_1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=92]{Func.drawio_svg-tex.pdf}}%
+    \put(0.11213675,0.37025641){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}OUT_1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=93]{Func.drawio_svg-tex.pdf}}%
+    \put(0.2365812,0.47965812){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}PA2 --> RPI_RX\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=94]{Func.drawio_svg-tex.pdf}}%
+    \put(0.2365812,0.4591453){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}PA3 --> RPI_TX\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=95]{Func.drawio_svg-tex.pdf}}%
+    \put(0.16410256,0.59521368){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}+5V\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=96]{Func.drawio_svg-tex.pdf}}%
+    \put(0.11213675,0.41811966){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}LED_GRN\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=97]{Func.drawio_svg-tex.pdf}}%
+    \put(0.11213675,0.39760684){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}LED_YEL\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=98]{Func.drawio_svg-tex.pdf}}%
+    \put(0.2365812,0.41811966){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}PB1--> LED_GRN\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=99]{Func.drawio_svg-tex.pdf}}%
+    \put(0.2365812,0.39760684){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}PB2--> LED_YEL\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=100]{Func.drawio_svg-tex.pdf}}%
+    \put(0.45811966,0.50017094){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}PA10 --> UART_TX\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=101]{Func.drawio_svg-tex.pdf}}%
+    \put(0.45811966,0.47965812){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}PA9 <-- UART_RX\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=102]{Func.drawio_svg-tex.pdf}}%
+    \put(0.45811966,0.4591453){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}PB11 <-- IN_1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=103]{Func.drawio_svg-tex.pdf}}%
+    \put(0.45811966,0.43863248){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}PB12 <-- IN_2\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=104]{Func.drawio_svg-tex.pdf}}%
+    \put(0.45811966,0.41811966){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}PB13 <-- IN_3\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=105]{Func.drawio_svg-tex.pdf}}%
+    \put(0.45811966,0.39760684){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}PB14 <-- IN_4\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=106]{Func.drawio_svg-tex.pdf}}%
+    \put(0.45811966,0.37709402){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}PB15 <-- IN_5\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=107]{Func.drawio_svg-tex.pdf}}%
+    \put(0.45811966,0.3565812){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}PA8 <-- IN_6\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=108]{Func.drawio_svg-tex.pdf}}%
+    \put(0.2365812,0.3565812){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}PB6 --> OUT_2\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=109]{Func.drawio_svg-tex.pdf}}%
+    \put(0.2365812,0.33606838){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}PB5 --> OUT_3\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=110]{Func.drawio_svg-tex.pdf}}%
+    \put(0.2365812,0.31555556){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}PB4 --> OUT_4\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=111]{Func.drawio_svg-tex.pdf}}%
+    \put(0.2365812,0.29504274){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}PB3 --> OUT_5\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=112]{Func.drawio_svg-tex.pdf}}%
+    \put(0.2365812,0.27452991){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}PA15 --> OUT_6\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=113]{Func.drawio_svg-tex.pdf}}%
+    \put(0.11213675,0.34974359){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}OUT_2\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=114]{Func.drawio_svg-tex.pdf}}%
+    \put(0.11213675,0.32923077){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}OUT_3\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=115]{Func.drawio_svg-tex.pdf}}%
+    \put(0.11213675,0.30871795){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}OUT_4\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=116]{Func.drawio_svg-tex.pdf}}%
+    \put(0.11213675,0.28820513){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}OUT_5\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=117]{Func.drawio_svg-tex.pdf}}%
+    \put(0.11213675,0.26769231){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}OUT_6\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=118]{Func.drawio_svg-tex.pdf}}%
+    \put(0.04102564,0.31897436){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}DIGITAL OUTPUT\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=119]{Func.drawio_svg-tex.pdf}}%
+    \put(0.52376068,0.34974359){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}IN_1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=120]{Func.drawio_svg-tex.pdf}}%
+    \put(0.52376068,0.32923077){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}IN_2\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=121]{Func.drawio_svg-tex.pdf}}%
+    \put(0.52376068,0.30871795){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}IN_3\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=122]{Func.drawio_svg-tex.pdf}}%
+    \put(0.52376068,0.28820513){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}IN_4\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=123]{Func.drawio_svg-tex.pdf}}%
+    \put(0.52376068,0.26769231){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}IN_5\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=124]{Func.drawio_svg-tex.pdf}}%
+    \put(0.52376068,0.24717949){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}IN_6\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=125]{Func.drawio_svg-tex.pdf}}%
+    \put(0.6017094,0.29846154){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}DIGITAL INPUTS\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=126]{Func.drawio_svg-tex.pdf}}%
+    \put(0.11487179,0.24376068){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}VCC_24V\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=127]{Func.drawio_svg-tex.pdf}}%
+    \put(0.15042735,0.26153846){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}+24V\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=128]{Func.drawio_svg-tex.pdf}}%
+    \put(0.34529914,0.56786325){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textbf{STM32G431}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=129]{Func.drawio_svg-tex.pdf}}%
+    \put(0.31111111,0.11042735){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}DC-DC Convector...\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=130]{Func.drawio_svg-tex.pdf}}%
+    \put(0.22974359,0.11042735){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}V_IN\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=131]{Func.drawio_svg-tex.pdf}}%
+    \put(0.38974359,0.11042735){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}V_OUT\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=132]{Func.drawio_svg-tex.pdf}}%
+    \put(0.44786325,0.13025641){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}+5V\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=133]{Func.drawio_svg-tex.pdf}}%
+    \put(0.18871795,0.12820513){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}+24V\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=134]{Func.drawio_svg-tex.pdf}}%
+    \put(0.55931624,0.49948718){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}UART_TX\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=135]{Func.drawio_svg-tex.pdf}}%
+    \put(0.56,0.47965812){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}UART_RX\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=136]{Func.drawio_svg-tex.pdf}}%
+    \put(0.6017094,0.48923077){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Comuncation...\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=137]{Func.drawio_svg-tex.pdf}}%
+    \put(0.31384615,0.04957265){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}AMS-1117-33\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=138]{Func.drawio_svg-tex.pdf}}%
+    \put(0.23247863,0.04957265){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}V_IN\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=139]{Func.drawio_svg-tex.pdf}}%
+    \put(0.39247863,0.04957265){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}V_OUT\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=140]{Func.drawio_svg-tex.pdf}}%
+    \put(0.45059829,0.06940171){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}+3.3V\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=141]{Func.drawio_svg-tex.pdf}}%
+    \put(0.19145299,0.06735043){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}+5V\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=142]{Func.drawio_svg-tex.pdf}}%
+    \put(0.27076923,0.64307692){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}+24V\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=143]{Func.drawio_svg-tex.pdf}}%
+    \put(0.27076923,0.61504274){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}GND\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=144]{Func.drawio_svg-tex.pdf}}%
+    \put(0.35555556,0.66153846){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}+24V\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=145]{Func.drawio_svg-tex.pdf}}%
+    \put(0.96410256,0.16239316){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}M\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=146]{Func.drawio_svg-tex.pdf}}%
+    \put(0.91350427,0.2034188){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}U1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=147]{Func.drawio_svg-tex.pdf}}%
+    \put(0.91487179,0.17606838){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}V1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=148]{Func.drawio_svg-tex.pdf}}%
+    \put(0.91487179,0.14871795){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}W1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=149]{Func.drawio_svg-tex.pdf}}%
+    \put(0.95042735,0.14666667){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}3\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=150]{Func.drawio_svg-tex.pdf}}%
+    \put(0.96410256,0.06666667){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}M\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=151]{Func.drawio_svg-tex.pdf}}%
+    \put(0.91350427,0.10769231){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}U1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=152]{Func.drawio_svg-tex.pdf}}%
+    \put(0.91487179,0.08034188){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}V1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=153]{Func.drawio_svg-tex.pdf}}%
+    \put(0.91487179,0.05299145){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}W1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=154]{Func.drawio_svg-tex.pdf}}%
+    \put(0.95042735,0.05094017){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}3\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=155]{Func.drawio_svg-tex.pdf}}%
+  \end{picture}%
+\endgroup%

@@ -40,6 +40,15 @@
 	\label{123}
 \end{figure}
 
+------90deg
+\begin{figure}[H]
+    \begin{adjustbox}{addcode={\begin{minipage}{\width}}{\caption{
+        Функциональная схема системы исполнительного управления
+        } \label{FACD}
+    \end{minipage}},rotate=90,center} 
+        \includegraphics[width=0.85\paperheight]{Src/images/ACD (4).drawio.png}
+    \end{adjustbox}
+  \end{figure}
 ------svg
 
 \begin{figure}[H]
@@ -92,3 +101,143 @@
 ```
 dwebp file.webp -o file.png
 ```
+
+
+% \usepackage{color}
+% \usepackage{tabularray}
+\definecolor{SweetCorn}{rgb}{0.984,0.917,0.517}
+\definecolor{SweetCorn1}{rgb}{0.988,0.917,0.517}
+\definecolor{MacaroniandCheese}{rgb}{0.984,0.678,0.47}
+\definecolor{Froly}{rgb}{0.972,0.482,0.431}
+\definecolor{Froly1}{rgb}{0.972,0.454,0.427}
+\definecolor{Carnation}{rgb}{0.972,0.423,0.419}
+\definecolor{YellowGreen}{rgb}{0.768,0.854,0.505}
+\definecolor{Feijoa}{rgb}{0.725,0.843,0.501}
+\definecolor{YellowGreen1}{rgb}{0.756,0.85,0.505}
+\definecolor{Flax}{rgb}{0.933,0.901,0.513}
+\definecolor{SweetCorn2}{rgb}{0.976,0.917,0.517}
+\definecolor{Salomie}{rgb}{1,0.921,0.517}
+\definecolor{SaharaSand}{rgb}{0.96,0.913,0.517}
+\definecolor{AtomicTangerine}{rgb}{0.98,0.603,0.454}
+\definecolor{SaharaSand1}{rgb}{0.941,0.905,0.517}
+\definecolor{SaharaSand2}{rgb}{0.945,0.905,0.517}
+\definecolor{SweetCorn3}{rgb}{0.972,0.913,0.517}
+\definecolor{Salomie1}{rgb}{0.996,0.886,0.509}
+\definecolor{Froly2}{rgb}{0.972,0.466,0.427}
+\definecolor{Carnation1}{rgb}{0.972,0.431,0.423}
+\definecolor{Salmon}{rgb}{0.976,0.509,0.435}
+\definecolor{Carnation2}{rgb}{0.972,0.411,0.419}
+\definecolor{SweetCorn4}{rgb}{0.98,0.917,0.517}
+\definecolor{SweetCorn5}{rgb}{0.992,0.921,0.517}
+\definecolor{Froly3}{rgb}{0.972,0.462,0.427}
+\definecolor{Carnation3}{rgb}{0.972,0.435,0.423}
+\definecolor{MacaroniandCheese1}{rgb}{0.984,0.69,0.47}
+\definecolor{Carnation4}{rgb}{0.972,0.415,0.419}
+\definecolor{SweetCorn6}{rgb}{0.968,0.913,0.517}
+\definecolor{SaharaSand3}{rgb}{0.956,0.909,0.517}
+\definecolor{AtomicTangerine1}{rgb}{0.98,0.623,0.458}
+\definecolor{Salmon1}{rgb}{0.98,0.556,0.447}
+\definecolor{SweetCorn7}{rgb}{0.964,0.913,0.517}
+\definecolor{Froly4}{rgb}{0.972,0.458,0.427}
+\definecolor{Froly5}{rgb}{0.976,0.486,0.431}
+\definecolor{Froly6}{rgb}{0.976,0.498,0.435}
+\definecolor{Froly7}{rgb}{0.976,0.494,0.435}
+\definecolor{Froly8}{rgb}{0.972,0.478,0.431}
+\definecolor{Carnation5}{rgb}{0.972,0.427,0.419}
+\definecolor{DeYork}{rgb}{0.466,0.768,0.49}
+\definecolor{DeYork1}{rgb}{0.478,0.772,0.49}
+\definecolor{Fern}{rgb}{0.388,0.745,0.482}
+\definecolor{YellowGreen2}{rgb}{0.784,0.858,0.505}
+\definecolor{SaharaSand4}{rgb}{0.949,0.909,0.517}
+\definecolor{SweetCorn8}{rgb}{0.988,0.921,0.517}
+\definecolor{YellowGreen3}{rgb}{0.776,0.858,0.505}
+\definecolor{Salmon2}{rgb}{0.976,0.552,0.447}
+\definecolor{WildRice}{rgb}{0.901,0.894,0.513}
+\definecolor{AtomicTangerine2}{rgb}{0.98,0.592,0.45}
+\definecolor{Froly9}{rgb}{0.976,0.482,0.431}
+\definecolor{Chardonnay}{rgb}{0.992,0.807,0.494}
+\begin{table}
+\centering
+\begin{tblr}{
+  cell{2}{2} = {SweetCorn,r},
+  cell{2}{3} = {SweetCorn,r},
+  cell{2}{4} = {SweetCorn1,r},
+  cell{2}{5} = {MacaroniandCheese,r},
+  cell{2}{6} = {Froly,r},
+  cell{2}{7} = {Froly1,r},
+  cell{2}{8} = {MacaroniandCheese,r},
+  cell{2}{9} = {Carnation,r},
+  cell{3}{2} = {YellowGreen,r},
+  cell{3}{3} = {Feijoa,r},
+  cell{3}{4} = {YellowGreen1,r},
+  cell{3}{5} = {Flax,r},
+  cell{3}{6} = {SweetCorn2,r},
+  cell{3}{7} = {Salomie,r},
+  cell{3}{8} = {SaharaSand,r},
+  cell{3}{9} = {AtomicTangerine,r},
+  cell{4}{2} = {SaharaSand1,r},
+  cell{4}{3} = {SaharaSand2,r},
+  cell{4}{4} = {SweetCorn3,r},
+  cell{4}{5} = {Salomie1,r},
+  cell{4}{6} = {Froly2,r},
+  cell{4}{7} = {Carnation1,r},
+  cell{4}{8} = {Salmon,r},
+  cell{4}{9} = {Carnation2,r},
+  cell{5}{2} = {SweetCorn4,r},
+  cell{5}{3} = {SweetCorn,r},
+  cell{5}{4} = {SweetCorn5,r},
+  cell{5}{5} = {MacaroniandCheese,r},
+  cell{5}{6} = {Froly3,r},
+  cell{5}{7} = {Carnation3,r},
+  cell{5}{8} = {MacaroniandCheese1,r},
+  cell{5}{9} = {Carnation4,r},
+  cell{6}{2} = {SweetCorn6,r},
+  cell{6}{3} = {SweetCorn6,r},
+  cell{6}{4} = {SaharaSand3,r},
+  cell{6}{5} = {SweetCorn3,r},
+  cell{6}{6} = {AtomicTangerine1,r},
+  cell{6}{7} = {Salmon1,r},
+  cell{6}{8} = {SweetCorn7,r},
+  cell{6}{9} = {Froly4,r},
+  cell{7}{2} = {Froly5,r},
+  cell{7}{3} = {Froly6,r},
+  cell{7}{4} = {Froly6,r},
+  cell{7}{5} = {Froly7,r},
+  cell{7}{6} = {Froly4,r},
+  cell{7}{7} = {Froly1,r},
+  cell{7}{8} = {Froly8,r},
+  cell{7}{9} = {Carnation5,r},
+  cell{8}{2} = {DeYork,r},
+  cell{8}{3} = {DeYork1,r},
+  cell{8}{4} = {Fern,r},
+  cell{8}{5} = {YellowGreen2,r},
+  cell{8}{6} = {SaharaSand4,r},
+  cell{8}{7} = {SweetCorn8,r},
+  cell{8}{8} = {YellowGreen3,r},
+  cell{8}{9} = {Salmon2,r},
+  cell{9}{2} = {SaharaSand1,r},
+  cell{9}{3} = {SaharaSand1,r},
+  cell{9}{4} = {WildRice,r},
+  cell{9}{5} = {SweetCorn1,r},
+  cell{9}{6} = {AtomicTangerine2,r},
+  cell{9}{7} = {Froly9,r},
+  cell{9}{8} = {Chardonnay,r},
+  cell{9}{9} = {Carnation,r},
+  hlines,
+  vlines,
+}
+MCU                  & ~a~
+  +~ b & a~
+  -~ b & a~
+  *~ b & a~
+  / b & sin(a) & log(a) & sqrt(b) & pow(b, a) \\
+ATmega328p~          & 6,952      & 7,205     & 6,251     & 2,015    & 0,598  & 0,403  & 2,017   & 0,190     \\
+ESP32                & 46,212     & 54,007    & 48,121    & 16,325   & 8,568  & 3,986  & 11,006  & 1,484     \\
+ESP8266~             & 14,412     & 13,861    & 8,852     & 3,497    & 0,485  & 0,239  & 0,787   & 0,082     \\
+RP2040 [Arduino IDE] & 7,815      & 7,226     & 5,489     & 2,022    & 0,455  & 0,273  & 2,103   & 0,122     \\
+RP2040 [C++ SDK]     & 10,132     & 9,699     & 11,717    & 9,266    & 1,625  & 1,139  & 10,719  & 0,435     \\
+RP2040 [MicroPython] & 0,629      & 0,707     & 0,723     & 0,681    & 0,441  & 0,400  & 0,568   & 0,215     \\
+STM32G431~           & 101,054    & 98,251    & 114,565   & 43,435   & 13,254 & 6,178  & 44,849  & 1,118     \\
+STM32G431 [FPU-OFF]  & 15,008     & 14,425    & 21,932    & 6,216    & 1,391  & 0,607  & 2,939   & 0,176     
+\end{tblr}
+\end{table}
