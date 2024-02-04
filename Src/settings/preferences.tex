@@ -118,7 +118,6 @@
 \titleformat{\subsubsection}
 {\normalfont\fontsize{12}{14}\bfseries}{\thesubsubsection}{1em}{}
 
-
 % Делает заголовки в TOC ->  Uppercase 
 \makeatletter   %tex.stackexchange.com/questions/129677/
 % Always capitalize section headings in ToC (tex.stackexchange.com/a/156917)
@@ -269,3 +268,16 @@
 % \usepackage[nameinlink]{cleveref}
 
 \definecolor{Black}{rgb}{0,0,0}
+
+\newcommand{\apendixsection}[1]{
+    \stepcounter{section}
+
+    \section*{\hfill \textmd{ П\MakeLowercase{риложение} \arabic{section}.}}
+    \begin{center}
+        \bf{#1}
+    \end{center}
+    \markboth{{#1}}{}
+   % \addcontentsline{toc}{section}{Приложение \arabic{section}.}
+}
+\renewcommand{\cfttoctitlefont}{\hfill\normalfont\Large\bfseries\MakeUppercase}
+\renewcommand{\cftaftertoctitle}{\hfill}
