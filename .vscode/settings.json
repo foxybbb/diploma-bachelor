@@ -59,6 +59,9 @@
             ]
         }        
     ],
+    "commentTranslate.source": "Google",
+    "commentTranslate.targetLanguage": "en",
+    "commentTranslate.multiLineMerge": true,
 
 
 

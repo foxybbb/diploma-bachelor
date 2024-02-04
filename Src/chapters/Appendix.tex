@@ -10,12 +10,8 @@
 \end{center}
 \vspace{\fill}\null % Add vertical space after the text block
 
-
-
-
 \newpage
 \apendixsection{Таблица сравнения результатов тысяч операций в секунду на 1 Мгц у каждого МК }
-
 
 % \usepackage{color}
 % \usepackage{tabularray}
@@ -164,7 +160,7 @@
 
 \begin{figure}[H]
 	\centering
-    
+
 	\begin{minted}[tabsize=2,breaklines,fontsize=\small]{python}
 import socket
 import serial
@@ -197,3 +193,299 @@ conn, addr = s.accept()
 \end{figure}
 
 \newpage
+
+
+\apendixsection{Программный код python моделирования преобразования угла поворота энкодера в суммарный угол}
+
+\begin{figure}[H]
+	\centering
+	\begin{minted}[tabsize=2,breaklines,fontsize=\small]{python}
+# Initialize variables
+last_encoder_value = 0
+full_rotation_count = 0
+total_angle_degrees = 0
+cpr = 4096  # Counts per revolution for the encoder
+
+def update_angle(encoder_value):
+    global last_encoder_value, full_rotation_count, total_angle_degrees, cpr
+    # Calculate the change in encoder value
+    d_value = encoder_value - last_encoder_value
+    if d_value > cpr / 2: 
+        full_rotation_count -= 1
+
+    elif d_value < -cpr / 2:
+        full_rotation_count += 1
+
+    # Update the total angle in degrees, considering multiple rotations
+    total_angle_degrees = (full_rotation_count * 360) + (encoder_value / cpr) * 360
+    # Update last encoder value for the next call
+    last_encoder_value = encoder_value
+    return total_angle_degrees
+
+# This loop simulates the encoder values changing
+for i in range(10000): 
+    encoder_value = i % cpr  # Simulate encoder value
+    angle = update_angle(encoder_value)
+    print(f"Total Angle: {angle} degrees")
+	\end{minted}
+
+\end{figure}
+
+
+\newpage
+\apendixsection{Фрагмент кода функции обработки данных с энкодера.}
+
+
+\begin{figure}[H]
+	\centering
+	\begin{minted}[tabsize=2,breaklines,fontsize=\small]{cpp}
+float d_time;float d_angle;
+uint16_t angle_data;
+float resolution = 4096;
+uint16_t now = __HAL_TIM_GET_COUNTER(&htim6);
+//Calculate the time between the current and last measurements
+d_time = now <= encoder->lastUpdateTime ? 0xffff - encoder->lastUpdateTime + now : now - encoder->lastUpdateTime;
+EncoderGetAngle(encoder->handle, &angle_data);
+//Track the number of revolutions
+d_angle = (float)(angle_data - encoder->last_angle_data);
+//If detected occurs, count it as a full revolution
+if(abs(d_angle) > (0.8 * resolution) ){
+	if(full_rotation_offset>0{
+		d_angle += 2*PI;
+	}else{
+		d_angle += -2*PI
+	}}
+//to determine if an overflow has occurred
+encoder->last_angle_data = angle_data;
+// Returning a full angle
+encoder->angle_rad = encoder->full_rotation_offset + ((float)angle_data / (float)resolution) * 2*PI;
+encoder->angle_deg = RADIANS_TO_DEGREES(encoder->angle_rad);
+// Расчет скорости
+encoder->velocity_rad = ((encoder->angle_rad - encoder->angle_prev_rad) / d_time * 1000000.0f);
+encoder->velocity_deg = ((encoder->angle_deg - encoder->angle_prev_deg) / d_time * 1000000.0f);
+// Remembering the last angle
+encoder->angle_prev_rad = encoder->angle_rad;
+encoder->angle_prev_deg = encoder->angle_deg;
+//Update time of last measurement
+encoder->lastUpdateTime = __HAL_TIM_GET_COUNTER(&htim6);
+	\end{minted}
+
+\end{figure}
+
+
+\newpage
+\apendixsection{Фрагмент кода обновления алгоритма векторного регулирования}
+
+
+\begin{figure}[H]
+	\centering
+	\begin{minted}[tabsize=2,breaklines,fontsize=\small]{cpp}
+void FOC_Update(uint16_t time_us,float setpoint_torque_current_mA,float setpoint_flux_current_mA,float phase_synchro_offset_rad,uint32_t closed_loop,float setpoint_velocity_dps)
+{
+    float phaseCurrents[3];
+
+		// performance monitoring
+        uint16_t startTime = __HAL_TIM_GET_COUNTER(&htim6);
+
+        for(size_t i = 0; i < 3; ++i) {
+            phaseCurrents[i] = -((float)motor_current_sample_adc[i] - motor_current_input_adc_offset[i]) / motor_current_input_adc_mA[i];
+        }
+		// process cosine(theta) and sine(theta)
+    float phaseOffset_rad = convert2degrees((int16_t)(MAKE_SHORT( regs[REG_MOTOR_SYNCHRO_L], regs[REG_MOTOR_SYNCHRO_H])));
+    float polePairs = PP, direction = REVERSE;
+    float theta_rad = fmodf(absolute_position_rad * polePairs * direction, 2*PI) + phaseOffset_rad + syncOffset_rad;
+    static float cos_theta = 0.0f, sin_theta = 0.0f;
+    CORDIC_Processor(theta_rad, &cos_theta, &sin_theta);
+
+        //Clarke Transformation
+    float Ialpha = 2.0f / 3.0f * phaseCurrents[0] - 1.0f / 3.0f * (phaseCurrents[1] + phaseCurrents[2]);
+    float Ibeta = 1.0f / sqrtf(3.0f) * (phaseCurrents[1] - phaseCurrents[2]);
+		// Park Transformation
+	float Id = Ialpha * cos_theta + Ibeta * sin_theta;
+    float Iq = -Ialpha * sin_theta + Ibeta * cos_theta;
+\end{minted}
+\end{figure}
+\newpage
+\hfill \large Приложение 5.(продолжение)
+
+\begin{figure}[H]
+	\centering
+	\begin{minted}[tabsize=2,breaklines,fontsize=\small]{cpp}
+
+		// (Id,Iq) filtering
+	float Id_filtered = 0.05f * Id + (0.05f) * present_Id_filtered;
+    float Iq_filtered = 0.05f * Iq + (0.05f) * present_Iq_filtered;
+
+    	// flux controller (PI+FF)
+    float setpoint_Id = fluxSet_mA;
+
+    float Flux_Kp = (float)((int16_t)(MAKE_SHORT( regs[PID_FLUX_CURRENT_KP_L], regs[PID_FLUX_CURRENT_KP_H]))) / 100000.0f;
+    float error_Id = setpoint_Id - (loopStatus == 1 ? Id_filtered : 0.0f);
+    float Vd = error_Id * Flux_Kp;
+
+    float setpoint_Iq = torqueSet_mA;
+    float Torque_Kp = (float)((int16_t)(MAKE_SHORT( regs[PID_TORQUE_CURRENT_KP_L], regs[PID_TORQUE_CURRENT_KP_H]))) / 100000.0f;
+    float error_Iq = setpoint_Iq - (loopStatus == 1 ? Iq_filtered : 0.0f);
+    float Vq = error_Iq * Torque_Kp;
+
+		// do inverse clarke and park transformation
+
+    float Valpha = Vd * cos_theta - Vq * sin_theta;
+    float Vbeta = Vq * cos_theta + Vd * sin_theta;
+        // Inverse Clarke Transformation
+    float Va = Valpha;
+    float Vb = (-Valpha + sqrtf(3.0f) * Vbeta) / 2.0f;
+    float Vc = (-Valpha - sqrtf(3.0f) * Vbeta) / 2.0f;
+
+    float Vneutral = 0.5f * (fmaxf(fmaxf(Va, Vb), Vc) + fminf(fminf(Va, Vb), Vc));
+    	// convert (Va,Vb,Vc) to PWM duty cycles % [0.0 1.0]
+	float dutyA = fconstrain(((Va - Vneutral) / present_voltage_V + 1.0f) * 0.5f, MIN_PWM_DUTY_CYCLE, MAX_PWM_DUTY_CYCLE);
+}	\end{minted}
+\end{figure}
+\newpage
+\hfill \large Приложение 5.(продолжение)
+
+\begin{figure}[H]
+	\centering
+	\begin{minted}[tabsize=2,breaklines,fontsize=\small]{cpp}
+	
+    float dutyB = fconstrain(((Vb - Vneutral) / present_voltage_V + 1.0f) * 0.5f, MIN_PWM_DUTY_CYCLE, MAX_PWM_DUTY_CYCLE);
+    float dutyC = fconstrain(((Vc - Vneutral) / present_voltage_V + 1.0f) * 0.5f, MIN_PWM_DUTY_CYCLE, MAX_PWM_DUTY_CYCLE);
+        // fPWM = 16KHz
+        // fTIM = 160MHz
+        // ARR = fTIM/(2 * fPWM) -1 => ARR = 4999
+    uint16_t CCRa = (uint16_t)(dutyA * (float)(__HAL_TIM_GET_AUTORELOAD(&htim1) + 1)) - 1;
+    uint16_t CCRb = (uint16_t)(dutyB * (float)(__HAL_TIM_GET_AUTORELOAD(&htim1) + 1)) - 1;
+    uint16_t CCRc = (uint16_t)(dutyC * (float)(__HAL_TIM_GET_AUTORELOAD(&htim1) + 1)) - 1;
+
+    // update TIMER CCR register
+    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, CCRa);
+    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, CCRb);
+    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3, CCRc);
+
+		// calculate loop time
+    int16_t endTime = __HAL_TIM_GET_COUNTER(&htim6);
+    uint16_t processingTime = endTime - startTime;
+    static const float performanceAlpha = 0.001f;
+    average_processing_time_us = (1.0f - performanceAlpha) * average_processing_time_us + performanceAlpha * (float)processingTime;
+    ++foc_cnt;
+	\end{minted}
+\end{figure}
+
+\newpage
+\apendixsection{Функция вычисления прямой кинематики}
+
+
+\begin{figure}[H]
+	\centering
+	\begin{minted}[tabsize=2,breaklines,fontsize=\small]{cpp}
+	CalculateFD(const JointAngles& inputAngles, RobotPose& outputPose)
+{
+    float rawInputAngles[6];
+    float adjustedAngles[6];
+    float cosineAngle, sineAngle;
+    float cosineAlpha, sineAlpha;
+    float endEffectorPosition[6];
+    float endEffectorRotation[9];
+    float rotationMatrices[6][9];
+    float rotationMatrixPartial[4][9];  // Only need 4 as we're multiplying sequentially
+    float linkVectors[4][3];  // Vectors from base to shoulder, shoulder to elbow, etc.
+    // Convert input angles from degrees to radians
+    for (int i = 0; i < 6; i++)
+        rawInputAngles[i] = inputAngles.values[i] / DEGREES_TO_RADIANS;
+    // Compute rotation matrices based on adjusted joint angles
+    for (int i = 0; i < 6; i++)
+    {
+        adjustedAngles[i] = rawInputAngles[i] + DHParams[i][0];
+        cosineAngle = arm_cos_f32(adjustedAngles[i]);
+        sineAngle = arm_sin_f32(adjustedAngles[i]);
+        cosineAlpha = arm_cos_f32(DHParams[i][3]);
+        sineAlpha = arm_sin_f32(DHParams[i][3]);
+        // Populate each rotation matrix for the joint
+        rotationMatrices[i][0] = cosineAngle;
+        rotationMatrices[i][1] = -cosineAlpha * sineAngle;
+        rotationMatrices[i][2] = sineAlpha * sineAngle;
+        rotationMatrices[i][3] = sineAngle;
+        rotationMatrices[i][4] = cosineAlpha * cosineAngle;
+        rotationMatrices[i][5] = -sineAlpha * cosineAngle;
+      
+	\end{minted}
+\end{figure}
+\newpage
+\hfill \large Приложение 6.(продолжение)
+\begin{figure}[H]
+	\centering
+	\begin{minted}[tabsize=2,breaklines,fontsize=\small]{cpp}
+		rotationMatrices[i][6] = 0.0f;
+        rotationMatrices[i][7] = sineAlpha;
+        rotationMatrices[i][8] = cosineAlpha;
+    }
+	}
+	// Sequentially multiply the rotation matrices to get the cumulative rotation matrix
+	MultiplyMatrices(rotationMatrices[0], rotationMatrices[1], rotationMatrixPartial[0], 3, 3, 3);
+	for (int i = 1; i < 4; i++)  // Start from 1 as first multiplication already done
+	{
+		MultiplyMatrices(rotationMatrixPartial[i - 1], rotationMatrices[i + 1], rotationMatrixPartial[i], 3, 3, 3);
+	}
+	MultiplyMatrices(rotationMatrixPartial[3], rotationMatrices[5], endEffectorRotation, 3, 3, 3);
+	// Calculate position vectors for each segment in the arm's kinematic chain
+	MultiplyMatrices(rotationMatrices[0], LinkBaseToShoulder, linkVectors[0], 3, 3, 1);
+	MultiplyMatrices(rotationMatrixPartial[0], LinkShoulderToElbow, linkVectors[1], 3, 3, 1);
+	MultiplyMatrices(rotationMatrixPartial[1], LinkElbowToWrist, linkVectors[2], 3, 3, 1);
+	MultiplyMatrices(endEffectorRotation, LinkWristToEndEffector, linkVectors[3], 3, 3, 1);
+	// Sum up the position vectors to get the end effector's position
+	for (int i = 0; i < 3; i++)
+		endEffectorPosition[i] = linkVectors[0][i] + linkVectors[1][i] + linkVectors[2][i] + linkVectors[3][i];
+	// Convert the end effector's rotation matrix to Euler angles
+	RotationMatrixToEulerAngles(endEffectorRotation, &endEffectorPosition[3]);
+	// Set the calculated position and orientation to the output pose
+	outputPose.X = endEffectorPosition[0];
+	outputPose.Y = endEffectorPosition[1];
+	outputPose.Z = endEffectorPosition[2];
+	outputPose.Roll = endEffectorPosition[3] * RADIANS_TO_DEGREES;
+	outputPose.Pitch = endEffectorPosition[4] * RADIANS_TO_DEGREES;
+	outputPose.Yaw = endEffectorPosition[5] * RADIANS_TO_DEGREES;
+	memcpy(outputPose.RotationMatrix, endEffectorRotation, 9 * sizeof(float));
+	return true;
+	\end{minted}
+\end{figure}
+
+
+\newpage
+\apendixsection{Функция вычисления обратной кинематики}
+
+
+\begin{figure}[H]
+	\centering
+	\begin{minted}[tabsize=2,breaklines,fontsize=\small]{cpp}
+	bool SolveIK(const Pose& targetPose, const JointStates& lastState, Solutions& solutions){
+    // Initialize variables for joint angles and intermediate calculations
+    float jointAngles[6], tempAngles[2], wristPos[3];
+    float cosAngle, sinAngle, angle1, angle2, distSquared, dist;
+    float endEffectorPos[3], endEffectorRot[9], tempRot[9], jointRot[9];
+    ConvertPoseToRadians(targetPose, endEffectorPos, endEffectorRot);
+    // Calculate the position of the wrist to solve for the first three joints
+    CalculateWristPosition(endEffectorPos, endEffectorRot, wristPos);
+    // Solve for the first three joints (base, shoulder, elbow)
+    bool baseSolved = SolveBaseJoint(wristPos, jointAngles);
+    bool armSolved = SolveArmJoints(wristPos, jointAngles, tempAngles);
+    // If the base or arm cannot be solved, mark the solution as invalid
+    MarkInvalidSolutions(baseSolved, armSolved, solutions);
+    for (int i = 0; i < 2; i++)  // Loop through possible arm solutions
+    {
+        // Calculate the rotation matrix for the current arm solution
+        CalculateArmRotationMatrix(jointAngles, tempAngles[i], tempRot);
+        // Determine the wrist orientation relative to the base
+        MultiplyMatrices(tempRot, endEffectorRot, jointRot, 3, 3, 3);
+        // Solve for the wrist joints (roll, pitch, yaw)
+        bool wristSolved = SolveWristJoints(jointRot, jointAngles + 3);
+        // Store the solution if valid
+        StoreSolution(wristSolved, jointAngles, solutions, i);
+    }
+    ConvertSolutionsToDegrees(solutions);
+    return true; 
+}
+	\end{minted}
+\end{figure}
+
+
