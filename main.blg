@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99d (TeX Live 2023)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: agsm.bst
+A level-1 auxiliary file: Src/templates/tocpage.aux
+A level-1 auxiliary file: Src/content.aux
+A level-1 auxiliary file: Src/templates/bibpage.aux
+A level-1 auxiliary file: Src/chapters/Appendix.aux
+Database file #1: Src/refs.bib
+Warning--I didn't find a database entry for "codeConvertEulerAnglesToRotationMatrix"
+You've used 22 entries,
+            2909 wiz_defined-function locations,
+            779 strings with 9674 characters,
+and the built_in function-call counts, 72533 in all, are:
+= -- 11597
+> -- 1043
+< -- 0
++ -- 5442
+- -- 315
+* -- 6043
+:= -- 14981
+add.period$ -- 42
+call.type$ -- 22
+change.case$ -- 307
+chr.to.int$ -- 21
+cite$ -- 22
+duplicate$ -- 299
+empty$ -- 660
+format.name$ -- 374
+if$ -- 12964
+int.to.chr$ -- 6
+int.to.str$ -- 0
+missing$ -- 10
+newline$ -- 89
+num.names$ -- 227
+pop$ -- 156
+preamble$ -- 1
+purify$ -- 330
+quote$ -- 0
+skip$ -- 251
+stack$ -- 0
+substring$ -- 16118
+swap$ -- 40
+text.length$ -- 308
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 86
+warning$ -- 0
+while$ -- 468
+width$ -- 0
+write$ -- 311
+(There was 1 warning)
