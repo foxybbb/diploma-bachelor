@@ -1,14 +1,13 @@
-\subsection{Программная реализация устройства стратегического управления}
-Устройством стратегического управления является одноплатный миникомпьютер «Rasp- berry Pi Zero W 2» (Рисунок 3.3), система запускается сразу после подачи питания на устройство. Происходит запуск операционной системы «Linux» и ожидание подключения пользователя к устройству. Возможен два варианта использования стратегического устройства:
+\subsection{Software implementation of the strategic management device}
+The strategic control device is a single-board minicomputer "Rasp- berry Pi Zero W 2" (Figure 3.3), the system is started immediately after power supply to the device. The operating system "Linux" starts and waits for the user to connect to the device. There are two possible ways of using the strategic device:
 
 \begin{enumerate}
-	\item Подключение по беспроводному каналу, по протоколу SSH.
-	\item Через проводное подключение, путем подключения проводов монитора и устройств ввода/вывода.
+	\item Connecting wirelessly, via SSH protocol.
+	\item Through a wired connection, by connecting the wires of the monitor and I/O devices.
 \end{enumerate}
+To connect the minicomputer wirelessly, it is necessary that the microcomputer is in the local environment of the wireless network.
 
-Для подключения мини-компьютера по беспроводному каналу, необходимо чтобы микрокомпьютер был в локальном окружении беспроводной сети.
-
-Для дальнейшей работы управления используется один из языков высокого уровня, например, язык программирования Python c использованием библиотек, пример представлен на рисунке \ref{CodePython1}.
+For further operation of the control, one of the high-level languages is used, for example, Python programming language with the use of libraries, an example is shown in the figure \ref{CodePython1}.
 \begin{figure}[H]
 	\centering
 
@@ -25,11 +24,10 @@ poses = np.array([
 ])
 start_end_joints = [robot.ik(p) for p in poses]
 	\end{minted}
-	\caption{Фрагмент использования сторонних библиотек на языке питон.}\label{CodePython1}
+	\caption{A fragment of using third-party libraries in Python.}\label{CodePython1}
 \end{figure}
 
-
-При помощи библиотек возможно производить программирование робота в режиме симуляции и только потом генерировать команды для контроллера тактического управления. Использования языка высокого уровня позволяет создавать комплексные стратегии движения и обрабатывать сложные алгоритмы. Для коммуникации между устройствами стратегического и тактического уровня предполагается использование написанного библиотеки API, пример функции представлен на Рис. \ref{CodePython2} для общения между микроконтроллером и микрокомпьютера
+Using libraries, it is possible to program a robot in simulation mode and only then generate commands for the tactical control controller. The use of a high-level language allows for the creation of complex movement strategies and the processing of sophisticated algorithms. For communication between strategic and tactical level devices, the use of a written API library is anticipated, an example of which is shown in Figure \ref{CodePython2} for communication between the microcontroller and the microcomputer.
 
 
 \begin{figure}[H]
@@ -51,14 +49,14 @@ def send_movej_command(self, command):
 	response = self.ser.read(ser.in_waiting).decode()
           log("Received response:", response)
 	\end{minted}
-	\caption{Фрагмент функции API библиотеки для использования на языке Python.}\label{CodePython2}
+	\caption{A fragment of an API library function for use in Python.}\label{CodePython2}
 \end{figure}
 
 
-Так же ещё одним возможным видом программирования является использование программного обеспечение RoboDK, на устройстве стратегического управления исполняется драйвер, который передает данные из сокетного TCP/IP соединения в Uart, список команд рассматривается в таблице 5.1 на контроллер тактического управления фрагмент представлен в приложение 2.
+Also another possible type of programming is the use of RoboDK software, a driver is executed on the strategic control device, which transmits data from the socket TCP/IP connection to Uart, the list of commands is considered in Table 5.1 on the tactical control controller fragment is presented in Appendix 2.
 
 \begin{table}[H]
-	\caption{Список базовых команд который поддерживает robotDK}\label{TRobotDK}
+	\caption{List of basic commands that robotDK supports}\label{TRobotDK}
 	\begin{adjustbox}{width=\textwidth}
 
 		\begin{tabular}{|l|l|l|l|}
@@ -76,53 +74,52 @@ def send_movej_command(self, command):
 
 \end{table}
 
-\subsection{Алгоритмы устройства исполнительного управления}
-
-Главная цель исполнительной системы управления плавное управление 3х фазным BLDC двигателем для этого необходимо считывать, обрабатывать данные с датчиков положения и тока и производить генерацию сигналов PWM. На рисунке \ref{ACDALG} показан основной алгоритм работы системы исполнительного устройства.
+\subsection{Algorithms of the actuator control device}
+The main purpose of the actuator system is to smoothly control a 3-phase BLDC motor by reading and processing data from position and current sensors and generating PWM signals. Figure \ref{ACDALG} shows the basic algorithm of the executive control system.
 
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{Src/images/ACD ALG.png}
-	\caption{Алгоритм работы системы исполнительной системы.}
+	\caption{Algorithm of the executive system system.}
 	\label{ACDALG}
 \end{figure}
 
-После включения микроконтроллер проводит проверку всех устройств на работоспособность путем считывания данных. Система разделена  на две части, в первой части выполняются функци, которые не требуют частого выполнения (окрашено желтым цветом), вторая выполняется на максимальной большой частоте, с которой возможно выполнение, такими задачами являются вычисление векторного алгоритма и парсинг сообщений Рисунок \ref{ACDCMDALG}.
+Upon power-up, the microcontroller conducts a functionality check of all devices by reading data. The system is divided into two parts: the first part executes functions that do not require frequent execution (highlighted in yellow), and the second part operates at the highest possible frequency, tasks such as computing the vector algorithm and parsing messages are performed in this part, as shown in Figure \ref{ACDCMDALG}.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{Src/images/ACDCMDALG.png}
-	\caption{Алгоритм обработки сообщения.}
+	\caption{Message processing algorithm}
 	\label{ACDCMDALG}
 \end{figure}
 
-Рисунок 5.8 показывает схема работы векторного регулирования. В качестве примера произведен пример управления по току с обратной связью, что означает, что двигатель всегда создает постоянный крутящий момент (то есть постоянный ток, поскольку крутящий момент пропорционален току).
+Figure 5.8 illustrates the operation of vector control. As an example, current control with feedback is demonstrated, meaning that the motor always produces a constant torque (i.e., constant current, since torque is proportional to current).
 
-Входы $i_q$ и $i_d$ регулируются с помощью обратной связи через ПИД-регулятор, который также включает в себя несколько модулей преобразования «Park» и «Clark», сигналы проходят через блок «SVPWM» \citep{Ananth2012} (Широтно-импульсная модуляция с пространственным вектором) и происходит воздействие на трехфазный инвертор для управления двигателем, а величина обратной связи ПИД-регулятора представляет собой выборочное значение выходного тока двигателя.
+The inputs $i_q$ and $i_d$ are regulated through feedback using a PID controller, which also includes several "Park" and "Clarke" transformation modules. The signals pass through the "SVPWM"  (Space Vector Pulse Width Modulation) block and impact the three-phase inverter to control the motor. The feedback magnitude of the PID controller represents a sampled value of the motor's output current.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{Src/images/FOC maindrawio.png}
-	\caption{Схема векторного управления двигателем.}
+	\caption{Vector motor control diagram.}
 	\label{ACDFOCALG}
 \end{figure}
 
 
-Весь процесс векторного управления можно разбить на этапы:
+The entire vector control process can be broken down into stages:
 \begin{enumerate}
-	\item Получение данных трехфазного тока двигателя для вычисления значений $I_a,I_b$;
-	\item Преобразование $I_a,I_b,I_c$ методом Clark, получение $I_\alpha,I_\beta$;
-	\item Преобразование $I_\alpha,I_\beta$ методом Park, получение $I_q,I_d$;
-	\item Вычисление ошибки $I_q,I_d$; из значений установки $I_q,I_d$ поступающих от контроллера;
-	\item Ведение указанной ошибки в два ПИД-регулятора (используется только ПИ), для получения выходных управляющих напряжений $V_q,V_d$;
-	\item Преобразование $V_q,V_d$ методом обратным превращением Park, получение $V_\alpha,V_\beta$;
-	\item Использование пространственного вектора $V_\alpha,V_\beta$ для определения сигналов широтно-импульсной модуляции для трех полумостов инвертора;
-	\item Управление силовыми MOSFET транзисторами трехфазного инвертора в соответствии с ранее выведенным кодовым значением для привода двигателя;
-	\item Повторение вышеуказанных шагов;
+\item Acquiring data of the three-phase motor current to compute the values $I_a,I_b$;
+\item Converting $I_a,I_b,I_c$ using the Clarke transformation, obtaining $I_\alpha,I_\beta$;
+\item Converting $I_\alpha,I_\beta$ using the Park transformation, obtaining $I_q,I_d$;
+\item Computing the error of $I_q,I_d$from the set values of $I_q,I_d$coming from the controller;
+\item Inputting the specified error into two PID controllers (only PI is used) to get the output control voltages $V_q,V_d$;
+\item Converting $V_q,V_d$ using the inverse Park transformation, obtaining $V_\alpha,V_\beta$;
+\item Using the space vector $V_\alpha,V_\beta$ to determine the pulse width modulation signals for the three half-bridges of the inverter;
+\item Controlling the power MOSFET transistors of the three-phase inverter according to the previously derived code value for motor drive;
+\item Repeating the steps mentioned above.
 \end{enumerate}
 
-В вычислениях достаточно использовать только ток с двух фаз мотора, так как по закону тока Кирхгофа можно рассчитать третью составляющую тока, ведь сумма токов, втекающих в узел, равна сумме токов, вытекающих из узла $I_a+I_b+I_c=0$. Вектора $I_a,I_b,I_c$ изначально не ортогональны, для дальнейшей работы требуется провести перерасчет проекции в оси координат, формула \ref{Clark}.
+In the calculations, it is sufficient to use the current from only two phases of the motor, as according to Kirchhoff's current law, the third current component can be calculated since the sum of currents flowing into a node is equal to the sum of currents flowing out of the node $I_a+I_b+I_c=0$. The vectors $I_a,I_b,I_c$are not initially orthogonal, and further work requires recalculating the projection into the coordinate axes, formula \ref{Clark}.
 \begin{ceqn}
 	\begin{align} \label{Clark}
 		\begin{cases}
@@ -132,8 +129,10 @@ def send_movej_command(self, command):
 	\end{align}
 \end{ceqn}
 
-После преобразования получается синусоидальная волна, но на одну переменную меньше. Теперь можно использовать значения $I_\alpha,I_\beta$ для управления вращением двигателя, заставляя их соответствовать правилам изменения формы сигнала. Для применения к трем фазам двигателя применяется обратное преобразование Кларка.
-Преобразование Park, формула \ref{Park}, главная задача перевести стационарную систему $I_\alpha,I_\beta$ в cистему координат вращающейся вместе с ротором $I_q,I_d$, а так как в системе подразумевается получать данные положения угла поворота двигателя с энкодера в реальном времени. Получается, что вектор вращения становится фиксированным значением в системе координат$I_\alpha,I_\beta$.  Далее использование $I_q,I_d$ в качестве объектов управления как обратную связь через ПИД-регулятор. В реальности используется только ПИ-регулятор, дифференциальный регулятор не вводится, потому как передаточная функция напряжения и тока является инерционным звено первого порядка.
+After the transformation, a sinusoidal wave is obtained, but with one variable less.The values $I_\alpha, I_\beta$ can be used to control the rotation of the motor, making them correspond to the rules of signal shape change. The inverse Clarke transformation is applied to the three phases of the motor.
+
+The Park transformation, formula \ref{Park}, aims to translate the stationary system $I_\alpha, I_\beta$ into a coordinate system rotating with the rotor $I_q, I_d$, as the system is supposed to receive real-time motor rotation angle data from an encoder. As a result, the rotation vector becomes a fixed value in the $I_\alpha, I_\beta$ coordinate system. Subsequently, $I_q, I_d$ are used as control objects through feedback via a PID controller. In reality, only a PI controller is used, as the differential regulator is omitted, because the transfer function of voltage and current is a first-order inertial element.
+
 
 \begin{ceqn}
 	\begin{align} \label{Park}
@@ -150,52 +149,54 @@ def send_movej_command(self, command):
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{Src/images/speed.drawio.png}
-	\caption{Схема векторного управления двигателем по скорости.}
+	\caption{Speed vector motor control scheme}
 	\label{ACDFOCALGSPD}
 \end{figure}
 
-В обычном векторным управлении в основном используются три контура ПИД: контур тока, контур скорости и контур положения, то есть: управление током двигателя (крутящим моментом) посредством обратной связи по току -> затем управление скоростью двигателя, контролируя крутящий момент -> затем управление положением двигателя, контролируя скорость двигателя.
+In standard vector control, three PID loops are primarily used: current loop, speed loop, and position loop. This means controlling the motor current (torque) via current feedback, then controlling the motor speed by managing the torque, and finally controlling the motor position by regulating the speed.
 
-На картинке выше \ref{ACDFOCALGSPD}, $\omega$  — это обратная связь по скорости двигателя, которую рассчитывается с помощью энкодера двигателя. Она контролируется PI регулятором.
+In the figure above \ref{ACDFOCALGSPD}, \(\omega\) is the motor speed feedback, which is calculated using the motor's encoder. It is controlled by a PI regulator.
 
-Расчетная скорость двигателя и значение настройки скорости вычисляет значение ошибки и подставляет его в контур ПИ скорости. Вычисленный результат используется в качестве входного сигнала токового контура, таким образом реализуя двойное регулирование скорости-тока с обратной связью.
+The calculated motor speed and the speed setpoint value are used to compute the error value, which is then fed into the PI speed loop. The computed result is used as the input signal for the current loop, thus implementing dual speed-current feedback control.
 
-Самый внешний уровень — это контур положения, который управляет двигателем, поворачивая его на точный угол и поддерживая его. Блок-схема управления изображено на картинке \ref{ACDFOCALGPOS}.
+The outermost level is the position loop, which controls the motor by rotating it to a precise angle and maintaining it. The control block diagram is shown in the figure \ref{ACDFOCALGPOS}.
+
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{Src/images/Foc pos.drawio.png}
-	\caption{Схема векторного управления двигателем по положению.}
+	\caption{Motor position vector control scheme}
 	\label{ACDFOCALGPOS}
 \end{figure}
 
 
-Но в реальном использовании алгоритма применительно к системе, энкодер не может напрямую возвращать скорость двигателя. Поэтому скорость двигателя рассчитывается, вычислив изменение значения кодирования в течение определенного периода времени (то есть используя среднюю скорость для представления мгновенной скорости). Когда скорость двигателя относительно высока, этот метод подходит, но в режиме управления положением скорость двигателя будет очень низкой (поскольку ротор необходимо зафиксировать в определенном положении).
-Поэтому, чтобы избежать ошибок, вызванных связью скорости, для управления положением  используется только двойной контур, состоящий из положения и тока. Однако в это время необходимо внести определенные изменения в контур положения Рисунок \ref{ACDFOCALGPOSREAL}.
+But in the real-world application of the algorithm to a system, the encoder cannot directly return the motor speed. Therefore, the motor speed is calculated by determining the change in encoder value over a specific period of time (i.e., using the average speed to represent the instantaneous speed). This method is suitable when the motor speed is relatively high, but in position control mode, the motor speed will be very low (since the rotor needs to be fixed in a specific position).
+To avoid errors caused by speed feedback, only a dual loop consisting of position and current is used for position control. However, at this time, certain modifications need to be made to the position loop as shown in Figure \ref{ACDFOCALGPOSREAL}.
+
+However, it is also taken into account that with the speed loop removed, full PID control is used for the position loop, meaning a differential term is added (since the differential of position is speed, this can reduce position regulation oscillations and speed up convergence, the function of the integral term is to eliminate static error).
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{Src/images/foc pos real.drawio.png}
-	\caption{Схема оптимального векторного управления двигателем по положению.}
+	\caption{Optimal position vector motor control scheme}
 	\label{ACDFOCALGPOSREAL}
 \end{figure}
 
-Но так же учитывается, что контур скорости удален, используется полное ПИД-управление для контура положения, то есть добавляем дифференциальный член (поскольку дифференциал положения — это скорость, это может уменьшить колебания регулирования положения и ускорить сходимость, функция интегрального члена заключается в устранении статической ошибки).
 
 
+For direct conversion to signals supplied to the power transistors, the SVPWM (Space Vector Pulse Width Modulation) method is used, as it is more efficient than SPWM \citep{Mirdas2023}.
 
-Для преобразования непосредственно в сигналы подаваемые на силовые транзисторы используется метод SVPWM (Space Vector Pulse Width Modulation), так он является наиболее эффективен, чем SPWM \citep{Mirdas2023}.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.3\textwidth]{Src/images/3phasesimpl.png}
-	\caption{Эквивалентная схема.}
+	\caption{Equivalent circuit}
 	\label{ACDFOC3P}
 \end{figure}
+To understand the process of signal formation, it is necessary to comprehend the concept of the space voltage vector. The connection of the motor to the voltage source can be visualized as shown in Fig.\ref{ACDFOC3P}.
 
-Для понимая процесса формирования сигналов необходимо понимание вектора космического напряжения. Можно представить подключение двигателя к источнику напряжения как Рис.\ref{ACDFOC3P}.
+The three-phase voltages (phase voltage is the voltage of each phase relative to the midpoint of the motor's connection) are expressed by the formula \ref{3ph}:
 
-Трехфазные напряжения (фазное напряжение — это напряжение каждой фазы относительно средней точки подключения двигателя)  выражается по формуле \ref{3ph}:
 \begin{ceqn}
 	\begin{align} \label{3ph}
 		\begin{cases}
@@ -205,8 +206,7 @@ def send_movej_command(self, command):
 		\end{cases}
 	\end{align}
 \end{ceqn}
-Можно представить, что три напряжения формируют векторы $\vec{U_a}, \vec{U_b}, \vec{U_c}$, которые формируют результирующий вектор $\vec{U}$, получается возможно определить вектор магнитного поля. А так как постоянный магнит ротора будет стремиться вращаться до тех пор, пока линии внутреннего магнитного поля не будут соответствовать направлению внешнего магнитного поля, этот вектор может фактически представлять направление, в котором мы хотим, чтобы ротор вращался. Получается возможно рассчитать вектор пространственного напряжения \ref{spwm} \citep{youtuFieldOriented}.
-
+It can be envisioned that the three voltages form vectors \(\vec{U_a}, \vec{U_b}, \vec{U_c}\), which in turn create a resultant vector \(\vec{U}\), enabling the determination of the magnetic field vector. Given that the permanent magnet of the rotor will tend to rotate until the lines of its internal magnetic field align with the direction of the external magnetic field, this vector can effectively represent the direction in which we want the rotor to rotate. Thus, it becomes possible to calculate the space voltage vector \ref{spwm} \citep{youtuFieldOriented}.
 
 \begin{ceqn}
 	\begin{align} \label{spwm}
@@ -219,7 +219,7 @@ def send_movej_command(self, command):
 \end{ceqn}
 
 
-Метод SVPWM позволяет синтезировать значение SPWM в каждом моменте времени\ref{SVPWMF}.
+The SVPWM method synthesises the SPWM value at each time instant\ref{SVPWMF}.
 \begin{ceqn}
 	\begin{align} \label{SVPWMF}
 		\int_0^T U_{\text{ref}} \, dt = \int_0^{T_x} U_x \, dt + \int_{T_x}^{T_x+T_y} U_y \, dt + \int_{T_x+T_y}^T U^*_0 \, dt
@@ -232,25 +232,23 @@ def send_movej_command(self, command):
 	\end{align}
 \end{ceqn}
 
-Так программа в микроконтроллер использует дискретизацию, может упростить до \ref{SVPWM}, где $U_{\text{reference}}$ — ожидаемый нами вектор напряжения, а $T$ — период ШИМ. Cмысл приведенной выше формулы заключается в периодическом переключении между различными векторами пространственного напряжения, в котором можно синтезировать эквивалентный произвольный вектор пространственного напряжения.
+Thus, the program in the microcontroller uses discretization, which can be simplified to \ref{SVPWM}, where \(U_{\text{reference}}\) is the expected voltage vector, and \(T\) is the PWM period. The essence of the above formula lies in periodically switching between different space voltage vectors, through which an equivalent arbitrary space voltage vector can be synthesized.
 
 
 
-\subsection{Программная реализация устройства исполнительного управления}
 
-Программа для микроконтроллера разрабатывалась на языке C/C++, для облегчения и ускорении разработки использовалась библиотека HAL (Hardware Abstraction Layer). Набор библиотек позволяет прейти но мледующий уровень абстракции и позволяет производить перенос программного кода на микроконтроллеры другого семейства. Для генерации и настройки проекта использовался инструмент графической конфигурации STM32CubeMX. Генерация проекта производилось под среду интегрированной разработки STM32CubeIDE, которая является изменненой средой разрабоки Eclipse для встроенных систем. На рисунке \ref{STM32G431MX} представленно графическое отображение настройки тактирования тактовой частоты и частоты тактирования отдельных периферийных блоков. МК контроллер работает на максимальной частоте с учетом использования внешнего кварцевого резонатора на 8 Mhz, Входная частота поступает на блок фазовой автоподстройки частоты (PLL), далее происходит умножение и деление частоты до выходной частоты, которая достигает уровня 94% от максимальной, тоесть 160 Mhz.
+\subsection{Software implementation of the actuator control device}
+The microcontroller program was developed in C/C++ language, and to facilitate and accelerate development, the HAL (Hardware Abstraction Layer) library was utilized. The set of libraries allows for a higher level of abstraction and enables the porting of code to microcontrollers of a different family. The STM32CubeMX graphical configuration tool was used for project generation and setup. The project was generated for the STM32CubeIDE integrated development environment, which is a modified version of the Eclipse development environment for embedded systems. Figure \ref{STM32G431MX} shows the graphical representation of the clock frequency setting and the clock frequencies of individual peripheral blocks. The microcontroller operates at its maximum frequency, considering the use of an external 8 MHz quartz crystal oscillator. The input frequency is fed into the Phase-Locked Loop (PLL) block, where it undergoes frequency multiplication and division to the output frequency, reaching a level of 94\% of the maximum, i.e., 160 MHz.
 
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{Src/images/CubeMX.png}
-	\caption{Графическое отображение тактирования микроконтроллера STM32G431}
+	\caption{STM32G431 microcontroller clocking structure}
 	\label{STM32G431MX}
 \end{figure}
 
-
-Энкодер устанавливается на роторе двигателя совместно с редуктором, необходимо было решить проблему сохранения угла поворота. Для этого был создан алгоритм сохранения угра поворота, при варианте поворота энкодера от 0 до 360 градусов. В проложении 3 реализован тест на языке Python алгоритма угла поворота энкодера.
-Для обеспечения считывания данных о положении ротора микрокотроллер отправляет запрос данных у энкодера AS5600, после чего функция заполняет функция заполняет структуру данных, фрагмент фрагмент когда функции показан на картинке \ref{codeencoder}.
+The encoder is mounted on the motor rotor together with the gearbox, and it was necessary to solve the problem of maintaining the rotation angle. For this purpose, an algorithm for preserving the rotation angle was created for the encoder's rotation range from 0 to 360 degrees. In application 3, a test of the encoder rotation angle algorithm is implemented in Python. To ensure data reading about the rotor's position, the microcontroller sends a data request to the AS5600 encoder, after which a function fills the data structure. A snippet of the function's code is shown in Figure \ref{codeencoder}.
 
 
 
@@ -266,27 +264,23 @@ data.raw = 0;
   *angle = ((data.bit.angleHIGH << 8) & 0xF00) | data.bit.angleLOW;
 }
 	\end{minted}
-	\caption{Фрагмент кода функции считывания данных с энкодера.}\label{codeencoder}
+	\caption{Code fragment of the encoder read function}\label{codeencoder}
 \end{figure}
 
+The encoder is mounted directly on the shaft of the electric motor. The rotation of the motor exceeds the measurement range of the absolute encoder AS5600 from 0 to 360 degrees (due to the use of a gearbox), necessitating the measurement of the rotation angle in a wider range. The function that measures the current position, speed, and acceleration values is presented in Annex 4.
 
-Энкодер устанавливается непосредственно на валу электродвигателя, вращение двигателя превосходят границы измеряемых параметров абсолютного энкодера AS5600 от 0 до 360 градусов (так как используется редуктор), поэтому возникла необходимость измерения угла поворота в более широком диапазоне, функция измеряет значения текущего положения, скорости и ускорения представлен в приложении 4.
 
 
 %\subsection{Алгоритмы устройства тактического управления}
 
 
 
-\subsection{Программная реализация устройства тактического управления}
+\subsection{Software implementation of the tactical control device}
 
+During various calculations, operations are required that go beyond the standard C++ libraries. Matrix multiplication is often used in calculations, and a function for multiplying two matrices has been implemented, which is shown in Figure \ref{codematrix}. The matrix multiplication function is designed to take three pointers to arrays representing two input matrices and one output matrix, as well as three integer values indicating the sizes of these matrices. The input matrices are referred to as the first and second, and the result of their multiplication is recorded in the output matrix.
 
-В процессе различных вычислений необходимо операции, которые выходят за рамки стандартных библиотек С++. При вычислении используются часто перемножение матриц, было реализована функция перемножения двух матриц, которая показана на Рис. \ref{codematrix}. Функция для умножения матриц реализована так, что она принимает на вход три указателя на массивы, представляющие две входные матрицы и одну выходную матрицу, а также три целочисленных значения, указывающих размеры этих матриц. Входные матрицы обозначены как первая и вторая, а результат их умножения записывается в выходную матрицу.
+To perform matrix multiplication, the function employs three nested loops, where each loop is responsible for its part of the process: the outer loop iterates through the rows of the first matrix, the middle loop through the columns of the second matrix, and the inner loop deals with the elements of the current rows and columns involved in the calculation. This allows the values for each cell of the resulting matrix to be computed sequentially.
 
-Для выполнения умножения матриц, функция задействует три вложенных цикла, где каждый цикл отвечает за свою часть процесса: внешний цикл перебирает строки первой матрицы, средний цикл - столбцы второй матрицы, а внутренний цикл занимается элементами текущих строк и столбцов, участвующих в вычислении. Это позволяет последовательно вычислить значения для каждой ячейки результирующей матрицы.
-
-В процессе умножения для каждой пары строки и столбца входных матриц вычисляется скалярное произведение соответствующих векторов. Для этого элементы строки первой матрицы поочерёдно умножаются на соответствующие элементы столбца второй матрицы, а результаты сложения этих произведений формируют значение в ячейке результирующей матрицы.
-
-Таким образом, каждый элемент выходной матрицы является суммой произведений элементов соответствующих строки и столбца входных матриц, что и обеспечивает результат умножения матриц.
 
 \begin{figure}[H]
 	\centering
@@ -301,23 +295,18 @@ data.raw = 0;
             sum = 0.0f; // Temporary variable to store sum
             // Multiply elements across the common dimension
             for (kIdx = 0; kIdx < commonDim; kIdx++) {
-                sum += matA[commonDim * rowIdx + kIdx] * matB[colsB * kIdx + colIdx];
-            }
+                sum += matA[commonDim * rowIdx + kIdx] * matB[colsB * kIdx + colIdx];            }
             // Assign the computed sum to the result matrix
             resultMat[colsB * rowIdx + colIdx] = sum;
-        }
-    }
-    }
+        }}}
 	\end{minted}
-	\caption{Функция для умножения двух матриц}\label{codematrix}
+	\caption{Function for multiplication of two matrices}\label{codematrix}
 \end{figure}
+During the multiplication process, the dot product of the corresponding vectors is calculated for each pair of row and column in the input matrices. To do this, elements of the row from the first matrix are successively multiplied by the corresponding elements of the column from the second matrix, and the results of these multiplications are added together to form the value in the cell of the resulting matrix.
 
-Функция для преобразования матрицы поворота в углы Эйлера, рисунок \ref{codeConvertRotationMatrixToEulerAngles}, принимает два аргумента: первый аргумент — это указатель на входную матрицу поворота, второй аргумент — указатель на массив, в который будут записаны рассчитанные углы Эйлера.
+Thus, each element of the output matrix is the sum of the products of the elements of the corresponding row and column of the input matrices, which provides the result of matrix multiplication.
 
-В начале функции объявляются переменные для трех углов Эйлера: рыскание (yaw), тангаж (pitch) и крен (roll), а также переменная для косинуса тангажа. Эти переменные используются для хранения промежуточных вычислений и итоговых результатов преобразования.
-
-Далее следует проверка на условие, когда матрица поворота находится в состоянии, известном как "гимбал лок". Это состояние возникает, когда одна из осей вращения становится неопределенной из-за параллельности двух других осей. Условие гимбал лока определяется значением элемента матрицы поворота, и если это значение близко к 1 или -1, выполняется специальная обработка для расчета углов Эйлера.
-
+The function for converting a rotation matrix to Euler angles, shown in Figure \ref{codeConvertRotationMatrixToEulerAngles}, takes two arguments: the first argument is a pointer to the input rotation matrix, and the second argument is a pointer to an array where the calculated Euler angles will be stored.
 
 
 \begin{figure}[H]
@@ -325,38 +314,41 @@ data.raw = 0;
 	\begin{minted}[tabsize=2,breaklines,fontsize=\small]{cpp}
     void ConvertRotationMatrixToEulerAngles(const float* rotationMatrix, float* angles){
         float roll, pitch, yaw, cosPitch;
-        // Check for gimbal lock
-        if (fabs(rotationMatrix[6]) >= 1.0 - 0.0001){
-            // Handle the gimbal lock case
+        if (fabs(rotationMatrix[6]) >= 1.0 - 0.0001){//Check gimbal lock
             roll = 0.0f;  // Set roll to zero as it's indeterminate
-            if (rotationMatrix[6] < 0) {
+            if (rotationMatrix[6] < 0) {// Handle the gimbal lock case
                 pitch = (float) M_PI_2;  // 90 degrees
                 yaw = atan2f(rotationMatrix[1], rotationMatrix[4]);
-            }
-            else{
+            }else{
                 pitch = -(float) M_PI_2;  // -90 degrees
                 yaw = -atan2f(rotationMatrix[1], rotationMatrix[4]);
-            }
-        }else{
+            }}else{
             // Regular case, no gimbal lock
             pitch = atan2f(-rotationMatrix[6], sqrtf(rotationMatrix[0] * rotationMatrix[0] + rotationMatrix[3] * rotationMatrix[3]));
             cosPitch = cosf(pitch);
             roll = atan2f(rotationMatrix[3] / cosPitch, rotationMatrix[0] / cosPitch);
-            yaw = atan2f(rotationMatrix[7] / cosPitch, rotationMatrix[8] / cosPitch);
-        }
-        // Assign calculated angles to output
-        angles[0] = yaw;
+            yaw = atan2f(rotationMatrix[7] / cosPitch, rotationMatrix[8] / cosPitch);        }
+        angles[0] = yaw;        // Assign calculated angles to output
         angles[1] = pitch;
         angles[2] = roll; }
 	\end{minted}
-	\caption{Функция преобразования матрицы в углы Эйлера}\label{codeConvertRotationMatrixToEulerAngles}
+	\caption{Function of matrix transformation into Euler angles}\label{codeConvertRotationMatrixToEulerAngles}
 \end{figure}
-Если элемент матрицы поворота меньше нуля, угол тангажа устанавливается в 90 градусов, а угол крена — в ноль. Угол рыскания вычисляется с помощью функции арктангенса от двух других элементов матрицы. В случае, когда элемент матрицы не меньше нуля, тангаж устанавливается в -90 градусов, крен — в ноль, а рыскание вычисляется как отрицательное значение угла, полученного с помощью функции арктангенса.
+At the beginning of the function, variables for the three Euler angles: yaw, pitch, and roll, as well as a variable for the cosine of the pitch, are declared. These variables are used to store intermediate calculations and the final results of the conversion.
+
+The function then checks for the condition known as "gimbal lock," which occurs when one of the rotation axes becomes undefined due to the parallelism of the other two axes. The gimbal lock condition is determined by the value of an element in the rotation matrix, and if this value is close to 1 or -1, special processing is performed to calculate the Euler angles.
 
 
-Если гимбал лок не обнаружен, тангаж вычисляется через арктангенс отрицательного значения соответствующего элемента матрицы и квадратного корня из суммы квадратов других двух элементов. Крен и рыскание затем вычисляются с использованием косинуса рассчитанного тангажа и функции арктангенса для соответствующих элементов матрицы.
+If the rotation matrix element is less than zero, the pitch angle is set to 90 degrees, and the roll angle is set to zero. The yaw angle is calculated using the arctangent function of two other matrix elements. If the matrix element is not less than zero, the pitch is set to -90 degrees, roll to zero, and yaw is calculated as the negative value of the angle obtained using the arctangent function.
 
-В конце, вычисленные значения углов рыскания, тангажа и крена сохраняются в выходном массиве в указанном порядке, завершая преобразование матрицы поворота в углы Эйлера. Для обратного преобразования используется функция ConvertEulerAnglesToRotationMatrix.
+If gimbal lock is not detected, the pitch is calculated through the arctangent of the negative value of the corresponding matrix element and the square root of the sum of the squares of the other two elements. Roll and yaw are then calculated using the cosine of the calculated pitch and the arctangent function for the corresponding matrix elements.
+
+In the end, the calculated yaw, pitch, and roll angle values are stored in the output array in the specified order, completing the conversion of the rotation matrix to Euler angles. The function ConvertEulerAnglesToRotationMatrix is used for the inverse transformation.
+
+
+
+The function \textbf{ConvertEulerAnglesToRotationMatrix}, Figure \citep{codeConvertEulerAnglesToRotationMatrix} to convert Euler angles to a rotation matrix takes two pointers to arrays containing the Euler angles (yaw, pitch and roll) and an array for the resulting rotation matrix. At the beginning of the function, variables for the cosines and sines of each of the Euler angles are initialised. These values are calculated to simplify subsequent calculations, as they are used repeatedly in the transformation formulas.
+
 \begin{figure}[H]
 	\centering
 	\begin{minted}[tabsize=2,breaklines,fontsize=\small]{cpp}
@@ -383,17 +375,15 @@ data.raw = 0;
     rotationMatrix[8] = cosPitch * cosYaw;
     }
 	\end{minted}
-	\caption{Функция преобразования углов Эйлера в матрицу}\label{codeConvertEulerAnglesToRotationMatrix}
+	\caption{Function of transformation of Euler angles into a matrix}\label{codeConvertEulerAnglesToRotationMatrix}
 \end{figure}
 
-Функция для преобразования углов Эйлера в матрицу поворота принимает два указателя на массивы, содержащий углы Эйлера (рыскание, тангаж и крен) и массив для результирующей матрицы поворота. В начале функции инициализируются переменные для косинусов и синусов каждого из углов Эйлера. Эти значения вычисляются для упрощения последующих расчетов, так как они многократно используются в формулах преобразования.
+Then, using these pre-calculated cosine and sine values, the function fills in the elements of the rotation matrix. The rotation matrix that results from the function is an orthogonal matrix that describes rotation in three-dimensional space. 
 
-Далее, с использованием этих предварительно вычисленных значений косинусов и синусов, функция заполняет элементы матрицы поворота. Матрица поворота, которая является результатом выполнения функции, представляет собой ортогональную матрицу, описывающую вращение в трехмерном пространстве. 
+The main task of the tactical device is to calculate the trajectory of the robot, in order to provide this we have written functions to solve the forward or inverse kinematic problem for a 6-axis mini robot, the code is presented in \textbf{Annex 6}. 
 
-Главная задача тактического устройства расчет траектории робота, для того что бы это обеспечить были написаны функции для решения прямой или обратной кинематической задачи для 6 осевого мини робота, код представлен в \textbf{приложении 6}. 
+The function "CalculateFK" is designed to determine the position and orientation of the final actuator of a robot with six degrees of freedom based on the given rotation angles of its links. Then, for each link, a rotation matrix is calculated based on its rotation angle and parameters specified in the Denavit-Hartenberg table. These parameters describe the mutual arrangement of the robot links. The rotation matrix of all links is multiplied sequentially from the base of the robot to its final actuator. This multiplication gives the total rotation matrix, which describes the complete orientation and position of the final actuator relative to the robot base.
+By summing the position vectors of all links, the function finds the final position of the robot's final actuator.
+In the final step, based on the total rotation matrix, the function calculates Euler angles that describe the orientation of the final actuator in space. These angles represent rotation around three axes and allow the exact orientation of the actuator to be determined. The results of the calculations - the coordinates of the position of the actuator and its orientation - are written to the output structure \textbf{outputPose}.
 
-Функция "CalculateFK"" предназначена для определения положения и ориентации конечного исполнительного органа робота с шестью степенями свободы на основе заданных углов поворота его звеньев. Затем для каждого звена рассчитывается матрица поворота на основе его угла поворота и параметров, заданных в таблице Денавита-Хартенберга. Эти параметры описывают взаимное расположение звеньев робота. Происходит последовательное умножение матрицы поворота всех звеньев начиная от базы робота и до его конечного исполнительного органа. Это умножение дает общую матрицу поворота, которая описывает полную ориентацию и положение конечного исполнительного органа относительно базы робота.
-Суммируя векторы положений всех звеньев, функция находит конечное положение исполнительного органа робота.
-На заключительном этапе, на основе общей матрицы поворота, функция рассчитывает углы Эйлера, которые описывают ориентацию конечного исполнительного органа в пространстве. Эти углы представляют собой вращение вокруг трех осей и позволяют точно определить ориентацию исполнительного органа. Результаты расчетов — координаты положения исполнительного органа и его ориентация записываются в выходную структуру outputPose.
-
-Самая сложная функция является решения обратной задачи кинематики, которая основываясь на матрице поворота, происходит вычисление три угла: рыскание, тангаж и крен. Для рыскания и тангажа вычисления основываются на поворотах вокруг вертикальной и горизонтальной осей соответственно, тогда как крен определяется через поворот вокруг оси взгляда. В процессе вычислений учитывается физические ограничения суставов, чтобы обеспечить реалистичность и выполнимость полученных углов. Результаты, представленные в виде углов рыскания, тангажа и крена, затем записываются в предназначенный для этого массив, готовые к использованию для управления движениями робота. Возвращаемое функцией логическое значение служит индикатором успешности операции: true свидетельствует о том, что углы были успешно рассчитаны и находятся в пределах допустимых значений, в то время как false указывает на невозможность достижения требуемой ориентации из-за ограничений, наложенных конструкцией суставов.
+The most complex function is the solution of the inverse kinematics problem, which, based on the rotation matrix, calculates three angles: yaw, pitch and roll. For yaw and pitch, the calculations are based on rotations around the vertical and horizontal axes, respectively, while roll is determined through rotation around the gaze axis. The calculations take into account the physical limitations of the joints to ensure that the resulting angles are realistic and feasible. The results, represented as yaw, pitch and roll angles, are then written to a designated array, ready to be used to control the robot's movements. The boolean value returned by the function serves as an indicator of the success of the operation: true indicates that the angles have been successfully calculated and are within acceptable values, while false indicates that the required orientation cannot be achieved due to constraints imposed by the joint design.

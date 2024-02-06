@@ -1,103 +1,98 @@
-\subsection{Обзор особенностей мини роботов}
+\subsection{Overview of Mini Robot Features}
 
-Активное распространение роботов после середины 20 века привело к автоматизации почти всех аспектов производственных процессов, включая сборку, сварку, покраску, контроль качества и упаковку. Это также оказало значительное влияние на логистику, складское хозяйство
-и дистрибуцию, где роботизированные системы используются для сортировки, перемещения и
-хранения товаров. Прогресс в области механики, электроники и цифровых устройств, привел к
-созданию всевозможных устройств. Это в свою очередь поспособствовало прогрессу, повышению качества и возможностей ранее разработанных решений. Одним из улучшений недавних разработок можно считать появление мини роботов манипуляторов.
-Использование существующих универсальных мини роботов манипуляторов является эффективным и рациональным решением, ввиду их небольших размеров и параметров соответствующих для работы с мелкими деталями и конструкциями. 
+The active spread of robots after the mid-20th century led to the automation of almost all aspects of production processes, including assembly, welding, painting, quality control, and packaging. This also had a significant impact on logistics, warehousing, and distribution, where robotic systems are used for sorting, moving, and storing goods. Progress in mechanics, electronics, and digital devices led to the creation of various devices. This, in turn, contributed to progress, improving the quality and capabilities of previously developed solutions. One of the improvements in recent developments can be considered the emergence of mini manipulator robots.
+The use of existing universal mini manipulator robots is an effective and rational solution due to their small size and parameters suitable for working with small parts and structures.
 
-Хотя стоит отметить, что большинство работ связанных со сборкой деталей небольших размеров до сих пор выполняются людьми.
+However, it should be noted that most of the work related to the assembly of small-sized parts is still performed by humans.
 
-Улучшение характеристик и параметров мини роботов манипуляторов является очень актуально.
-Мини роботы манипуляторы представлены на рынке и разработки ведутся в данном направлении \citep{Li2022}. Примером таких роботов могут считаться роботы моделей «MotoMini» от компании «Yaskawa», «Meca500» (Рисунок \ref{meca}) от компании «Mecademic»  и другие. Тема мини роботов является актуальной, однако стоит отметить,что количество информации, на данный момент, о роботах этого класса крайне небольшое.
+Improving the characteristics and parameters of mini manipulator robots is very relevant.
+Mini manipulator robots are presented on the market, and developments are being carried out in this direction \citep{Li2022}. Examples of such robots include the "MotoMini" models from "Yaskawa", "Meca500" (Figure \ref{meca}) from "Mecademic", and others. The topic of mini robots is relevant, but it should be noted that the amount of information currently available on robots of this class is extremely small.
 
 \begin{figure}[H]
-	\centering?
-	\includegraphics[width=0.3\textwidth]{Src/images/Meca500.jpg}
+	\centering
+	\includegraphics[width=0.35\textwidth]{Src/images/Meca500.jpg}
 	\caption{Meca500 Robot Arm}
 	\label{meca}
 \end{figure}
 
-Благодаря маленькому размеру всей конструкции, возможно создавать целые производственные линии прямо на столе. Это открывает новые возможности для мелкосерийного производства и разработки прототипов, где требуется высокая точность и гибкость процессов. Однако несмотря на преимущества мини-роботов манипуляторов, они обладают недостатками. Главным недостатком является опасность работы роботов совместно с людьми. Для организации работы данных роботов необходимо создавать специальные закрытые рабочие зоны, для минимизации возможного риска, а работа совместно с человеком представляется невозможной.
-Эта проблема ограничивает область применения мини-роботов, делая их непригодными для задач, где требуется тесное взаимодействие между человеком и машиной особенно при работе с мелкими предметами, требующие участия оператора. Также это снижает гибкость производственных систем, поскольку для изменения конфигурации линии может потребоваться значительное время и ресурсы на переустройство рабочей зоны. Отсутствие коллаборативности является основной проблемой данных типов роботов.
+Thanks to the small size of the entire structure, it is possible to create entire production lines right on the table. This opens up new possibilities for small-scale production and prototype development, where high precision and flexibility of processes are required. However, despite the advantages of mini manipulator robots, they have disadvantages. The main disadvantage is the danger of robots working together with humans. To organize the work of these robots, it is necessary to create special enclosed work areas to minimize potential risk, and working together with a human is deemed impossible.
+This problem limits the application of mini robots, making them unsuitable for tasks requiring close interaction between humans and machines, especially when working with small objects that require operator participation. This also reduces the flexibility of production systems, as changing the configuration of the line may require significant time and resources to reconfigure the work area. The lack of collaboration is the main problem with these types of robots.
 
+\subsection{Features of Collaborative Manipulator Robots}
 
-\subsection{Особенности коллаборативных роботов манипуляторов}
+A collaborative robot, or cobot, is an industrial type of robot equipped with a set of sensors and locking devices that help to avoid collisions with humans and various obstacles with high probability, even in cases of software malfunction. These devices are designed to work in close proximity to humans, not requiring placement in isolated work areas. They are also characterized by ease of programming, making them accessible for use by personnel without specialized skills.
 
-Коллаборативныей робот или коробот - это индустриальный тип робота, оборудованный набором датчиков и фиксирующих устройств, которые помогают с высокой вероятностью избегать столкновений с людьми и различными препятствиями, даже в случаях неисправности программного обеспечения. Эти устройства разработаны для работы в непосредственной близости с человеком, не требуя размещения в изолированных рабочих зонах. Они так же отличаются простотой программирования, что делает их доступными для использования персоналом без специализированных навыков.
-
-Согласно международному стандарту ISO 10218 (части 1,2) \citep{iso1021812011} определены четыре основных типа коллаборативных роботов \citep{robotiqWhatDoes}, которые могут использоваться для совместной работы с человеком.
+According to the international standard ISO 10218 (parts 1 and 2) \citep{iso1021812011}, four main types of collaborative robots \citep{robotiqWhatDoes} are defined, which can be used for collaborative work with humans.
 \begin{itemize}
-	\item  \textbf{С остановочным защитным механизмом.} Такие коллаборативные роботы способны работать автономно по введенной управляющей программы, но при появлении человека робот прекращает работу. Работа робота продолжается, когда человек покидает рабочую зону;
-	\item \textbf{С ручным управлением.} В присутствии человека такой коллаборативный робот выполняет его команды, подаваемые рукой. Например, команда может подаваться путем касания рукой до определенной части корпуса или распознает движение рук на расстоянии. При отсутствии человека коллаборативный робот может работать автономно, если введена необходимая управляющая программа;
-	\item  \textbf{С «компьютерным зрением».} Специальные датчики отслеживают движение людей. При входе человека в рабочую зону устанавливается пониженная, безопасная скорость. Если он приближается слишком близко, то коллаборативный робот останавливает работу;
-	\item \textbf{С ограниченной силой.} Эти короботы при перемещении не сметают все по пути. Если они наталкиваются на препятствие, то останавливаются, в т. ч. при столкновении с человеком. Такие коллаборативные роботы могут использоваться в непосредственной близости от людей.
+	\item \textbf{With a safety-rated monitored stop.} Such collaborative robots can work autonomously according to the input control program, but when a human appears, the robot stops working. The robot's operation continues when the person leaves the work area;
+	\item \textbf{With manual control.} In the presence of a person, such a collaborative robot performs his commands, given by hand. For example, a command can be given by touching a certain part of the body or recognizing hand movements at a distance. In the absence of a person, the collaborative robot can work autonomously if the necessary control program is entered;
+	\item \textbf{With "computer vision".} Special sensors track the movement of people. When a person enters the work area, a reduced, safe speed is established. If he gets too close, the collaborative robot stops working;
+	\item \textbf{With limited force.} These cobots do not sweep everything in their path when moving. If they encounter an obstacle, they stop, including when colliding with a person. Such collaborative robots can be used in close proximity to people.
 \end{itemize}
 
+ISO/TS 15066:2016 is the first of its kind document \citep{isoISOTS150662016}, establishing safety criteria for the use of collaborative robots. The development of this technical standard was carried out by the international ISO committee, which included specialists from 24 countries and representatives of leading robotics manufacturers, starting in 2010. The standard supplements the existing safety standards for industrial robots, recorded in ISO 10218-1 and ISO 10218-2, and sets specific requirements for safe interaction between industrial robots and humans in the work environment. ISO/TS 15066 provides methodological recommendations for conducting risk assessments related to collaborative use of robots and humans.
 
-ISO/TS 15066:2016 представляет собой первый в своем роде документ\citep{isoISOTS150662016}, устанавливающий критерии безопасности для использования коллаборативных роботов. Разработка этого технического стандарта была осуществлена международным комитетом ISO, в который входили специалисты из 24 стран и представители ведущих производителей робототехники, начиная с 2010 года. Стандарт служит дополнением к уже существующим нормам безопасности промышленных роботов, зафиксированным в ISO 10218-1 и ISO 10218-2, и устанавливает конкретные требования к безопасному взаимодействию между промышленными роботами и людьми в рабочей среде. ISO/TS 15066 предлагает методические рекомендации для проведения оценки рисков, связанных с коллаборативным использованием роботов и человека.
-
-
-\textbf{Контролируемая остановка (Safety-rated monitored stop).} Этот метод применяется, когда робот в основном работает автономно, однако иногда требуется вмешательство человека в рабочую зону. К примеру, робот может выполнять обработку детали, но в определенный момент процесса необходимо человеческое вмешательство для выполнения задачи, недоступной роботу. В случае входа человека в установленную зону безопасности, робот останавливается, при этом моторы остаются под напряжением и готовы к возобновлению работы. Достоинства метода, после выхода человека из зоны безопасности, робот мгновенно продолжает свою деятельность, исключая потребность в полной перезагрузке программы, что могло бы произойти при полной остановке. Такой метод исключает простои в работе робота, которые бы возникали, если бы люди регулярно перемещались через его рабочую зону;
+\textbf{Safety-rated monitored stop.} This method is used when the robot mainly works autonomously, but sometimes human intervention in the work area is required. For example, the robot may be processing a part, but at a certain point in the process, human intervention is needed to perform a task unavailable to the robot. In the event of a person entering the established safety zone, the robot stops, while the motors remain energized and ready to resume work. The advantage of the method is that after the person leaves the safety zone, the robot immediately continues its activity, eliminating the need for a full program reload, which could occur in the event of a complete stop. This method eliminates downtime in the robot's work, which would occur if people regularly moved through its work area;
 \begin{itemize}
-	\item Остановка обеспечивается без потери мощности двигателей (пауза);
-	\item Оператор может взаимодействовать с роботом;
-	\item Автоматическая работа может возобновиться, когда человек покидает рабочее пространство;
-	\item В один момент времени может двигаться либо человек, либо робот;
-	\item Может использоваться с обычными промышленными роботами, но нужно добавить световые барьеры безопасности (лазерные дальномеры, фотодетекторы).
+	\item The stop is ensured without loss of motor power (pause);
+	\item The operator can interact with the robot;
+	\item Automatic operation can resume when the person leaves the workspace;
+	\item At any one time, either a person or a robot can move;
+	\item Can be used with conventional industrial robots, but light safety barriers (laser rangefinders, photodetectors) need to be added.
 \end{itemize}
 
-\textbf{Ручное ведение (Hand guiding).}
-Этот метод коллаборации применяется при выполнении сложных манипуляций с тяжелыми предметами и может быть адаптирован для использования с традиционными промышленными роботами при добавлении специального устройства. Это устройство, обычно датчик момента, установленный на фланце робота, позволяет ощущать силу, прикладываемую оператором к манипулятору, обеспечивая таким образом возможность более точного управления действиями робота.
+\textbf{Hand guiding.}
+This collaboration method is used for performing complex manipulations with heavy objects and can be adapted for use with traditional industrial robots by adding a special device. This device, usually a torque sensor installed on the robot's flange, allows sensing the force applied by the operator to the manipulator, thus providing the possibility of more precise control over the robot's actions.
 
 \begin{itemize}
-	\item Оператор находится в непосредственном контакте с роботом.
-	\item Робот находится под ручным управлением.
-	\item И человек, и робот могут двигаться одновременно (движения контролируются человеком).
-	\item Могут использоваться обычные промышленные роботы.
-	\item Требуется дополнительное оборудование (датчик момента)
+	\item The operator is in direct contact with the robot.
+	\item The robot is under manual control.
+	\item Both the human and the robot can move simultaneously (movements are controlled by the human).
+	\item Conventional industrial robots can be used.
+	\item Additional equipment is required (torque sensor).
 \end{itemize}
 
-\textbf{Контроль скорости и разделения (Speed and separation monitoring).}
-В этом подходе к совместной работе рабочее пространство робота ограничено световыми барьерами безопасности, аналогично первому типу коллаборации, которые отслеживают расположение людей вокруг. Основное отличие состоит в цели: в то время как в первом случае основной задачей робота является остановка при приближении человека, в данном сценарии целью является возможность параллельной работы человека и робота. Робот адаптирует свое поведение в соответствии с предварительно заданными зонами в его программе: с уменьшением дистанции до человека робот постепенно снижает скорость своих движений и останавливается при критическом сближении для предотвращения столкновения. Когда человек удаляется, робот возобновляет работу и увеличивает скорость.
+\textbf{Speed and separation monitoring.}
+In this approach to collaborative work, the robot's workspace is limited by light safety barriers, similar to the first type of collaboration, which monitor the location of people around. The main difference lies in the goal: while in the first case, the robot's main task is to stop when a person approaches, in this scenario, the goal is to allow parallel work of the person and the robot. The robot adapts its behavior according to pre-defined zones in its program: as the distance to a person decreases, the robot gradually reduces the speed of its movements and stops at critical proximity to prevent collision. When the person moves away, the robot resumes work and increases speed.
 \begin{itemize}
-	\item Скорость робота уменьшается, по мере приближения человека.
-	\item Робот останавливается, когда может произойти столкновение с человеком.
-	\item Человек и робот могут перемещаться одновременно.
-	\item Может использоваться с обычными промышленными роботами, но нужно добавить световые барьеры безопасности (лазерные дальномеры, фотодетекторы).
-	\item Используется для операций, требующих частого присутствия персонала
+	\item The robot's speed decreases as the person approaches.
+	\item The robot stops when a collision with a person could occur.
+	\item Both the human and the robot can move simultaneously.
+	\item Can be used with conventional industrial robots, but light safety barriers (laser rangefinders, photodetectors) need to be added.
+	\item Used for operations requiring frequent staff presence.
 \end{itemize}
 
-\textbf{Ограничение мощности и усилия (Power and force limiting).} В «суставах» робота находятся датчики момента, которые могут определить факт столкновения с человеком. Если датчики обнаруживают превышение допустимых усилий, робот останавливается. Эти роботы также предназначены для рассеивания сил на широкой поверхности, в случае удара – именно поэтому детали их корпуса чаще всего сделаны с округлыми формами. Функционал по ограничению мощности и силы, как правило, входит в штатное программного обеспечения.
+\textbf{Power and force limiting.} Torque sensors are located in the robot's "joints", which can detect a collision with a person. If the sensors detect forces exceeding permissible limits, the robot stops. These robots are also designed to dissipate forces over a wide surface in case of impact – this is why their body parts are often made with rounded shapes. Power and force limiting functionality is typically included in the standard software.
 
-Все описанные выше формы совместной работы могут использоваться с обычными промышленными роботами, при условии наличия дополнительных устройств. Такие решения называются: коллаборативные робототехнические системы. Отличие коллаборативного робота в том, что он может не использовать дополнительные (внешние) устройства обеспечения безопасности – они уже встроены в него. Еще одно важное отличие коллаборативных робототехнических систем от коллаборативных роботов состоит в том, что при совместной работе исключается контакт с человеком. А вот коллаборативный робот может контактировать с телом человека без вреда для него. Это достигается за счет регулирования мощности и усилия.
+All the above forms of collaborative work can be used with conventional industrial robots, provided that additional devices are present. Such solutions are called collaborative robotic systems. The difference with a collaborative robot is that it may not use additional (external) safety devices – they are already built into it. Another important difference between collaborative robotic systems and collaborative robots is that in collaborative work, contact with a human is excluded. Meanwhile, a collaborative robot can contact the human body without harm to it. This is achieved by regulating power and force.
 
-\subsection{Проблема существующих мини роботов манипуляторов}
-Мини робот не может стать коллаборативным, если ограничить мощность или силу для каждого звена. Для того, что бы робот являлся коллаборативным, необходимо производить изменения в конструкции самого робота.
-Размер мини роботов манипуляторов создает ограничения для всех элементов системы, установка датчиков момента силы не является лучшим решением, так как занимают дополнительное пространство в каждом звене робота и усложняют конструкцию мини робота. Требуется рассмотреть другие функциональные устройства робота, которые позволят обеспечить особенности коллаборативного робота. Основная часть робота которая, обеспечивает передвижения звеньев, является привод. Приводные механизмы связаны с кинематическими элементами манипулятора и выполняют перемещения.
-Привод любого робота манипулятора состоит из:
+\subsection{Problem with Existing Mini Manipulator Robots}
+A mini robot cannot become collaborative if power or force is limited for each link. To make the robot collaborative, changes need to be made to the robot's design.
+The size of mini manipulator robots creates limitations for all system elements, and installing torque sensors is not the best solution, as they take up additional space in each link of the robot and complicate the mini robot's design. Other functional devices of the robot, which would ensure the features of a collaborative robot, need to be considered. The main part of the robot that provides the movement of links is the drive. Drive mechanisms are connected to the kinematic elements of the manipulator and perform movements.
+The drive of any manipulator robot consists of:
 \begin{itemize}
-	\item Преобразователя энергии
-	\item Электродвигателя
-	\item Передаточного механизма
+	\item An energy converter
+	\item An electric motor
+	\item A transmission mechanism
 \end{itemize}
 
-Электродвигатель —  электротехническое изделие, основной функцией которого является преобразование энергии электрической в механическую. Для обеспечения функций коллаборативного робота. Необходимо выбрать подходящий тип электродвигателя.
+An electric motor is an electrotechnical device whose main function is to convert electrical energy into mechanical energy. To ensure the functions of a collaborative robot, it is necessary to choose a suitable type of electric motor.
 
-Наиболее часто используемые двигатели, которые используются в роботах манипуляторах, двигатели постоянного тока, шаговые и сервоприводы.
+The most commonly used motors in manipulator robots are DC motors, stepper motors, and servomotors.
 \begin{itemize}
-	\item Двигатели постоянного тока бывают коллекторные и бесщеточные. Принято считать, что бесщеточные двигатели постоянного тока вытеснили коллекторные. Бесщеточный двигатель постоянного тока тише, эффективен на низких оборотах и может поддерживать постоянный максимальный крутящий момент, но данный тип двигателя сложен в управлении\citep{medicaldesignbriefsBrushedVersus}.
-	\item Шаговые двигатели могут контролировать точное движение, имеют максимальный крутящий момент на низких скоростях и просты в управлении. Однако у них есть несколько недостатков: они шумны и относительно неэффективны, а также перегреваются, поскольку постоянно потребляют максимальный ток, пропускают ступени при высоких нагрузках и за "шаговых" перемещений создают дополнительную вибрацию на низких скоростях вращения\citep{Steppermotorvibrations}.
-	\item Серводвигатели обеспечивают чрезвычайно точное движение. К недостаткам использования серводвигателей относятся возможность их джиттера при реакции на обратную связь и необходимость сложной логики управления, таким образом занимают много места и добавляют сложности в конструкцию робота. Так же для серводвигателей предполагается установка редуктора с большой степенью передаточного отношения, что так же влияет на габариты и сложности самого робота.
+	\item DC motors come in brushed and brushless types. It is generally accepted that brushless DC motors have displaced brushed ones. A brushless DC motor is quieter, efficient at low speeds, and can maintain constant maximum torque, but this type of motor is complex to control \citep{medicaldesignbriefsBrushedVersus}.
+	\item Stepper motors can control precise movement, have maximum torque at low speeds, and are simple to control. However, they have several drawbacks: they are noisy and relatively inefficient, and they overheat since they constantly consume maximum current, skip steps under high loads, and create additional vibration at low speeds of rotation \citep{Steppermotorvibrations}.
+	\item Servomotors provide extremely precise movement. The disadvantages of using servomotors include the possibility of jitter when responding to feedback and the need for complex control logic, thus taking up a lot of space and adding complexity to the robot's design. Servomotors also assume the installation of a gearbox with a high reduction ratio, which also affects the dimensions and complexity of the robot itself.
 \end{itemize}
 
-
-Наиболее подходящим типом электродвигателя для робота манипулятора является бесщеточный двигатель постоянного тока как видно из таблицы \ref{motorstab}, за счет большого момента на низких оборотах. Двигатели Gimbal, которые являются бесщеточные двигатели постоянного тока, ориентированы под использование карданных подвесов камер, у данных подтипа двигателей постоянного тока очень высокий момент при низких оборотах. Данная особенность облегчает выбор редуктора, не требуется высокая степень редукции, это упрощает конструкцию самого редуктора и делает его более компактным. Небольшая степень передаточного отношения создаёт возможность обратного управления приводом \citep{8867893}.
+The most suitable type of electric motor for a manipulator robot, as seen from table \ref{motorstab}, is the brushless DC motor due to its high torque at low speeds. Gimbal motors, which are brushless DC motors designed for use in camera gimbals, have very high torque at low speeds among this subtype of DC motors. This feature simplifies the choice of gearbox, as a high reduction ratio is not required, which simplifies the gearbox design and makes it more compact. A small reduction ratio creates the possibility of reverse control of the drive \citep{8867893}.
 
 \begin{table}[H]
 	\centering
-	\caption{Талица характеристик двигателей различных типов}\label{motorstab}
+	\caption{Table of characteristics of motors of various types}\label{motorstab}
 	\begin{adjustbox}{width={\textwidth}}
+
+		r
 
 		\begin{tabular}{|l|l|c|c|c|c|c|c|}
 			\hline
@@ -117,110 +112,102 @@ ISO/TS 15066:2016 представляет собой первый в своем
 \end{table}
 
 
-Так же исходя из тенденций последних исследований \citep{Sakama2022} рис \ref{magnets}, удельная мощность бесщеточных двигателей постоянного тока, увеличилась более чем в десять раз за 20 лет, и теперь бесщеточные двигатели постоянного тока являются электродвигателями с самой высокой удельной мощностью. Удельная мощность данных двигателей увеличилась после появления постоянных магнитов с высокой магнитной энергией. В частности, появление неодимового магнита.
+Also, according to the trends of recent research \citep{Sakama2022} fig \ref{magnets}, the specific power of brushless DC motors has increased more than tenfold over 20 years, and now brushless DC motors are electric motors with the highest specific power. The specific power of these motors increased after the appearance of permanent magnets with high magnetic energy. In particular, the appearance of the neodymium magnet.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{Src/images/magnets.png}
-	\caption{Изменение удельной мощности в электрических двигателях во времени \citep{Sakama2022}}
+	\caption{Changes in the specific power of electric motors over time \citep{Sakama2022}}
 	\label{magnets}
 \end{figure}
+\subsection{Requirements for Electric Motor Control}
 
-\subsection{Требования к управлению электродвигателя}
-
-Для обеспечения всех особенностей коллаборативного робота, наиболее подходящий тип электродвигателя исходя из раздела 1.3 является бесщеточный двигатель постоянного тока. Касательно мини робота, тип BLDC двигателя Gimbal motors наиболее подходящим. Но Gimbal motors обладает недостатками, которые присущи всем BLDC двигателям:в иx сложности управлении. 
-Варианты управления бесщёточными двигателями постоянного тока:
+To ensure all the features of a collaborative robot, the most suitable type of electric motor, based on section 1.3, is the brushless DC motor. Regarding the mini robot, the Gimbal motors BLDC type is the most suitable. However, Gimbal motors have disadvantages inherent in all BLDC motors: the complexity of their control.
+Options for controlling brushless DC motors:
 \begin{itemize}
-	\item Управление с шестистепенной коммутацией;
-	\item Широтно-импульсная модуляция (PWM);
-	\item Управление с векторной модуляцией (FOC);
-	\item Датчиковое и бездатчиковое управление.
+	\item Control with six-step commutation;
+	\item Pulse Width Modulation (PWM);
+	\item Control with vector modulation (FOC);
+	\item Sensor and sensorless control.
 \end{itemize}
 
-При выборе метода управления требовалось учитывать необходимость плавного управления скоростью, ускорением и моментом двигателя. 
-Управление с векторной модуляцией является наиболее подходящим методом для управления электродвигателем осью мини робота манипулятора. FOC обеспечивает высокую эффективность и плавность работы за счет независимого управления магнитным потоком и крутящим моментом двигателя. Это достигается за счет преобразования трехфазного сигнала в двухфазный во вращающейся системе 	координат, который используется для дальнейшего управления. Для векторного регулирования необходимо определять текущее положение ротора двигателя с использованием датчиков угла поворота.
+When choosing a control method, it was necessary to consider the need for smooth control of speed, acceleration, and motor torque.
+Control with vector modulation is the most suitable method for controlling the electric motor axis of a mini manipulator robot. FOC provides high efficiency and smooth operation by independently controlling the magnetic flux and torque of the motor. This is achieved by converting the three-phase signal into a two-phase one in a rotating coordinate system, which is used for further control. Vector regulation requires determining the current position of the motor rotor using angle sensors.
 
-При разработке системы управления для коллаборативного мини робота, необходимо учитывать не только различия  в управлении приводов, но саму систему управления в целом. Поэтому необходимо производить изменение всей системы управления мини робота. 
+When developing a control system for a collaborative mini robot, it is necessary to consider not only the differences in drive control but the control system as a whole. Therefore, it is necessary to make changes to the entire control system of the mini robot.
 
+\subsection{Defining Functions and Technical Specifications for the Control System of a Collaborative Mini Robot}
 
-\subsection{Определение функций и технических характеристик системы управления для коллаборативного мини робота}
-
-Как уже упоминалось ранее любой робот манипулятор состоит из различных систем: электронной, механической, вычислительной, сенсорной и других. Система управления робота должна организовывать работу между ними и обеспечить функционирование робота манипулятора по следующим требованиям:
+As mentioned earlier, any manipulator robot consists of various systems: electronic, mechanical, computational, sensory, and others. The robot's control system must organize work between them and ensure the operation of the manipulator robot according to the following requirements:
 \begin{itemize}
-	\item Точное управление движением, плавное управление движениями робота с
-	      большой точностью, включая синхронизацию всех суставов и механизмов;
+	\item Precise movement control, smooth control of the robot's movements with high accuracy, including the synchronization of all joints and mechanisms;
 
-	\item Реализация заданных алгоритмов и задач, включает в себя задачи
-	      последовательности движений и операций действий робота;
+	      vbnet
 
-	\item Обработка сенсорных данных, точно обрабатывать данные с датчиков для
-	      адаптации к изменениям окружающей среды;
+	\item Implementation of the given algorithms and tasks, includes tasks of the sequence of movements and operations of the robot's actions;
 
-	\item Взаимодействие с оператором, возможности для ручного управления и
-	      программирования;
+	\item Processing of sensory data, accurately process data from sensors to adapt to changes in the environment;
 
-	\item Интеграция с другими системами, робот являться не только одним
-	      элементом на производстве, использование совместно с системами конвейерных
-	      линий.
+	\item Interaction with the operator, possibilities for manual control and programming;
+
+	\item Integration with other systems, the robot to be not only one element in production, used together with conveyor line systems.
+
 \end{itemize}
 
-
-Система управления коллаборативного мини робота не сильно отличается от требований обычного промышленного манипулятора, но должна обеспечивать функциям:
+The control system of a collaborative mini robot does not differ much from the requirements of a regular industrial manipulator, but it must ensure functions:
 \begin{itemize}
-	\item Расчёта траектории движения, решение кинематических задач;
-	\item Точное и плавное управление движением двигателем используя алгоритм векторного регулирования c обратной связью;
-	\item Управление скоростью, ускорением, моментом электродвигателя;
-	\item Ограничение минимальных и максимальных параметров скорости, ускорения и позиции, тока напряжения;
-	\item Управление моментом;
-	\item Обработка данных с различных датчиков в реальном времени;
-	\item Визуальное отображение состояния робота;
-	\item Возможность интеграции с другими системами;
-	\item Мониторинг температуры и отключение устройства при высоких температурах.
+	\item Calculation of the motion trajectory, solving kinematic tasks;
+	\item Precise and smooth movement control of the motor using a vector control algorithm with feedback;
+	\item Control of speed, acceleration, motor torque;
+	\item Limitation of minimum and maximum parameters of speed, acceleration, and position, current voltage;
+	\item Torque control;
+	\item Real-time processing of data from various sensors;
+	\item Visual display of the robot's state;
+	\item Possibility of integration with other systems;
+	\item Monitoring of temperature and device shutdown at high temperatures.
 \end{itemize}
 
-Разрабатывать систему управления для мини робота манипулятора невозможно в отрыве от конструкции самого робота. На основе данных, выполненного в разделе 1.1. Было определённо, что система управления коллаборативного мини роботом манипулятора с использованием Gimbal motors, должна иметь технические параметры, соответствующие характеристикам существующих мини роботов. Конструкция робота - 6 осевой робот манипулятор: шесть степеней свободы необходимо для приближенной имитации возможных движений человеческой руки. Для разработки системы управления мини роботом манипулятором взята наиболее часто встречающая кинематическая структура, приведена на рисунке \ref{Kin}.
+Developing a control system for a mini manipulator robot is impossible without considering the design of the robot itself. Based on the data performed in section 1.1. It was determined that the control system of a collaborative mini robot manipulator using Gimbal motors should have technical parameters corresponding to the characteristics of existing mini robots. The robot design is a 6-axis manipulator robot: six degrees of freedom are necessary to approximate the possible movements of the human hand. For the development of the control system of the mini manipulator robot, the most commonly encountered kinematic structure is shown in figure \ref{Kin}.
+
+
+Parameters of the kinematic structure:
 
 
 \begin{figure}[H]
 	\centering
 	\input{Src/extra/KinStructureTikZ.tex}
-	\caption{Кинематическая структура мини робота}
+	\caption{Kinematic structure of a mini robot}
 	\label{Kin}
 \end{figure}
 
-Параметры кинематической структуры:
-
 \begin{itemize}
-	\item d1, d2 , d3 , d4 , d5 - расстояния между звеньями;
-	\item θ1, θ2, θ3, θ4, θ5, θ6 - углы звеньев;
-	\item a1, a2 - длины звеньев;
-	\item X0, Y0 , Z0 - базовые координаты;
-	\item X6, Y6 , Z6 - координаты инструмента.
-\end{itemize}
-За основу реализации системы управления были взяты существующие параметры от мини-робота манипулятора MotoMini от компании "Yaskawa":
-$$ d1 = 171mm; d2 = 165mm, a1 = 20mm, 
-a3 = 0mm; d3 = 165mm, d4 = 40mm, d5 = 0mm $$
-
-Технические характеристики:
-\begin{itemize}
-	\item Количество осей – 6 осей;
-	\item Повторяймость 0.02 мм;
-	\item Ограничение максимальной рабочей температуры: 80 °С;
-	\item Ограничение максимального тока двигателя до 25 A;
-	\item Размер системы управления не должна превышать размера 300x300mm;
-	\item Масса системы управления, не должна превышать 5 кг;
-	\item Минимальная скорость поворота оси не менее 150 °/s;
-	\item Средняя мощность потребления <200W;
-	\item Рабочее напряжение 24В.
-	\item Ограничения углов:
-	\begin{itemize}
-		\item[$\circ$] Ось 1 от -180° до +180°;
-		\item[$\circ$] Ось 2 от -90° до +90°;
-		\item[$\circ$] Ось 3 от -90° до +90°;
-		\item[$\circ$] Ось 4 от -180° до +180°;
-		\item[$\circ$] Ось 5 от -180° до +180°;
-		\item[$\circ$] Ось 6 от -360° до +360°;
-	\end{itemize}
-
+	\item d1, d2, d3, d4, d5 - distances between links;
+	\item θ1, θ2, θ3, θ4, θ5, θ6 - angles of the links;
+	\item a1, a2 - lengths of the links;
+	\item X0, Y0, Z0 - base coordinates;
+	\item X6, Y6, Z6 - tool coordinates.
 \end{itemize}
 
+The existing parameters from the mini manipulator robot MotoMini from "Yaskawa" were taken as the basis for the implementation of the control system:
+% $$ a3 = 0mm; d3 = 165mm, d4 = 40mm, d5 = 0mm $$
+Technical specifications:
+\begin{itemize}
+	\item Number of axes – 6 axes;
+	\item Repeatability 0.02 mm;
+	\item Maximum operating temperature limit: 80 °C;
+	\item Limiting the maximum motor current to 25 A;
+	\item The size of the control system should not exceed 300x300mm;
+	\item The mass of the control system should not exceed 5 kg;
+	\item Minimum axis rotation speed not less than 150 °/s;
+	\item Average power consumption <200W;
+	\item Operating voltage 24V.
+	\item Angle limitations:
+	      \begin{itemize}
+		      \item[$\circ$] Axis 1 from -180° to +180°;
+		      \item[$\circ$] Axis 2 from -90° to +90°;
+		      \item[$\circ$] Axis 3 from -90° to +90°;
+		      \item[$\circ$] Axis 4 from -180° to +180°;
+		      \item[$\circ$] Axis 5 from -180° to +180°;
+		      \item[$\circ$] Axis 6 from -360° to +360°;
+	      \end{itemize}
+\end{itemize}

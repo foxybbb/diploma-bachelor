@@ -1,29 +1,26 @@
 
-\section*{\centering ЗАКЛЮЧЕНИЕ}
+\section*{\centering CONCLUSION}
+During the bachelor's thesis, an analysis of mini robots was conducted, as well as an examination of the characteristics of mini manipulator robots and their shortcomings. The issues of using robots in collaboration with humans, the necessity for the features of creating collaborative robots were described. Variants of the engine, the choice, and options for controlling a brushless DC motor, as well as the option of using motor control, were considered, and the method of vector control with feedback was selected.
 
-В ходе выполнения бакалаврской работы были проведен анализ мини роботов, а так же рассмотрены характеристики  мини роботов манипуляторов и их недостатки. Описана проблематика использования роботов совместно с людьми, необходимости особенностям создания коллаборативных роботов. 
-Рассмотрены варианта двигателя, выбор и варианты управления бесщеточным мотором постоянного тока, а также вариант использования управление двигателями, был выбран метод векторного регулирования с обратной связью.
-
-Сформулированы функции и технические характеристики для разрабатываемой системы управления для коллаборативного мини робота манипулятора. Была рассмотрена и принята за основу иерархическая парадигма систем управления роботами для разделения принципиальных схем систему управления для мини робота.Были описаны алгоритм взаимодействия%систем тактического, стратегического и исполнительного управления. 
-Алгоритмы разработаны основываясь на описанных иерархическим уровням архитектуры:
+Functions and technical specifications for the developed control system for a collaborative mini manipulator robot were formulated. A hierarchical paradigm of robot control systems was considered and adopted as the basis for separating the principal control system schemes for the mini robot. The algorithm for interaction between tactical, strategic, and executive control systems was described. Algorithms were developed based on the described hierarchical levels of architecture:
 \begin{itemize}
-	\item Алгоритм работы системы тактического управления;
-	\item Алгоритм работы системы исполнительного управления.
+	\item The algorithm for the tactical control system operation;
+	\item The algorithm for the executive control system operation.
 \end{itemize}
-Была разработана функциональная схема устройства в соответствии с выбранными элементами:
+A functional diagram of the device was developed in accordance with the selected components:
 \begin{itemize}
 	\item Gimbal GBM4008H-150T, GM5208-120T, GM3506;
-	\item Абсолютного Энкодера AS5600;
-	\item Устройство стратегического контроля Raspberry Pi Zero W 2;
-	\item Силовые ключи SIR680DP;
-	\item Драйвера для силовых транзисторов L6385ED;
-	\item Передатчик шины данных TCAN1462DRQ1;
-	\item DC-DC преобразователь АP64502QSP.
+	\item Absolute Encoder AS5600;
+	\item Strategic control device Raspberry Pi Zero W 2;
+	\item Power transistors SIR680DP;
+	\item Drivers for power transistors L6385ED;
+	\item Data bus transmitter TCAN1462DRQ1;
+	\item DC-DC converter AP64502QSP.
 \end{itemize}
-Были рассмотренные какие математические операции необходимы для решения задач, связи с этим было проведено тестирование и анализ доступных микроконтроллеров под задачи векторного регулирования и кинематических задач. Разработаны две принципиальные схемы устройств, с необходимыми расчетами элементов для систем тактической, стратегических и исполнительного управлениях.
+Mathematical operations required for solving tasks were considered, and as a result, testing and analysis of available microcontrollers for vector control tasks and kinematic tasks were conducted. Two principal device schemes were developed, with the necessary calculations of elements for tactical, strategic, and executive control systems.
 \begin{itemize}
-    \item Разработан алгоритм системы управления мини роботом манипулятором;
-    \item Алгоритм управления системы тактического управления мини роботом;
-    \item Алгоритм управления системы исполнительного управления мини роботом.
+	\item An algorithm for the control system of a mini manipulator robot was developed;
+	\item An algorithm for the tactical control system of a mini robot;
+	\item An algorithm for the executive control system of a mini robot.
 \end{itemize}
-Таким образом можно сказать, что успешно разработана системы управления коллаборативного мини робота манипулятора для демонстрации возможностей использования двигателей типа Gimbal в качестве исполнительного устройства робота. Данная тема остается актуальная, появляться компоненты с похожими характеристиками, но с меньшим размером.
+Thus, it can be said that a control system for a collaborative mini manipulator robot has been successfully developed to demonstrate the capabilities of using Gimbal-type motors as the robot's actuating device. This topic remains relevant as components with similar characteristics but smaller in size continue to emerge.

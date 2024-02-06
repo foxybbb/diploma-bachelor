@@ -14,12 +14,13 @@
 	\fancyhead[C]{\thepage}
 }
 \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
-\newfontfamily\cyrillicfont{Times New Roman}[Script=Cyrillic]
-\newfontfamily\cyrillicfonttt{Times New Roman}[Script=Cyrillic]
 
 % Настроика qзыкa
-\setdefaultlanguage{russian}
-
+% \newfontfamily\cyrillicfont{Times New Roman}[Script=Cyrillic]
+% \newfontfamily\cyrillicfonttt{Times New Roman}[Script=Cyrillic]
+\setmainfont{Times New Roman}
+\setdefaultlanguage{english}
+% \setdefaultlanguage{russian}
 % настройка полей
 \geometry{top=2cm}
 \geometry{bottom=2cm}
@@ -140,8 +141,6 @@
 \usepackage{tocloft}
 \usepackage{float}
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
-
-\usepackage{lipsum}
 \usepackage{titlesec}
 \renewcommand{\thesection}{\arabic{section}{}}
 \renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}.{}}
@@ -272,7 +271,7 @@
 \newcommand{\apendixsection}[1]{
     \stepcounter{section}
 
-    \section*{\hfill \textmd{ П\MakeLowercase{риложение} \arabic{section}.}}
+    \section*{\hfill \textmd{ A\MakeLowercase{ppendix} \arabic{section}.}}
     \begin{center}
         \bf{#1}
     \end{center}

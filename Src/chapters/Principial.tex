@@ -1,44 +1,44 @@
 
 
-\subsection{Принципиальная схема устройства исполнительного управления }
+\subsection{Schematic diagram of the actuator control device}
 
-Принципиальная схема устройства исполнительного управления мини робота манипулятора представлена на рисунке \ref{PACD}. Микроконтроллер U9 является главным вычислительным компонентом исполнительной системы управления. Чип STM32G431CBU6 подключен по стандартной схеме, из даташита \citep{STM32G431}DC-DC преобразователь является главным источником питания для всего устройства исполнительного управления, а микроконтроллер работает с аналоговым сигналом. Для повышения стабильности работы аналоговых операционных усилителей и точности работы АЦП  в схеме реализован фильтр подавления шумов на линии аналогового питания VDDA и линии опорного напряжения VREF+, который собран по заметкам AN5346 (STM, 2019). Микроконтроллер тактируется при помощи кварцевого резонатора X1 и X2, которые подключены по стандартной схеме с конденсаторами C23, C24 для X1 и С18,С19 для кварцевого резонатора X2. Кварцевый резонатор X1 является  главным генератором тактирующего HSE сигнала 8 МГц для микроконтроллера U9. Кварцевый резонатор X2 имеет специфичную  низкоскоростную частоту LSE 32.768kHz, резонатор необходим для работы часов реального времени RTC, часы используются для точного отсчета времени без накопления ошибки в случае двоичного преобразования. Для программирования микроконтроллера выводы программатора-отладчика выведены на разъём H2.
+The schematic diagram of the actuator control device for the mini manipulator robot is shown in Figure \ref{PACD}. Microcontroller U9 is the main computational component of the actuator control system. The STM32G431CBU6 chip is connected according to the standard scheme from the datasheet \citep{STM32G431}. The DC-DC converter is the main power source for the entire actuator control device, and the microcontroller works with an analog signal. To improve the stability of analog operational amplifiers and the accuracy of the ADC operation, a noise suppression filter on the analog power line VDDA and the reference voltage line VREF+ is implemented in the circuit, assembled according to the notes in AN5346 \citep{STM2019}. The microcontroller is clocked using quartz resonators X1 and X2, which are connected according to the standard scheme with capacitors C23, C24 for X1 and C18, C19 for quartz resonator X2. Quartz resonator X1 serves as the main generator of the 8 MHz HSE clock signal for microcontroller U9. Quartz resonator X2 has a specific low-speed frequency LSE 32.768kHz, necessary for the real-time clock (RTC) operation, which is used for precise timekeeping without accumulating errors in the case of binary conversion. For programming the microcontroller, the programmer-debugger pins are led out to connector H2.
 
-Для контроля состояния исполнительного устройства предусмотрены два светодиода LED1 и LED2. Светодиод LED1 подключен через токовый резистор к питанию и загорается при поступлении питания, LED2 загорается при необходимости от сигнала МК и является индикатором ошибки работы исполняющего устройства.  К входу АЦП PA0 микроконтроллера подключен делитель входного напряжения, состоящий из резисторов R16 и R18, номиналы сопротивления выбраны более 10 kOhm для предотвращения большого падения напряжения на резисторах, максимальное возможное измеряемое напряжение 33 Вольта. Второй вход АЦП PB14 подключен к выводам схемы измерения температуры, которая состоит из NTC резистора R15 и балансного сопротивления R20,конденсатор C30 является элементом фильтра низкой чистоты, верхняя граничная частота  1.5 kHz.
+To monitor the state of the actuator device, two LEDs, LED1 and LED2, are provided. LED1 is connected through a current-limiting resistor to the power supply and lights up when power is applied, while LED2 lights up when needed from the MCU signal and serves as an indicator of the actuator device's error. An input voltage divider, consisting of resistors R16 and R18, is connected to the ADC input PA0 of the microcontroller; the resistance values are chosen to be more than 10 kOhm to prevent a large voltage drop across the resistors, with a maximum measurable voltage of 33 Volts. The second ADC input PB14 is connected to the outputs of the temperature measurement circuit, consisting of NTC resistor R15 and balancing resistance R20; capacitor C30 serves as a low-purity filter element with an upper boundary frequency of 1.5 kHz.
 
 \begin{figure}[H]
 	\begin{adjustbox}{addcode={\begin{minipage}{\width}}{\caption{
-							Принципиальная схема системы исполнительного управления
+						Schematic diagram of the actuator control device
 						} \label{PACD}
 					\end{minipage}},rotate=90,center}
 		\includegraphics[width=0.85\paperheight]{Src/images/ACD.png}
 	\end{adjustbox}
 \end{figure}
 
-Драйвера инвертора U7, U8, U10 подключены к выходу таймера TIM1, которые располагаются на линиях порта A и С, для подавления высокочастотных наводок, каждому из входов подключены емкости C21, C22, C26, C27, C32, C33 номиналом 100 пикофарад. Конденсаторы C20, C25, C31 на линии питания установлены, для предотвращения резкого падения напряжений при открытии внутренних силовых транзисторов.  Диоды D1, D3, D4 образуют схему начальной нагрузки, необходимы для обеспечения питания высоковольтной секции драйвера. Драйверы управляют силовыми транзисторами от Q1 - Q6, полумостовой драйвер управляет транзисторами верхней и нижнего уровня для каждой фазы мотора. Транзисторы подключены через низкоомные резисторы R9, R11, R13, R17, R21, R25 для исключения звона (parasitic oscillation) и резисторами R8, R10, R12, R14, R19, R22, резисторы подтягивают затвор к истоку, для избежания паразитных открытий транзисторов.
+Inverter drivers U7, U8, U10 are connected to the output of timer TIM1, located on the lines of port A and C. To suppress high-frequency interferences, capacitors C21, C22, C26, C27, C32, C33 with a value of 100 picofarads are connected to each of the inputs. Capacitors C20, C25, C31 on the power line are installed to prevent a sharp voltage drop when the internal power transistors are opened. Diodes D1, D3, D4 form a startup load circuit, necessary to provide power to the high-voltage section of the driver. The drivers control the power transistors from Q1 to Q6; the half-bridge driver controls the upper and lower level transistors for each motor phase. The transistors are connected through low-resistance resistors R9, R11, R13, R17, R21, R25 to eliminate ringing (parasitic oscillation) and through resistors R8, R10, R12, R14, R19, R22, which pull the gate to the source to avoid parasitic openings of the transistors.
 
-Для обеспечения связи по шине данных, линии МК PB9 и PA11 подключены к передатчику CAN ШИНЫ U4, принципиальная схема \ref{PPACD}. Передатчик не нуждается в дежурном режиме, поэтому вывод STB (восьмой вывод микросхемы) подключен к земле, передатчик работает с момента включения. Между линиями CANH и CANL предусмотрено включение терминального резистора R7, через перемычку H3. Для удобства монтажа устройств исполнительного управления коннекторы JP2 и JP1 образуют параллельное включение двух разъемов позволяет производить подключений устройств без создания дополнительных соединений на проводах. По такому же принципу подключены силовые разъёмы питания CN1 и CN2.
+For data bus communication, MCU lines PB9 and PA11 are connected to the CAN BUS transmitter U4, as shown in the schematic diagram \ref{PPACD}. The transmitter does not require a standby mode, so the STB pin (pin 8 of the chip) is connected to the ground, and the transmitter operates from the moment it is turned on. A terminal resistor R7 is provided between the CANH and CANL lines, connected via jumper H3. For easy installation of executive control devices, connectors JP2 and JP1 form a parallel connection of two connectors, allowing the connection of devices without creating additional connections on the wires. The power connectors CN1 and CN2 are connected using the same principle.
 
-В данном устройстве реализовано несколько вариантов преобразования напряжений и тока. Основным преобразователем является микросхема DC-DC преобразователя AP64502QSP, которая подключена по стандартной схеме из даташита, принципиальная схема \ref{PPACD}.
+This device implements several options for voltage and current conversion. The main converter is the DC-DC converter chip AP64502QSP, which is connected according to the standard scheme from the datasheet, as shown in the schematic diagram \ref{PPACD}.
 
-Микросхема преобразует входное напряжение в напряжение 12В, которое необходимое для питания драйверов силовых транзисторов. Для обеспечения преобразования напряжения необходимо было рассчитать делитель обратной связи на вход линии FB (Feedback), который вычисляется (\ref{R4}):
+The chip converts the input voltage to the required 12V voltage for powering the power transistor drivers. To ensure voltage conversion, it was necessary to calculate the feedback divider at the FB (Feedback) line input, which is calculated (\ref{R4}):
 \begin{ceqn}
 	\begin{align} \label{R4}
 		R4=R6\cdot(\frac{V_{out}}{0.8V}-1)
 	\end{align}
 \end{ceqn}
-где R2=10 kOhm, для данного варианты значения получились R1=140 kOhm. Конденсатор С6 на линии SS DC-DC преобразователя является задающим времени мягкого старта. Был выбран стандартный вариант 10nF, чему примерно равен времен мягкого старта - 4 ms. 
+where R2=10 kOhm, for this variant the values are R1=140 kOhm. Capacitor C6 on the SS line of the DC-DC converter is a soft-start time setter. The standard variant 10nF was chosen, which is approximately equal to the soft start time - 4 ms\citep{AP64502Q}.
 
 \begin{figure}[H]
 	\begin{adjustbox}{addcode={\begin{minipage}{\width}}{\caption{
-							Принципиальная схема элементов питания и шины данных  системы исполнительного управления
+						Schematic diagram of power supply elements and data bus of the actuator control system
 						} \label{PPACD}
 					\end{minipage}},rotate=90,center}
 		\includegraphics[width=0.85\paperheight]{Src/images/ACD POO.png}
 	\end{adjustbox}
 \end{figure}
 
-Индуктивность катушки рассчитывается для данного преобразователя по формуле (\ref{L}), где Delta $I_{l}$ при данном подключении рассчитывается по формуле (\ref{Il}):
+The coil inductance is calculated for this inverter using the formula (\ref{L}), where Delta $I_{l}$ for this connection is calculated using the formula (\ref{Il}):
 \begin{ceqn}
 	\begin{align} \label{L}
 		L = \frac{V_{out}\cdot(V_{in}-V{out})}{V_{in}\cdot\Delta  I_l\cdot f_{sw}}
@@ -51,14 +51,14 @@
 	\end{align}
 \end{ceqn}
 
-Микросхема имеет плавную регулировку частоты от 100kHz до 2.2MHz, частота задается резистором R5, частота рассчитывается по формуле (R5):
+The chip has a frequency control from 100kHz to 2.2MHz, the frequency is set by the resistor R5, the frequency is calculated by the formula (R5):
 \begin{ceqn}
 	\begin{align} \label{R5}
 		R5 = \frac{100000}{f_{sw}[kHz]}
 	\end{align}
 \end{ceqn}
 
-Для варианта преобразования выбран самый близкий по параметрам индуктивность L = 10 μH. В стандартную схему преобразователя внесен дополнительный ряд сглаживающих танталовых конденсаторов C8, C9, C10, C14, C17. Танталовые конденсаторы имеет маленькое значения внутреннего сопротивления (ESR), который влияет на выходные пульсации (\ref{Vr}):
+For the conversion option, the closest in parameters inductance L = 10 μH \citep{AP64502Q} was chosen. An additional row of smoothing tantalum capacitors C8, C9, C10, C14, C17 has been introduced into the standard converter scheme. Tantalum capacitors have a low internal resistance (ESR), which affects the output ripple (\ref{Vr}):
 
 \begin{ceqn}
 	\begin{align} \label{Vr}
@@ -66,19 +66,19 @@
 	\end{align}
 \end{ceqn}
 
-Суммарная емкость конденсаторов $5 \times  47\mu F$.
+The total capacitance of the capacitors is $5 \times 47\mu F$.
 
-Для преобразования напряжения для микроконтроллеров используются линейные преобразователи напряжения U3 и U5, линейные преобразователи подключены к линии питания 12В для уменьшения   нагрева самих преобразователей, путем уменьшения падения напряжения на них.
+Linear voltage converters U3 and U5 are used for voltage conversion for microcontrollers. The linear converters are connected to the 12V power line to reduce the heating of the converters themselves by reducing the voltage drop across them.
 
-Измерение крутящего момента производится за счет измерения тока электродвигателя. Измеряется падения напряжения на шунтах, шунты R1, R2 и R3 имеют очень малое сопротивление, во избежания влияния передаваемое напряжения и излишнего  нагрева. Выводы шунтов подключены ко входам микроконтроллера. После конфигурации микроконтроллера, с линий входа шунтов подключаются ко внутренним операционным усилителям и используются в дальнейших преобразования.
+Torque measurement is carried out by measuring the current of the electric motor. The voltage drop across the shunts is measured, shunts R1, R2, and R3 have very low resistance to avoid the influence of the transmitted voltage and excessive heating. The shunt outputs are connected to the microcontroller inputs. After configuring the microcontroller, the shunt input lines are connected to the internal operational amplifiers and used in further conversions.
 
  
-\subsection{ Принципиальная схема устройства тактического управления}
-Принципиальная схема системы тактического управления устройства мини робота манипулятора представлена на рисунке \ref{PPTCD}.
+\subsection{ Schematic diagram of the tactical control device}
+The Shematic diagram of the tactical control system of the mini robot manipulator device is shown in Figure \ref{PPTCD}.
 
 \begin{figure}[H]
 	\begin{adjustbox}{addcode={\begin{minipage}{\width}}{\caption{
-							Принципиальная схема системы тактического управления миниробота манипулятора
+						Schematic diagram of the tactical control device for minirobot manipulator
 						} \label{PPTCD}
 					\end{minipage}},rotate=90,center}
 		\includegraphics[width=0.85\paperheight]{Src/images/TCD.png}
@@ -87,17 +87,17 @@
 
 \begin{figure}[H]
 	\begin{adjustbox}{addcode={\begin{minipage}{\width}}{\caption{
-							Принципиальная схема входов выводов для системы  управления миниробота манипулятора
+		S				Schematic diagram of the pin inputs for the control system of a mini-robot manipulator
 						} \label{DI_DOTCD}
 					\end{minipage}},rotate=90,center}
 		\includegraphics[width=0.85\paperheight]{Src/images/Di_DO.png}
 	\end{adjustbox}
 \end{figure}
 
-Микроконтроллер U15 является устройством тактического управления и собран по стандартной схеме, как на рисунке \ref{PACD}.  Устройство стратегического управления подключается через разъём J1 и используют два варианта интерфейса SPI и UART. Остальные выводы разъёма J1 не используются, так как к ним могут подключаться различные платы расширения для «Raspberry PI ZERO 2», который расширяют функционал одноплатного миникомпьтера.
+The microcontroller U15 is a tactical control device assembled according to a standard scheme, as shown in the figure \ref{PACD}. The strategic control device connects through the J1 connector and utilizes two interface options: SPI and UART. The other pins of the J1 connector are not used, as they can connect to various expansion boards for the "Raspberry PI ZERO 2", which expand the functionality of the single-board computer.
 
-Панель индикации состоит из трех светодиодов 3 цветов LED4, LED5, LED6 и подключены ко входу МК. Остальные свободные входы и выходы микроконтроллера разделены для управления внешних сигналы входов (6 штук) и выходов (6 штук) и подключены по стандартной схеме из даташита. 
+The indicator panel consists of three LEDs of 3 colors: LED4, LED5, LED6, and they are connected to the microcontroller input. The other free inputs and outputs of the microcontroller are divided for controlling external signal inputs (6 pieces) and outputs (6 pieces) and are connected according to the standard scheme from the datasheet.
 
-Входы и выходы изолированы при помощи оптопар, показаны на рисунке \ref{DI_DOTCD}, выходные сигналы коммутируются при помощи реле K1, K2, K3, K4, K5, K6, сигналы с оптопар U16, U19, U22, U25, U28, U31 усиливаются транзисторами U18, U21, U24, U27, U30, U30. Резистор в цепи базы необходим для ограничения тока поступающего на базу транзистора. Диоды D5, D6, D7, D8, D9, D10 необходимы для шунтирования выводов катушки реле в момент отключения питания. В момент выключения, на выводах катушек образуется импульс ЭДС (электродвижущая сила самоиндукции катушки), и этот импульс может достигать десятки Вольт и может привести к выходу из строя транзисторов U18, U21, U24, U27, U30, U30, которые не рассчитан на такое напряжение. 
+The inputs and outputs are isolated using optocouplers, shown in the figure \ref{DI_DOTCD}, and the output signals are switched using relays K1, K2, K3, K4, K5, K6. The signals from the optocouplers U16, U19, U22, U25, U28, U31 are amplified by the transistors U18, U21, U24, U27, U30, U30. A resistor in the base circuit is necessary to limit the current flowing to the transistor's base. Diodes D5, D6, D7, D8, D9, D10 are needed to shunt the relay coil terminals when the power is turned off. When switching off, a back EMF (electromotive force of self-induction of the coil) pulse is generated at the coil terminals, and this pulse can reach tens of volts and can lead to the failure of transistors U18, U21, U24, U27, U30, U30, which are not designed for such voltage.
 
-Входные цифровые сигналы изолируются с помощью U17, U20, U23, U26, U29, U32.  Подразумеваются логическая «1» соответствует 24В напряжения. Для обеспечения включения оптопары произведен расчет резисторов R35, R40, R45, R50, R60, с условием, ток на оптодиод внутри оптопары должен соответствовать 20 mA, при напряжении 1.2 Вольта, допустимое максимальное напряжение 30 Вольт, приближенное значение сопротивления резистора, выбрано из ряда номинала сопротивлений E24 и соответствует 1.5 kOhm. 
+The input digital signals are isolated using U17, U20, U23, U26, U29, U32. It is assumed that a logical "1" corresponds to 24V voltage. To ensure the activation of the optocoupler, the resistors R35, R40, R45, R50, R60 were calculated with the condition that the current through the optodiode inside the optocoupler should be 20 mA at a voltage of 1.2 Volts, the maximum allowable voltage is 30 Volts, and the approximate resistor value was chosen from the E24 resistance value series and corresponds to 1.5 kOhm.

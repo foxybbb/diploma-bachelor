@@ -1,21 +1,20 @@
-Проектируемая система предназначена для выполнения задач управления  робота манипулятором. Нецелесообразно размещать устройства исполнительной управления (ACK) в одном месте ввиду их количества. Поэтому целесообразно решение располагать устройства исполнительной части (ACK) в близи электродвигателя для обеспечения своевременного и точного отклика на управляющие команды, а также для уменьшения электромагнитных помех и потерь мощности на проводах. Так же близкое расположение способствует упрощению обслуживания и повышению надежности системы управления в целом.
+The designed system is intended for performing manipulator robot control tasks. It is impractical to place Actuator Control Devices (ACD) in one location due to their number. Therefore, it is advisable to locate the actuator devices (ACD) near the electric motor to ensure timely and accurate response to control commands, as well as to reduce electromagnetic interference and power losses in the wires. Also, close placement facilitates maintenance simplification and enhances the reliability of the control system as a whole.
 
-\subsection{Gimbal двигатель}
+\subsection{Gimbal motors}
+The gimbal motor in the robot is one of the components of the mechanical part of the manipulator axis. The motor transmits torque to the manipulator axis, which is used to move various parts of the robot, such as links and joints. In most cases, to increase the torque between the motor and the robot's axis, a gearbox (or transmission mechanism) is used. The gearbox reduces the rotation speed of the motor's output shaft while increasing the torque. Direct connection of the motor to the axis may not provide sufficient force or may be too fast for precise manipulations.
 
-Gimbal электродвигатель в роботе является одним из компонентов механической части оси манипулятора. Двигатель выполняет передачу крутящего момента на ось манипулятора. Это усилие используется для перемещения различных частей робота, таких как звенья и суставы. В большинстве случаев для увеличения крутящего момента между двигателем и осью робота применяется редуктор (или передаточный механизм). Редуктор снижает скорость вращения выходного вала двигателя, увеличивая при этом крутящий момент. Так как прямое соединение двигателя с осью может не обеспечить достаточного усилия или может быть слишком быстрым для точных манипуляций.
+The load acting on each axis determines the required torque; therefore, a suitable motor and gearbox were selected for each axis. The dimensions of the motor were considered, as each subsequent link, starting from the first axis and ending with the last, must be lighter and more compact, due to the need to reduce the load on the motors and distribute the mass of the structure itself. Based on the technical requirements presented in Chapter 1, it is necessary to use motors of several models.
 
-Нагрузка, действующая на каждую ось, определяет требуемый крутящий момент, следовательно, был проведен выбор подходящего двигателя и редуктора для каждой оси. Учитывались габариты двигателя, ведь каждое последующее звено, начиная от первой оси и заканчивая последней должно быть легче и компактнее, обусловлено это необходимостью снижения нагрузки на двигатели и распределением массы самой конструкции. Исходя из технических требований, представленных в главе 1, необходимо использовать двигатели нескольких моделей.
-
-Синхронные электродвигатели должны  следующим требованиям:
+Synchronous electric motors must meet the following requirements:
 
 \begin{itemize}
-	\item Внутреннее сопротивление примерно 10 Ом, для уменьшения нагрева электродвигателя с учётом габаритов;
-	\item Высокий крутящий момент на низких скоростях, характеристика Kv менее 200 единиц;
-	\item Рабочее напряжение от 10 до 20 В;
-	\item Малый вес при моменте силы более 1.0 [кгс·см].
+	\item Internal resistance of approximately 10 Ohms, to reduce heating of the electric motor considering its dimensions;
+	\item High torque at low speeds, Kv characteristic of less than 200 units;
+	\item Operating voltage from 10 to 20 V;
+	\item Low weight with a force moment of more than 1.0 [kgf·cm].
 \end{itemize}
 
-По результатам анализа моделей с различными параметрами в конструкции робота использовать электродвигатели от карданный шарниров камер (Gimbal). Модели данной категории двигателей обеспечивают оптимальный баланс между крутящим моментом и низкой скоростью вращения. Были выбраны модели GBM4008H-150T, GM5208-120T и GM3506 которые изображены на Рисунке \ref{GBM4008H}. В данных моделях электродвигателей характерной особенностью является количество пар полюсов магнита и катушек ротора - более 20 (Таблица \ref{BLDC}), так как скорость двигателя обратно пропорциональна числу полюсов ротора можно получить больший крутящий момент при низкой скорости вращения двигателя. Данные двигатели имеют большой крутящий момент при сравнительном небольшом весе до 200 граммов. Достоинством данных электродвигателей является широкий диапазон рабочих температур от -20\textdegree  до +60\textdegree \citep{simplefocBLDCMotors}.
+As a result of analyzing models with various parameters, it was decided to use electric motors from gimbal camera joints (Gimbal) in the robot's construction. Models of this category of motors provide an optimal balance between torque and low rotation speed. Models GBM4008H-150T, GM5208-120T, and GM3506, which are shown in Figure \ref{GBM4008H}, were chosen. A characteristic feature of these motor models is the number of magnet pole pairs and rotor coils - more than 20 (Table \ref{BLDC}), as the motor's speed is inversely proportional to the number of rotor poles, a greater torque can be achieved at a low motor rotation speed. These motors have high torque with a relatively low weight of up to 200 grams. The advantage of these electric motors is a wide operating temperature range from -20\textdegree to +60\textdegree \citep{simplefocBLDCMotors}.
 
 
 \begin{figure}[H]
@@ -28,7 +27,7 @@ Gimbal электродвигатель в роботе является одн�
 
 \begin{table}[H]
 	\centering
-	\caption{Технические параметры моторов GBM4008H-150T, GM5208-120T и GM3506}\label{BLDC}
+	\caption{Technical parameters of GBM4008H-150T, GM5208-120T and GM3506 motors}\label{BLDC}
 	\begin{adjustbox}{width=\textwidth}
 
 		\arrayrulecolor{black}
@@ -50,25 +49,24 @@ Gimbal электродвигатель в роботе является одн�
 \end{table}
 
 
-\subsection{Энкодер}
+\subsection{Encoder}
 
-В разработке системы управления робота манипулятора важную роль играет точное определение углов поворота его частей. Так же необходимо определять положение ротора электродвигателя для более плавного управления. Для определения угла поворота обычно используются энкодеры \citep{sciencedirectRobustDesign}.
+In the design of the control system of the robot arm, the precise determination of the rotation angles of its parts plays an important role. It is also necessary to determine the position of the motor rotor for smoother control. Encoders are commonly used to determine the rotation angle.
 
-Одной из важнейшей части является определение позиции каждого звена оси. Критерию точности предъявляется особые требования, исходя из технических требований, необходимо обеспечить повторяймость 0.02 mm на расстоянии 350мм, для обеспечения данной точности необходимо, обеспечить минимальной угол поворота оси на 0.008185°. Разрешение абсолютного энкодера должно соответствовать не менее 16 бит, но энкодеры такого разрешения только начинают появляется и являются дорогим решением в данном применении. Так же стоит учитывать, для векторного регулирования необходимо определять положение ротора двигателя, для обеспечения плавного пуска двигателя. Наилучшим решением двух проблем является установка энкодера на ротор двигателя, а за счет редуктора вырастет не только момент, но и разрешающее способность угла поворота.  Для обеспечения приемлемой точности необходимо использовать редуктор со степенью редукции не менее 11 при разрешении самого энкодера 12 бит. Только необходимо учитывать люфт во всех механических механизмов и устанавливать гармонические или циклоидальные безлюфтовые редукторы \citep{Sensinger2012}.
+One of the most crucial parts is determining the position of each axis link. Precision criteria have special requirements. Based on the technical requirements, it is necessary to ensure a repeatability of 0.02 mm at a distance of 350mm. To achieve this precision, it is required to ensure a minimum axis rotation angle of 0.008185°. The resolution of the absolute encoder should be at least 16 bits, but encoders with such resolution are just beginning to appear and are an expensive solution for this application. It is also important to consider that for vector control, it is necessary to determine the position of the motor rotor to ensure smooth motor startup. The best solution to both problems is to install an encoder on the motor rotor, and due to the gearbox, not only the torque will increase but also the resolving ability of the rotation angle. To ensure acceptable accuracy, it is necessary to use a gearbox with a reduction ratio of at least 11 with a 12-bit encoder resolution. However, it is essential to consider the backlash in all mechanical mechanisms and install harmonic or cycloidal zero-backlash gearboxes \citep{Sensinger2012}.
 
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{Src/images/as5600.png}
-	\caption{ Микросхема определения осевого положения AS5600}
+	\caption{AS5600 axial position detection chip}
 	\label{as5600P}
 \end{figure}
-
-В качестве энкодера была выбрана микросхема AS5600 (Рис. \ref{as5600P}) с цифровым выходом от фирмы «AMS». Датчик магнитного осевого положения AS5600 является бесконтактным датчиком определения абсолютного угла поворота, которая обеспечивает 12 битную точность в измерении углов, в диапазоне от 0 до 360 градусов. AS5600 сочетает в себе надежность и простоту интеграции за счет использования цифрового интерфейса передачи данных I²C (Таблица \ref{as5600T}), что делает его отличным выбором непрерывного и точного контроля за угловым положением оси мотора робота \citep{ams}.
+The AS5600 chip (Fig. \ref{as5600P}) with a digital output from "AMS" was chosen as the encoder. The AS5600 magnetic position sensor is a contactless sensor for determining the absolute rotation angle, providing 12-bit accuracy (Table \ref{as5600T})in measuring angles, ranging from 0 to 360 degrees. 
 
 \begin{table}[H]
 	\centering
-	\caption{Таблица параметров микросхемы осевого положения AS5600}\label{as5600T}
+	\caption{AS5600 axial position chip parameter table}\label{as5600T}
 	\begin{tblr}{
 		width = \linewidth,
 		colspec = {Q[468]Q[445]},
@@ -90,27 +88,26 @@ Gimbal электродвигатель в роботе является одн�
 		Position				precision [°] & 0.087
 	\end{tblr}
 \end{table}
+AS5600 combines reliability and ease of integration through the use of the I²C digital data transfer interface , making it an excellent choice for continuous and precise monitoring of the motor axis angular position in a robot \citep{ams}.
 
-
-\subsection{Устройство стратегического управления}
-Устройство стратегического управления необходимо для решения задач движения, а так же является интерфейсом между устройством тактического управления и устройством интеллектуального уровня. Тем самым предоставляя контроль параметрами и управления самим роботом. Устройство стратегического управления должно соответствовать следующим требованиям:
+\subsection{Strategic Control Device}
+The Strategic Control Device is essential for solving motion tasks and serves as an interface between the Tactical Control Device and the Intelligent Level Device, thereby providing control over the parameters and the robot itself. The Strategic Control Device must meet the following requirements:
 \begin{itemize}
-	\item Выполнение нескольких задач одновременно (Многозадачность);
-	\item Небольшой размер;
-	\item Наличие GPIO;
-	\item Высокая вычислительная мощность;
-	\item Возможность использования библиотек и функций операционной системы;
-	\item Малое напряжение питания;
-	\item Поддержание технологий беспроводной связи, спецификации IEEE 802.11 или 802.15.
+	\item Multitasking capability;
+	\item Compact size;
+	\item Availability of GPIO;
+	\item High computational power;
+	\item Ability to use libraries and functions of the operating system;
+	\item Low power supply voltage;
+	\item Support for wireless communication technologies, IEEE 802.11 or 802.15 specifications.
 \end{itemize}
 
-Эти требованием отвечает одноплатный мини-
-компьютер «Raspberry Pi Zero W 2» (Рисунок \ref{ZeroP}) от компании «Raspberry Pi Foundation». Высокая вычислительная мощность платы (Таблица \ref{ZeroT}) и преимущества операционной системы «Linux» способствуют разработке и выполнению сложных алгоритмов и задач управления на самом устройстве. К тому же поддержка широкого спектра библиотек и доступу к 40-контаткному разъему GPIO из операционной системы, значительно упрощает разработку сложных программ управления и интеграцию с другими системами. В отличии от предыдущих разработок «Raspberry Pi Zero», модификация «Pi Zero 2» имеет более производительный четырехядерный процессор «ARM Cortex-A53» и исправленный дизайн антенны для обеспечения лучшей беспроводной передачи информации.
+These requirements are met by the single-board mini-computer "Raspberry Pi Zero W 2" (Figure \ref{ZeroP}) from the "Raspberry Pi Foundation". The high computational power of the board (Table \ref{ZeroT}) and the advantages of the "Linux" operating system facilitate the development and execution of complex algorithms and control tasks on the device itself. Moreover, support for a wide range of libraries and access to the 40-pin GPIO connector from the operating system significantly simplifies the development of complex control programs and integration with other systems. Unlike previous "Raspberry Pi Zero" developments, the "Pi Zero 2" modification has a more powerful quad-core "ARM Cortex-A53" processor and a redesigned antenna for better wireless information transmission.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.6\textwidth]{Src/images/Zero.png}
-	\caption{Одноплатного миникомпьютера «Raspberry Pi Zero W 2»}
+	\caption{Single-board minicomputer «Raspberry Pi Zero W 2»}
 	\label{ZeroP}
 \end{figure}
 
@@ -119,7 +116,7 @@ Gimbal электродвигатель в роботе является одн�
 
 \begin{table}[H]
 	\centering
-	\caption{Таблица параметров одноплатного мини-компьютера Raspberry Pi Zero W 2}\label{ZeroT}
+	\caption{Table of parameters of the Raspberry Pi Zero W 2 single-board mini-computer}\label{ZeroT}
 
 	\begin{tblr}{
 		width = \linewidth,
@@ -148,30 +145,30 @@ Gimbal электродвигатель в роботе является одн�
 	\end{tblr}
 \end{table}
 
-Основываясь на требованиях к разрабатываемому устройству стратегического управления, с учетом его специфики работы, принято решение использовать операционную систему «Raspberry Pi OS Lite», которая основанная на дистрибутиве «Debian 12» 32-битной версии. Основной особенностью данного дистрибутива является стабильность, безопасность и широкая поддержка пакетов.
+Based on the requirements to the developed strategic control device, taking into account its specifics, it was decided to use the operating system "Raspberry Pi OS Lite", which is based on the distribution "Debian 12" 32-bit version. The main feature of this distribution is stability, security and wide package support.
 
-\subsection{Контроллер тактического и исполнительного управления}
+\subsection{Tactical and actutor control system controller}
 
-Согласно требованиям разрабатываемой системе управления, устройством управления для тактического и исполнительного устройство должно иметь малые габариты поэтому для реализации необходимо использовать микроконтроллер, за счет малых его размера. В задачу микроконтроллера входит: считывание и обработка данных от датчиков, осуществление обмена данными по шине данных, производство численных вычислений для векторного регулирования, прямой и обратной задачи кинематики, а также осуществление генерации сигналов PWM для инвертора. Минимальные требования к микроконтроллеру:
+According to the requirements of the developed control system, the control device for tactical and executive devices must be compact; therefore, a microcontroller should be used due to its small size. The microcontroller's tasks include reading and processing data from sensors, facilitating data exchange via the data bus, performing numerical calculations for vector control, solving direct and inverse kinematics problems, and generating PWM signals for the inverter. The minimum requirements for the microcontroller are:
 \begin{itemize}
-	\item Рабочее питание от 3В;
-	\item Наличие более 20 линии ввода/вывода;
-	\item Порты для работы с CAN-шиной;
-	\item Порты для работы с PWM;
-	\item Аппаратная поддержка I2C протокола на выводах МК;
-	\item Наличие внутреннего АЦП;
-	\item Наличие механизма прямого доступ к памяти DMA.
+	\item Operating power from 3V;
+	\item More than 20 input/output lines;
+	\item Ports for working with the CAN bus;
+	\item Ports for working with PWM;
+	\item Hardware support for the I2C protocol on microcontroller pins;
+	\item Presence of an internal ADC;
+	\item Presence of a Direct Memory Access (DMA) mechanism.
 \end{itemize}
 
-Основной проблемой при выборе микроконтроллера, был недостаток информации применительно к решению задач системы управления тактического и исполнительного управления. Проблема заключалась в выборе лучшей модели МК при решениях кинематических задач. Невозможно было определить какой МК, среди самых распространённых на рынке, имеет лидирующее место. Микроконтроллеры сильно отличаются внутри одного семейства, а при рассмотрении моделей от разных производителей, архитектура каждого МК сильно отличается, надо было учесть и (toolchain) набор инструментов программирования, который тоже мог влиять на производительность. Следовательно, возникла необходимость провести тестирование различных видов микроконтроллеров общего применения, доступных на рынке.
+The main problem in choosing a microcontroller was the lack of information related to solving the tasks of the tactical and executive control system. The issue was selecting the best microcontroller model for kinematic tasks. It was impossible to determine which microcontroller, among the most popular on the market, held a leading position. Microcontrollers vary significantly within a single family, and when considering models from different manufacturers, the architecture of each microcontroller is vastly different. It was also necessary to consider the toolchain, the programming tools set, which could also affect performance. Consequently, there was a need to test various types of general-purpose microcontrollers available on the market.
+\subsection{Testing microcontrollers}
 
-\subsection{Тестирование микроконтроллеров}
+The conducted testing was necessary to find a suitable microcontroller model. Writing executable programs for each specific microcontroller is a difficult and lengthy process; it is necessary to consider the architecture of the microcontroller and optimize the algorithm for each family. Therefore, synthetic testing was conducted to choose the most suitable microcontroller.
 
-Проведённое тестирование было необходимо для нахождения подходящей модели микроконтроллера. Написание исполняемой программы для каждого конкретного микроконтроллера является трудным и долгим процессом, необходимо учитывать архитектуру микроконтроллер и оптимизировать алгоритм под каждое семейство. Поэтому для выбора наиболее подходящего микроконтроллера было проведено синтетическое тестирование.
-Основным критерием выбора была скорость выполнения конкретных математических операций. Высокая скорость выполнения необходима для обеспечения эффективной работы системы в реальном времени. Это особенно важно в задаче векторного регулирования, где задержки в обработке данных приводят к существенным потерям точности, а также отзывчивости всей системы в целом.	При более подробном рассмотрение задач связанных с вычислением задач кинематики и векторного регулирования (в частности прямое и обратное преобразование кларка формулы(\ref{U_a}, \ref{u_b}, \ref{u_c}), обратного преобразования парка формулы(\ref{u_park}, \ref{u_park2}), было обнаружено большое количество вычислений\citep{5899203}:
+The main selection criterion was the speed of performing specific mathematical operations. High execution speed is necessary to ensure efficient real-time system operation. This is especially important in vector control tasks, where delays in data processing lead to significant losses in accuracy and responsiveness of the entire system as a whole. Upon closer examination of tasks related to kinematics and vector control calculations (in particular, direct and inverse Clarke transformations formulas (\ref{U_a}, \ref{u_b}, \ref{u_c}), inverse Park transformation formulas (\ref{u_park}, \ref{u_park2}), a large number of calculations were discovered \citep{5899203}:
 \begin{itemize}
-	\item Умножение и деление чисел с плавающей запятой;
-	\item Вычисление тригонометрических выражений, функции синуса и косинуса;
+	\item Multiplication and division of floating point numbers;
+	\item Calculating trigonometric expressions, sine and cosine functions;
 
 	      \begin{ceqn}
 		      \begin{align} \label{u_park}
@@ -185,7 +182,7 @@ Gimbal электродвигатель в роботе является одн�
 			      U_\beta = U_q \cos(\theta)
 		      \end{align}
 	      \end{ceqn}
-	\item Вычисление квадратного корня.
+	\item Square root calculation.
 	      \begin{ceqn}
 		      \begin{align} \label{U_a}
 			      u_a = U_\alpha
@@ -208,27 +205,25 @@ Gimbal электродвигатель в роботе является одн�
 
 
 
-Приведённые выше пункты являются сложными для вычислений на ядре любого микроконтроллера и нуждаются в большом количестве операций процессора для их вычисления.  Вычисление подобных выражений будет занимать весомое количество времени, чем негативно скажется на быстродействии работы всего управления, так и на работе отдельных её частей\citep{pack2008microcontroller}.
+The points mentioned above are complex for computations on the core of any microcontroller and require a large number of processor operations for their calculations. Calculating such expressions will take a significant amount of time, which will negatively affect the performance of the entire control system, as well as the operation of its individual parts \citep{pack2008microcontroller}.
 
-
-Для проведения теста были выбраны микроконтроллеры от производителей: «STMicro electronics», «Raspberry PI Foundation», «Espressif Systems».
-Главным критерием сравнения было измерение затраченного времени на каждый тип вычисления. Во время тестирования не использовались действия, связанные с приостановкой главного цикла исполняемой программы, например прерывания.
+Microcontrollers from manufacturers such as "STMicroelectronics", "Raspberry PI Foundation", and "Espressif Systems" were chosen for the test. The main comparison criterion was the measurement of the time spent on each type of calculation. During the testing, actions related to pausing the main loop of the executable program, such as interrupts, were not used.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.4\textwidth]{Src/images/TestDevices.png}
-	\caption{Платы, который участвовали в тестировании}
+	\caption{Boards that participated in the test}
 	\label{Test}
 \end{figure}
 
-В таблице \ref{TestT} приведен перечень использовавшихся микроконтроллеров, их тактовая частота и процессор. Платы, которые участвовали в испытании изображены на рисунке \ref{Test}.
+The \ref{TestT} table lists the microcontrollers used, their clock speeds, and processor model. The boards that participated in the test are shown in the \ref{Test} figure.
 
-% \usepackage{color}
+% \usepackage{color}n
 % \usepackage{tabularray}
 \definecolor{DustyGray}{rgb}{0.6,0.6,0.6}
 \begin{table}[H]
 	\centering
-	\caption{Список микроконтроллеров их характеристики}\label{TestT}
+	\caption{List of microcontrollers and their characteristics}\label{TestT}
 	\begin{tblr}{
 		width = \linewidth,
 		colspec = {Q[269]Q[274]Q[146]Q[248]},
@@ -261,7 +256,7 @@ Gimbal электродвигатель в роботе является одн�
 	\end{tblr}
 \end{table}
 
-Суть программы в микроконтроллере состояла в вычислении затрачиваемого времени с использованием порта GPIO. Перед вычислением операции выключаются все прерывания, микроконтроллер поднимает сигнал на выводе в высокое состояние, производится вычисление математической операции, на выводе ножки МК опускает в нижнее состояние, прерывания восстанавливаются. Далее при помощи осциллографа HMO2024 от производителя «ROHDE \& SCHWARZ», измерялась длительность импульса и данные записывались в таблицу \ref{TestTimeT} (меньше значение - лучше), стоит отметить, что при расчётах учитывалось время переключения выходов GPIO, записанные во 2 колоне таблицы \ref{TestTimeT}, результаты показаны на графике \ref{TestTimeP}.
+The essence of the program in the microcontroller was to calculate the time spent using the GPIO port. Before performing the operation, all interrupts are disabled, the microcontroller sets the signal to a high state on the output, the mathematical operation is performed, the microcontroller pin is set to a low state, and the interrupts are restored. Then, using the HMO2024 oscilloscope from the manufacturer "ROHDE \& SCHWARZ", the pulse duration was measured, and the data were recorded in Table \ref{TestTimeT} (the smaller the value, the better). It is worth noting that the calculations took into account the switching time of the GPIO outputs, recorded in the 2nd column of Table \ref{TestTimeT}, and the results are shown in Graph \ref{TestTimeP}.
 
 
 
@@ -272,7 +267,7 @@ Gimbal электродвигатель в роботе является одн�
 
 \begin{table}[H]
 	\centering
-	\caption{Таблица измеренного времени на вычисление математических операций}\label{TestTimeT}
+	\caption{Table of measured time to calculate mathematical operations}\label{TestTimeT}
 
 	\begin{adjustbox}{width=\textwidth}
 
@@ -375,7 +370,7 @@ Gimbal электродвигатель в роботе является одн�
 \begin{figure}[H]
 	\centering
 
-	\begin{tikzpicture}[scale=0.7]
+	\begin{tikzpicture}[scale=0.65]
 		\begin{axis}[
 			x tick label style={rotate=45, anchor=east, align=right},
 			title=Total operation calculation time,
@@ -402,12 +397,13 @@ Gimbal электродвигатель в роботе является одн�
 				};
 		\end{axis}
 	\end{tikzpicture}
-	\caption{График сравнения времени вычисления математических операций у различных МК}\label{TestTimeP}
+	\caption{Graph comparing the calculation time of mathematical operations at different MCs}\label{TestTimeP}
 
 \end{figure}
 
 
-Приведённые данные не дали чёткую информации о преимуществах конкретного контроллера в конкретных вычислениях, для давнейшего и более удобного анализа таблица пересчитана в значения тысяч операций в секунду kOPS таблица \ref{TestTimeT2}, формула(\ref{kops}).
+The provided data did not give clear information about the advantages of a specific controller in specific calculations. For further and more convenient analysis, the table was recalculated into the values of thousands of operations per second, kOPS, in Table \ref{TestTimeT2}, using formula (\ref{kops}).
+
 
 \begin{ceqn}
 	\begin{align} \label{kops}
@@ -420,7 +416,7 @@ Gimbal электродвигатель в роботе является одн�
 
 \begin{table}[H]
 	\centering
-	\caption{Таблица сравнения тысяч операций в секунду на вычисление математических операций у каждого МК}\label{TestTimeT2}
+	\caption{Table comparing thousands of operations per second to calculate mathematical operations of each MCs}\label{TestTimeT2}
 
 	\begin{adjustbox}{width=\textwidth}
 
@@ -511,14 +507,11 @@ Gimbal электродвигатель в роботе является одн�
 \end{table}
 
 
-Суммарные результаты пересчёта времени в значения тысяч операций в секунду (kOPS) представлены в таблице \ref{TestTimeT2} (значения больше — лучше), на рисунке \ref{TestTimeP2}  изображён график максимальных значений тысяч операций в секунду для каждого микроконтроллера. В приведённых расчетах микроконтроллеры выполняли операции на максимальной возможной тактовой частоте Fcpu, но у каждого МК максимальная тактовая частота разная (таблица \ref{TestTimeT}), для оценки эффективности микроконтроллеров был проведён расчёт количества тысяч операций в секунду на мегагерц(\ref{kopsmhs}). График приведён на рисунке \ref{TestTimeP}(значения больше — лучше), таблицу с расчётами можно найти в приложении 1.
-
-
-
+The cumulative results of the recalculation of time into the values of thousands of operations per second (kOPS) are presented in Table \ref{TestTimeT2} (higher values are better). 
 \definecolor{Salomie10}{rgb}{1,0.89,0.513}
 \begin{figure}[H]
 	\centering
-	\begin{tikzpicture}[scale=0.67]
+	\begin{tikzpicture}[scale=0.65]
 		\begin{axis}[
 			x tick label style={rotate=45, anchor=east, align=right},
 			title=Thousands of operations per second,
@@ -545,18 +538,19 @@ Gimbal электродвигатель в роботе является одн�
 				};
 		\end{axis}
 	\end{tikzpicture}
-	\caption{График максимальных значений тысяч операций в секунду у различных МК}\label{TestTimeP2}
+	\caption{Graph of maximum values of thousands of operations per second for different MC}\label{TestTimeP2}
 \end{figure}
+Figure \ref{TestTimeP2} shows the graph of maximum values of thousands of operations per second for each microcontroller. 
 
+In the calculations provided, the microcontrollers performed operations at the maximum possible clock frequency Fcpu, but each microcontroller has a different maximum clock frequency (Table \ref{TestTimeT}). To assess the efficiency of microcontrollers, a calculation of thousands of operations per second per megahertz (\ref{kopsmhs}) was conducted. The graph is shown in Figure \ref{TestTimeP} (higher values are better), and the table with calculations can be found in Appendix 1.
 \begin{ceqn}
 	\begin{align} \label{kopsmhs}
 		kOPS= \frac{K_{OPS}}{Mhz}
 	\end{align}
 \end{ceqn}
-
 \begin{figure}[H]
 	\centering
-	\begin{tikzpicture}[scale=0.7]
+	\begin{tikzpicture}[scale=0.65]
 		\begin{axis}[
 			x tick label style={rotate=45, anchor=east, align=right},
 			title=Efficiency of microcontrollers,
@@ -572,17 +566,17 @@ Gimbal электродвигатель в роботе является одн�
 			\addplot coordinates {(ATmega328p,7.205) (ESP32,54.007) (ESP8266,14.412) (RP2040 [Arduino IDE],7.815) (RP2040 [C++ SDK],11.717) (RP2040 [MicroPython],.723) (STM32G431,114.565) (STM32G431 [FPU-OFF],21.932)};
 		\end{axis}
 	\end{tikzpicture}
-	\caption{ График значений тысяч операций в секунду на 1 мегагерц каждого МК}\label{TestTimeP3}
+	\caption{ Graph of the values of thousands of operations per second per 1 megahertz of each MCs}\label{TestTimeP3}
 \end{figure}
 
 
-В результате проведённых тестов было выяснено несколько интересных моментов связанных с микроконтроллерами. Как можно увидеть на рисунке 3.4 один процессор RP2040 с разными наборами средств разработки выдают различные результаты. Фаворитами теста являются МК  ESP32 с процессором Dual Xtensa LX6 от китайской компании «Espressif Systems» и микроконтроллер STM32G431 от компании «STMicroelectronics» с процессором Cortex M4. Чип STM был наиболее производительнее чем ESP32, хотя тактовая частота у ESP32 почти в двое выше STM, но нет значительного прироста в математических операциях. Стоит учесть STM вышел в лидеры по времени, из-за наличия аппаратных блоков операций с плавающей запятой (FPU) в процессоре.
+As a result of the tests conducted, several interesting points related to microcontrollers were discovered. As can be seen in Figure 3.4, one RP2040 processor with different sets of development tools yields different results. The test favorites are the ESP32 microcontroller with a Dual Xtensa LX6 processor from the Chinese company "Espressif Systems" and the STM32G431 microcontroller from "STMicroelectronics" with a Cortex M4 processor. The STM chip was more efficient than the ESP32, although the clock frequency of the ESP32 is almost twice as high as that of the STM, but there is no significant increase in mathematical operations. It is worth noting that STM came out on top in terms of time, due to the presence of hardware floating-point operation units (FPU) in the processor.
 
-А также сопроцессора аппаратного ускорения математических операций «CORDIC».В результате контроллером системы управления был выбран чип STM32G431, в таблице \ref{MCUData} представлены основные характеристики данного чипа \citep{stmcordic}.
+Additionally, the presence of the "CORDIC" co-processor for hardware acceleration of mathematical operations. As a result, the STM32G431 chip was chosen as the controller for the control system, and Table \ref{MCUData} presents the main characteristics of this chip \citep{stmcordic}.
 % \usepackage{tabularray}
 \begin{table}[H]
 	\centering
-	\caption{Таблица основных характеристик микроконтроллера STM32G431}\label{MCUData}
+	\caption{Table of main characteristics of STM32G431 microcontroller}\label{MCUData}
 
 	\begin{tblr}{
 		width = \linewidth,
@@ -630,20 +624,20 @@ Gimbal электродвигатель в роботе является одн�
 
 
 
-\subsection{Силовые ключи}
-Силовые транзисторные ключи формируют трехфазный инвертер, для управления электродвигателем.  В данном случае транзисторные ключи задействованы для усиления PWM сигналов, поступающих от МК. Тип транзистора - N-канальный MOSFET транзисторы с индуцированным каналом. Такие транзисторы имеют очень малое сопротивление канала (Rds(on)). Это означает меньшие потери мощности при управлении нагрузкой, нагревание элемента будет меньше, что при одинаковых значениях параметров позволяют выбрать модели с меньшими габаритами. Силовые ключи должны соответствовать следующим требованиям:
+\subsection{Power Transistors}
+Power transistor switches form a three-phase inverter for controlling the electric motor. In this case, the transistor switches are used to amplify the PWM signals coming from the MCU. The type of transistor is N-channel MOSFETs with an induced channel. Such transistors have very low channel resistance (Rds(on)). This means lower power losses when controlling the load, and the component will heat up less, which allows choosing models with smaller dimensions for the same parameter values. The power switches must meet the following requirements:
 \begin{itemize}
-	\item Рабочее выходное напряжение более 24В;
-	\item Рабочий температурный диапазон -30 до +80;
-	\item Тип транзистора – MOSFET;
-	\item Тип канала – n;
-	\item Маленький размер элемента;
-	\item Тип установки – поверхностный монтаж.
+	\item Operating output voltage is more than 24V;
+	\item Operating temperature range -30 to +80;
+	\item Transistor type is MOSFET;
+	\item Channel type – n;
+	\item Small element size;
+	\item Type of installation is surface mounting.
 \end{itemize}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{Src/images/Transistir.png}
-	\caption{Транзистор «SIR680DP»}
+	\caption{Transistor «SIR680DP»}
 	\label{SIR680DP}
 \end{figure}
 
@@ -655,7 +649,7 @@ Gimbal электродвигатель в роботе является одн�
 % \usepackage{tabularray}
 \begin{table}[H]
 	\centering
-	\caption{Таблица основных характеристик транзистор SIR680DP}\label{SIR680DPT}
+	\caption{Table of main characteristics of transistor SIR680DP}\label{SIR680DPT}
 
 	\begin{tblr}{
 		width = \linewidth,
@@ -692,17 +686,17 @@ Gimbal электродвигатель в роботе является одн�
 		SO-8
 	\end{tblr}
 \end{table}
-Были выбраны транзисторы SIR680DP (Картинка \ref{SIR680DP}) от «Vishay Siliconix», SIR680DP - n- канальный MOSFET мощностью 80В / 100А. Они обладают высокой плотностью тока и низким сопротивлением открытого канала (RDS(on)), порядка 2.4 mΩ, остальные парметры находятся в таблице \ref{SIR680DPT}, что стало идеальной характеристикой подходящего элемента для применения с использованием ширинно-импульсной модуляции (PWM). Также важно отметить, что выбор компонентов был продиктован маленьким размером корпуса «PowerPAK-SO-8»,
-\subsection{Драйвер силовых ключей}
+SIR680DP transistors (Figure \ref{SIR680DP}) from "Vishay Siliconix" were chosen, SIR680DP - 80V/100A n-channel MOSFET. They feature high current density and low open channel resistance (RDS(on)), around 2.4 mΩ, other parameters are in Table \ref{SIR680DPT}, which became the ideal characteristic of a suitable element for use with Pulse Width Modulation (PWM). It is also important to note that the choice of components was dictated by the small size of the "PowerPAK-SO-8" package.
+\subsection{Power Transistors Driver}
 
-Для облегчения управления мостовой транзисторной схемой инвертора используются драйвера. Их задача - преобразование маломощного сигнала, снимаемого с цифрового выхода МК, в сигнал с повышенным уровнем напряжения и мощности.
+To facilitate the control of the bridge transistor circuit of the inverter, drivers are used. Their task is to convert a low-power signal taken from the digital output of the MCU into a signal with a higher voltage and power level.
 
-В данной реализации исполнительной системы использовались драйвера общего назначения L6385ED (Рисунок \ref{L6385ED}) производимые фирмой «STMicroelectronics». Данная микросхема является полумостовым драйвером. Один драйвер может управлять 2 силовыми транзисторами верхнего и нижнего уровня. Технические параметры L6385ED представлены в таблице \ref{L6385EDP}.
+In this implementation of the executive system, general-purpose drivers L6385ED (Figure \ref{L6385ED}) produced by "STMicroelectronics" were used. This chip is a half-bridge driver. One driver can control 2 power transistors of the upper and lower levels. The technical parameters of L6385ED are presented in Table \ref{L6385EDP}.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.3\textwidth]{Src/images/Driver.png}
-	\caption{Драйвер L6385ED}
+	\caption{Driver L6385ED}
 	\label{L6385ED}
 \end{figure}
 
@@ -710,7 +704,7 @@ Gimbal электродвигатель в роботе является одн�
 % \usepackage{tabularray}
 \begin{table}[H]
 	\centering
-	\caption{Таблица основных характеристик драйвера L6385ED}\label{L6385EDP}
+	\caption{Table of L6385ED driver main characteristic}\label{L6385EDP}
 
 	\begin{tblr}{
 		width = \linewidth,
@@ -740,15 +734,15 @@ Gimbal электродвигатель в роботе является одн�
 	\end{tblr}
 \end{table}
 
-\subsection{Передатчик шины данных}
-Для обеспечения передачи данных между устройствами исполнительного управления, стратегического управления и других устройств целесообразно исользовать шину данных, для уменьшения количества соединительных проводников. Наиболее подходящим протоколом передачи данных является CAN шина, который является промышленным стандартом промышленной сети и не однократно использовалась для внедрения в роботы манипуляторы \citep{Megalingam2021}.
-Главная причина использования шины CAN, это особенность в передачи данных, данные доступны всем устройствам, подключенным к сети. Возможна передача данных как одному, так и нескольким устройствам одновременно. На основе этого реализовывался вариант синхронизации всех исполнительных устройств, необходимых для своевременного начала движения \citep{stmfdcan}.
-На основе выбранной модели микроконтроллера в главе 3.5 и технических данных из таблицы \ref{TCAN1462DRQ1T}, была выявлена аппаратная поддержка микроконтроллером CAN шины второго поколения - CAN FD.
+\subsection{Data bus transmitter}
+To ensure data transfer between the executive control devices, strategic control, and other devices, it is advisable to use a data bus to reduce the number of connecting conductors. The most suitable data transfer protocol is the CAN bus, which is an industrial standard for industrial networks and has been used multiple times for implementation in manipulator robots \citep{Megalingam2021}.
+The main reason for using the CAN bus is its data transfer feature, where data is available to all devices connected to the network. Data transfer to one or several devices simultaneously is possible. Based on this, a synchronization option for all executive devices necessary for timely motion initiation was implemented \citep{stmfdcan}.
+Based on the selected microcontroller model in Chapter 3.5 and technical data from Table \ref{TCAN1462DRQ1T}, the hardware support by the microcontroller for the second-generation CAN bus - CAN FD, was identified.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.3\textwidth]{Src/images/Trans.png}
-	\caption{Передатчик TCAN1462DRQ1}
+	\caption{Transceiver TCAN1462DRQ1}
 	\label{TCAN1462DRQ1}
 \end{figure}
 
@@ -760,7 +754,7 @@ Gimbal электродвигатель в роботе является одн�
 % \usepackage{tabularray}
 \begin{table}[H]
 	\centering
-	\caption{Таблица основных характеристик передатчика TCAN1462DRQ1}\label{TCAN1462DRQ1T}
+	\caption{Table of main characteristics of the TCAN1462DRQ1 transmitter}\label{TCAN1462DRQ1T}
 
 	\begin{tblr}{
 		width = \linewidth,
@@ -787,26 +781,21 @@ Gimbal электродвигатель в роботе является одн�
 		11898-2 Compliance & Yes
 	\end{tblr}
 \end{table}
-CAN-FD – это следующий этап развития классической шины CAN, которая обеспечивает более высокую скорость передачи данных и больший объем передаваемых данных в одном кадре, такое возможно из-за особенности передачи данных поля (CAN data) на скорости кратно превышающую скорость передачи заголовка, что может иметь значение вплоть до 8 Мбит/с.
+CAN-FD is the next stage in the development of the classical CAN bus, which provides a higher data transmission rate and a larger amount of transmitted data in one frame, this is possible due to the feature of transmitting field data (CAN data) at a speed multiple of the header transmission rate, which can be up to 8 Mbit/sec.
 
-Чтобы не ограничивать в возможной скорости передачу данных по шине CAN, был выбран передатчик TCAN1462DRQ1 (изображен на рисунке \ref{TCAN1462DRQ1}), передатчик выполняет усиление сигналов, защиту линии в случае повреждения CAN-шины, и регулировку скорости их передачи.
+In order not to limit the possible speed of data transmission on the CAN bus, the TCAN1462DRQ1 transmitter (shown in the figure \ref{TCAN1462DRQ1}) was selected. The transmitter performs signal amplification, line protection in case of CAN bus damage, and adjusts the speed of their transmission.
 
-\subsection{Преобразователь питания}
-Из-за высокого потребления мини-компьютера, потребления достигает до 2.5А. По рекомендации производителя необходимо использовать отдельный DC – DC преобразователь. Источник питания должен соответствовать следующим требованиям:
+\subsection{Power converter}
+Due to the high consumption of the mini-computer, the consumption reaches up to 2.5A. According to the manufacturer's recommendation it is necessary to use a separate DC to DC converter. The power supply must meet the following requirements:
 \begin{itemize}
-	\item Входное напряжение 24В;
-	\item Преобразование DC-DC;
-	\item Выходное напряжение 5В;
-	\item Высокий выходной ток 3А и более.
+	\item Input voltage 24V;
+	\item DC-DC Converter;
+	\item Output voltage 5V,12V;
+	\item High output current of 3A or more.
 \end{itemize}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.3\textwidth]{Src/images/dc-dc.png}
-	\caption{DC – DC микросхема АP64502QSP}
-	\label{АP64502QSP}
-\end{figure}
-Была выбрана микросхема DC-DC Step-down преобразователя АP64502QSP, показанная на рис. \ref{АP64502QSP}. Преимущество импульсного преобразователя в высокой эффективности, не требующей теплоотвода, позволяет создавать компактные решения преобразования напряжения и тока.
-Основным преимуществом выбора является способность преобразования большого тока 5A (таблица \ref{АP64502QSPT}), без использования внешних ключей и меньшего количество необходимых для работы данной микросхемы элементов \citep{AP64502Q}.
+
+The AP64502QSP DC-DC step-down converter chip was selected, shown in Fig. \ref{AP64502QSP}. The advantage of a pulse converter in high efficiency, which does not require heat dissipation, allows for compact voltage and current conversion solutions.
+The main advantage of this choice is the ability to convert a high current of 5A (Table \ref{AP64502QSPT}), without the use of external switches and the smaller number of \citep{AP64502Q} elements required to operate this chip.
 
 
 
@@ -814,7 +803,7 @@ CAN-FD – это следующий этап развития классиче�
 % \usepackage{tabularray}
 \begin{table}[H]
 	\centering
-	\caption{Таблица основных характеристик DC-DC преобразователя АP64502QSP}\label{АP64502QSPT}
+	\caption{Table of main characteristics of the AP64502QSP DC-DC converter}\label{АP64502QSPT}
 
 	\begin{tblr}{
 		width = \linewidth,
@@ -851,14 +840,18 @@ CAN-FD – это следующий этап развития классиче�
 	\end{tblr}
 \end{table}
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\textwidth]{Src/images/dc-dc.png}
+	\caption{DC to DC chip AP64502QSP}
+	\label{АP64502QSP}
+\end{figure}
 
-\subsection{Функциональная схема системы управления мини роботом}
+\subsection{Functional diagram of the mini robot control system}
+The functional diagram of the mini robot arm control system is shown in Fig. \ref{FRobot}.
+The main controlling element of the tactical control system is the STM32G431 controlling microcontroller. All the necessary elements are connected to this microcontroller.
 
-Функциональная схема системы управления мини роботом манипулятором показана на рис. \ref{FRobot}.
-Главным управляющим элементом системы тактического управления, является управляющий МК STM32G431. К данному микроконтроллеру подключены все необходимые элементы.
-
-Подключение Raspberry Pi Zero W2 (в роли стратегического устройства) к главному управляющему элементу STM32G431 возможно через два интерфейса UART, передача информация в текстовом виде и через SPI, для передачи сериализованных данных больших объёмов на большой скорости. Устройство Raspberry Pi задействует 5 линий ввода/вывода:
-
+Connecting Raspberry Pi Zero W2 (as a strategic device) to the main control element STM32G431 is possible through two interfaces UART, the transfer of information in text form and through SPI, to transfer serialised data of large volumes at high speed. The Raspberry Pi device uses 5 I/O lines:
 \begin{itemize}
 	\item PA7 (SPI1\_MOSI) \rightarrow GPIO 12 (RPI\_MOSI);
 	\item PA6 (SPI1 \_MISO) \rightarrow GPIO 13 (RPI\_MISO);
@@ -867,28 +860,25 @@ CAN-FD – это следующий этап развития классиче�
 	\item PA2 (UART2\_TX) \rightarrow RPI (RPI\_RX).
 \end{itemize}
 
-Осуществление общения между устройствами исполнительной системы, используется передатчик шины CAN (TCAN1462) и передатчик задействует 2 линии ввода/вывода порта B, микроконтроллера STN32G431:
+In order to communicate between the devices of the executive system, a CAN bus transmitter (TCAN1462) is used and the transmitter uses the 2 I/O lines of port B of the STN32G431 microcontroller:
 \begin{itemize}
 	\item PB9 (FDCAN\_TX) \rightarrow CAN Transceiver (CAN\_TX);
 	\item PB8 (FDCAN\_RX) \rightarrow CAN Transceiver (CAN\_RX);
 \end{itemize}
-
-Для обеспечения внешней связи используется передатчик интерфейса RS485 который подключается к 2 линии ввода/вывода порта A.
+For external communication, an RS485 interface transmitter is used, which is connected to the 2 I/O lines of port A.
 \begin{itemize}
 	\item PA10 (UART2\_TX) \rightarrow RS485 (UART\_TX);
 	\item PA9 (UART2\_RX) \rightarrow RS485 (UART\_RX);
 \end{itemize}
-
-Индикация состояния робота происходит через панель индикации и состоит из трёх светодиодов разного цвета и занимает 3 линии ввода/вывода порта B.
+The robot status is indicated via the display panel and consists of three LEDs of different colours and occupies 3 I/O lines of port B.
 \begin{itemize}
 	\item PB0 \leftarrow Indication Panel (LED\_YEL);
 	\item PB1 \leftarrow Indication Panel (LED\_RED);
 	\item PB2 \leftarrow Indication Panel (LED\_GRN);
 \end{itemize}
-
-Остальные свободные линии ввода/вывода портов B, отведены на блоки цифровых входов и выходов:
+The remaining free I/O lines of the B ports are allocated to digital input and output blocks:
 \begin{itemize}
-	\item \textbf{Цифровые входы:}
+	\item \textbf{Digital inputs:}
 	      \begin{itemize}
 		      \item[$\circ$] PB11 \leftarrow DI (IN\_1);
 		      \item[$\circ$] PB12 \leftarrow DI (IN\_2);
@@ -897,7 +887,7 @@ CAN-FD – это следующий этап развития классиче�
 		      \item[$\circ$] PB15 \leftarrow DI (IN\_5);
 		      \item[$\circ$] PA8 \leftarrow DI (IN\_6);
 	      \end{itemize}
-	\item \textbf{Цифровые выходы STN32G431:}
+	\item \textbf{Digital Outputs:}
 	      \begin{itemize}
 		      \item[$\circ$] PB7 \rightarrow DO (OUT\_1);
 		      \item[$\circ$] PB6 \rightarrow DO (OUT\_2);
@@ -908,34 +898,30 @@ CAN-FD – это следующий этап развития классиче�
 	      \end{itemize}
 \end{itemize}
 
-Подключение всех частей системы производится на электронной плате с помощью пайки элементов. Также будут применены следующие разъёмы:
-\begin{itemize}
-	\item разъёмы для рабочего напряжения – XT30;
-	\item Разъёмы для шины CAN - JST 1.25 PH 2;
-	\item Штыревые разъёмы для остальной периферии - PBS.
+Connection of all parts of the system is made on the electronic board by soldering the elements. The following connectors will also be used:\begin{itemize}
+	\item connectors for operating voltage -- XT30;
+	\item CAN bus connectors -- JST 1.25 PH 2;
+	\item The pins for the rest of the peripherals -- PBS.
 \end{itemize}
 
-Разъёмы XT30 обеспечивают надежное соединение и выдерживают значительные электрические нагрузки без потерь и риска возгорания из-за плохого контакта или перегрева.
+XT30 connectors provide a reliable connection and withstand significant electrical loads without loss or risk of fire due to poor contact or overheating.
 
+JST connectors provide easy connection and disconnection, which is convenient for maintenance and system upgrades. They prevent accidental reverse connection, which can be critical to prevent damage to components during installation.
 
-
+PBS male connectors are suitable for connecting components that do not require high currents and are reusable. Pin connectors provide good contact and ease of mounting on the PCB, which is important for rapid prototyping and system setup.
 
 \begin{figure}[H]
 	\begin{adjustbox}{addcode={\begin{minipage}{\width}}{\caption{
-							Функциональная схема системы управления мини роботом
+							Functional diagram of the mini robot control system
 						}\label{FRobot}\end{minipage}},rotate=90,center}
 		\includegraphics[width=0.85\paperheight]{Src/images/FuncTCD.png}
 	\end{adjustbox}
 \end{figure}
 
-Разъемы JST обеспечивают простоту подключения и отключения, что удобно при обслуживании и модернизации системах. Они предотвращают случайное обратное подключение, что может быть критично для предотвращения повреждений компонентов при монтаже.
 
-Штыревые разъемы PBS подходят для подключения компонентов не требующих высоких токов, и при этом могут многократно использованы. Штыревые разъемы обеспечивают хороший контакт и простоту монтажа на печатной плате, что важно для быстрого прототипирования и наладки системы.
 
-\subsection{Разработка функциональной схема системы исполнительного устройства}
-Функциональна схема показана на рисунке \ref{FACD}/
-
-Главным управляющим элементом обработки команд и генерации сигналов, системы исполнительной управления, является МК STM32G431. Генерация сигналов PWM происходит таймером и выводятся 6 канами сравнения, которые выведены на линии порта А, С и B:
+\subsection{Functional diagram of the actuator control system}
+The functional diagram is shown in the figure \ref{FACD}. The main control element of command processing and signal generation, executive control system, is the STM32G431 MCU. Generation of PWM signals is performed by the timer and output by 6 comparison channels, which are output on the lines of port A, C and B:
 
 \begin{itemize}
 	\item PB15 \rightarrow HIN1;
@@ -945,7 +931,7 @@ CAN-FD – это следующий этап развития классиче�
 	\item PC13 \rightarrow HIN3;
 	\item PA8 \rightarrow LIN3;
 \end{itemize}
-Драйвера усиливают сигнал от МК и подают на силовые ключевые транзисторы:
+The drivers amplify the signal from the MCU and feed the power key transistors:
 \begin{itemize}
 	\item HIN1 \rightarrow HGV1;
 	\item LIN1 \rightarrow LGV1;
@@ -956,18 +942,7 @@ CAN-FD – это следующий этап развития классиче�
 \end{itemize}
 
 
-
-Для измерения момента приложенного на двигатель, происходит измерения милы тока на каждой обмотке двигателя, измеряется падение напряжения путем подачи сигналов на входы операционных усилителей, которые встроенные в микроконтроллер 6 входов подключение производится:
-
-
-\begin{figure}[H]
-	\begin{adjustbox}{addcode={\begin{minipage}{\width}}{\caption{
-							Функциональная схема системы исполнительного управления
-						} \label{FACD}
-					\end{minipage}},rotate=90,center}
-		\includegraphics[width=0.85\paperheight]{Src/images/ACD (5).drawio.png}
-	\end{adjustbox}
-\end{figure}
+To measure the torque applied on the motor, there is a measurement of the current mila on each winding of the motor, the voltage drop is measured by feeding signals to the inputs of operational amplifiers which are inbuilt in the microcontroller 6 inputs:
 
 \begin{itemize}
 	\item PA1 \leftarrow +VSHUNT\_1;
@@ -978,12 +953,20 @@ CAN-FD – это следующий этап развития классиче�
 	\item PB2 \leftarrow +VSHUNT\_3;  % Corrected from '-VSHUNT_3' to '+VSHUNT_3' for consistency
 \end{itemize}
 
-
-Во избежание поломки устройства, предусмотрены две линии порта входа для подключения к АЦП микроконтроллера, один необходим для измерения температуры, датчик будет находиться рядом с силовыми транзисторами, таким образом в случае перегрева, микроконтроллер предпринимает действия по установке в состояние ошибки. Второй АЦП используется для измерения поступающего рабочего напряжения, в случае выхода из диапазона рабочего напряжения, МК переходит в режим ошибки. АЦП расположены на линиях порта A и подключаются:
-
+In order to avoid breakage of the device, two input port lines are provided for connection to the ADC of the microcontroller, one is necessary for temperature measurement, the sensor located near the power transistors, so in case of overheating, the microcontroller takes action to set it to the error state. The second ADC is used to measure the incoming operating voltage, the MC goes into error mode. ADCs are located on the lines of port A and are connected:
 \begin{itemize}
-	\item PA5 \rightarrow V\_FED;
-	\item PA0 \rightarrow V\_BUS;
+	\item PA5 \leftarrow V\_FED; • PA0 \leftarrow V\_BUS;
+	
 \end{itemize}
+
+
+\begin{figure}[H]
+	\begin{adjustbox}{addcode={\begin{minipage}{\width}}{\caption{
+							Functional diagram of the actuator control system
+						} \label{FACD}
+					\end{minipage}},rotate=90,center}
+		\includegraphics[width=0.85\paperheight]{Src/images/ACD (5).drawio.png}
+	\end{adjustbox}
+\end{figure}
 
 

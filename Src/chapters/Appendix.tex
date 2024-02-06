@@ -5,13 +5,13 @@
 \null\vspace{\fill} % Add vertical space before the text block
 
 \begin{center}
-	\addcontentsline{toc}{section}{ПРИЛОЖЕНИЯ}
-	{\fontsize{14}{14}\selectfont \textbf{ПРИЛОЖЕНИЯ}}
+	\addcontentsline{toc}{section}{APPENDIX}
+	{\fontsize{14}{14}\selectfont \textbf{APPENDIX}}
 \end{center}
 \vspace{\fill}\null % Add vertical space after the text block
 
 \newpage
-\apendixsection{Таблица сравнения результатов тысяч операций в секунду на 1 Мгц у каждого МК }
+\apendixsection{Table comparing the results of thousands of operations per second at 1 MHz for each MCs}
 
 % \usepackage{color}
 % \usepackage{tabularray}
@@ -155,7 +155,7 @@
 \end{table}
 
 \newpage
-\apendixsection{Фрагмент кода драйвера передачи команд TCP программы RobotDK}
+\apendixsection{Code fragment of the RobotDK TCP command driver code}
 
 
 \begin{figure}[H]
@@ -195,7 +195,7 @@ conn, addr = s.accept()
 \newpage
 
 
-\apendixsection{Программный код python моделирования преобразования угла поворота энкодера в суммарный угол}
+\apendixsection{Software code Python simulation code for converting encoder rotation angle to total angle}
 
 \begin{figure}[H]
 	\centering
@@ -233,7 +233,7 @@ for i in range(10000):
 
 
 \newpage
-\apendixsection{Фрагмент кода функции обработки данных с энкодера.}
+\apendixsection{Code fragment of the encoder data processing function.}
 
 
 \begin{figure}[H]
@@ -257,15 +257,12 @@ if(abs(d_angle) > (0.8 * resolution) ){
 	}}
 //to determine if an overflow has occurred
 encoder->last_angle_data = angle_data;
-// Returning a full angle
 encoder->angle_rad = encoder->full_rotation_offset + ((float)angle_data / (float)resolution) * 2*PI;
 encoder->angle_deg = RADIANS_TO_DEGREES(encoder->angle_rad);
-// Расчет скорости
 encoder->velocity_rad = ((encoder->angle_rad - encoder->angle_prev_rad) / d_time * 1000000.0f);
 encoder->velocity_deg = ((encoder->angle_deg - encoder->angle_prev_deg) / d_time * 1000000.0f);
-// Remembering the last angle
-encoder->angle_prev_rad = encoder->angle_rad;
-encoder->angle_prev_deg = encoder->angle_deg;
+encoder->angle_prev_rad = encoder->angle_rad; // save angle rad
+encoder->angle_prev_deg = encoder->angle_deg; // save angle deg
 //Update time of last measurement
 encoder->lastUpdateTime = __HAL_TIM_GET_COUNTER(&htim6);
 	\end{minted}
@@ -274,29 +271,24 @@ encoder->lastUpdateTime = __HAL_TIM_GET_COUNTER(&htim6);
 
 
 \newpage
-\apendixsection{Фрагмент кода обновления алгоритма векторного регулирования}
+\apendixsection{Code fragment for Vector Control Algorithm update}
 
 
 \begin{figure}[H]
 	\centering
 	\begin{minted}[tabsize=2,breaklines,fontsize=\small]{cpp}
-void FOC_Update(uint16_t time_us,float setpoint_torque_current_mA,float setpoint_flux_current_mA,float phase_synchro_offset_rad,uint32_t closed_loop,float setpoint_velocity_dps)
-{
+void FOC_Update(uint16_t time_us,float setpoint_torque_current_mA,float setpoint_flux_current_mA,float phase_synchro_offset_rad,uint32_t closed_loop,float setpoint_velocity_dps){
     float phaseCurrents[3];
-
 		// performance monitoring
         uint16_t startTime = __HAL_TIM_GET_COUNTER(&htim6);
-
         for(size_t i = 0; i < 3; ++i) {
             phaseCurrents[i] = -((float)motor_current_sample_adc[i] - motor_current_input_adc_offset[i]) / motor_current_input_adc_mA[i];
-        }
-		// process cosine(theta) and sine(theta)
+        }// process cosine(theta) and sine(theta)
     float phaseOffset_rad = convert2degrees((int16_t)(MAKE_SHORT( regs[REG_MOTOR_SYNCHRO_L], regs[REG_MOTOR_SYNCHRO_H])));
     float polePairs = PP, direction = REVERSE;
     float theta_rad = fmodf(absolute_position_rad * polePairs * direction, 2*PI) + phaseOffset_rad + syncOffset_rad;
     static float cos_theta = 0.0f, sin_theta = 0.0f;
     CORDIC_Processor(theta_rad, &cos_theta, &sin_theta);
-
         //Clarke Transformation
     float Ialpha = 2.0f / 3.0f * phaseCurrents[0] - 1.0f / 3.0f * (phaseCurrents[1] + phaseCurrents[2]);
     float Ibeta = 1.0f / sqrtf(3.0f) * (phaseCurrents[1] - phaseCurrents[2]);
@@ -306,49 +298,41 @@ void FOC_Update(uint16_t time_us,float setpoint_torque_current_mA,float setpoint
 \end{minted}
 \end{figure}
 \newpage
-\hfill \large Приложение 5.(продолжение)
+\hfill \large Annex 5.(continued)
 
 \begin{figure}[H]
 	\centering
 	\begin{minted}[tabsize=2,breaklines,fontsize=\small]{cpp}
-
 		// (Id,Iq) filtering
 	float Id_filtered = 0.05f * Id + (0.05f) * present_Id_filtered;
     float Iq_filtered = 0.05f * Iq + (0.05f) * present_Iq_filtered;
-
     	// flux controller (PI+FF)
     float setpoint_Id = fluxSet_mA;
-
     float Flux_Kp = (float)((int16_t)(MAKE_SHORT( regs[PID_FLUX_CURRENT_KP_L], regs[PID_FLUX_CURRENT_KP_H]))) / 100000.0f;
     float error_Id = setpoint_Id - (loopStatus == 1 ? Id_filtered : 0.0f);
     float Vd = error_Id * Flux_Kp;
-
     float setpoint_Iq = torqueSet_mA;
     float Torque_Kp = (float)((int16_t)(MAKE_SHORT( regs[PID_TORQUE_CURRENT_KP_L], regs[PID_TORQUE_CURRENT_KP_H]))) / 100000.0f;
     float error_Iq = setpoint_Iq - (loopStatus == 1 ? Iq_filtered : 0.0f);
     float Vq = error_Iq * Torque_Kp;
-
 		// do inverse clarke and park transformation
-
     float Valpha = Vd * cos_theta - Vq * sin_theta;
     float Vbeta = Vq * cos_theta + Vd * sin_theta;
         // Inverse Clarke Transformation
     float Va = Valpha;
     float Vb = (-Valpha + sqrtf(3.0f) * Vbeta) / 2.0f;
     float Vc = (-Valpha - sqrtf(3.0f) * Vbeta) / 2.0f;
-
     float Vneutral = 0.5f * (fmaxf(fmaxf(Va, Vb), Vc) + fminf(fminf(Va, Vb), Vc));
     	// convert (Va,Vb,Vc) to PWM duty cycles % [0.0 1.0]
 	float dutyA = fconstrain(((Va - Vneutral) / present_voltage_V + 1.0f) * 0.5f, MIN_PWM_DUTY_CYCLE, MAX_PWM_DUTY_CYCLE);
 }	\end{minted}
 \end{figure}
 \newpage
-\hfill \large Приложение 5.(продолжение)
+\hfill \large Annex 5.(continued)
 
 \begin{figure}[H]
 	\centering
 	\begin{minted}[tabsize=2,breaklines,fontsize=\small]{cpp}
-	
     float dutyB = fconstrain(((Vb - Vneutral) / present_voltage_V + 1.0f) * 0.5f, MIN_PWM_DUTY_CYCLE, MAX_PWM_DUTY_CYCLE);
     float dutyC = fconstrain(((Vc - Vneutral) / present_voltage_V + 1.0f) * 0.5f, MIN_PWM_DUTY_CYCLE, MAX_PWM_DUTY_CYCLE);
         // fPWM = 16KHz
@@ -357,12 +341,10 @@ void FOC_Update(uint16_t time_us,float setpoint_torque_current_mA,float setpoint
     uint16_t CCRa = (uint16_t)(dutyA * (float)(__HAL_TIM_GET_AUTORELOAD(&htim1) + 1)) - 1;
     uint16_t CCRb = (uint16_t)(dutyB * (float)(__HAL_TIM_GET_AUTORELOAD(&htim1) + 1)) - 1;
     uint16_t CCRc = (uint16_t)(dutyC * (float)(__HAL_TIM_GET_AUTORELOAD(&htim1) + 1)) - 1;
-
     // update TIMER CCR register
     __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, CCRa);
     __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, CCRb);
     __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3, CCRc);
-
 		// calculate loop time
     int16_t endTime = __HAL_TIM_GET_COUNTER(&htim6);
     uint16_t processingTime = endTime - startTime;
@@ -373,14 +355,13 @@ void FOC_Update(uint16_t time_us,float setpoint_torque_current_mA,float setpoint
 \end{figure}
 
 \newpage
-\apendixsection{Функция вычисления прямой кинематики}
+\apendixsection{Function for calculating the Forward Kinematics}
 
 
 \begin{figure}[H]
 	\centering
 	\begin{minted}[tabsize=2,breaklines,fontsize=\small]{cpp}
-	CalculateFD(const JointAngles& inputAngles, RobotPose& outputPose)
-{
+	CalculateFD(const JointAngles& inputAngles, RobotPose& outputPose){
     float rawInputAngles[6];
     float adjustedAngles[6];
     float cosineAngle, sineAngle;
@@ -394,8 +375,7 @@ void FOC_Update(uint16_t time_us,float setpoint_torque_current_mA,float setpoint
     for (int i = 0; i < 6; i++)
         rawInputAngles[i] = inputAngles.values[i] / DEGREES_TO_RADIANS;
     // Compute rotation matrices based on adjusted joint angles
-    for (int i = 0; i < 6; i++)
-    {
+    for (int i = 0; i < 6; i++){
         adjustedAngles[i] = rawInputAngles[i] + DHParams[i][0];
         cosineAngle = arm_cos_f32(adjustedAngles[i]);
         sineAngle = arm_sin_f32(adjustedAngles[i]);
@@ -408,23 +388,20 @@ void FOC_Update(uint16_t time_us,float setpoint_torque_current_mA,float setpoint
         rotationMatrices[i][3] = sineAngle;
         rotationMatrices[i][4] = cosineAlpha * cosineAngle;
         rotationMatrices[i][5] = -sineAlpha * cosineAngle;
-      
 	\end{minted}
 \end{figure}
 \newpage
-\hfill \large Приложение 6.(продолжение)
+\hfill \large Annex 6.(continued)
 \begin{figure}[H]
 	\centering
 	\begin{minted}[tabsize=2,breaklines,fontsize=\small]{cpp}
 		rotationMatrices[i][6] = 0.0f;
         rotationMatrices[i][7] = sineAlpha;
         rotationMatrices[i][8] = cosineAlpha;
-    }
-	}
+    }}
 	// Sequentially multiply the rotation matrices to get the cumulative rotation matrix
 	MultiplyMatrices(rotationMatrices[0], rotationMatrices[1], rotationMatrixPartial[0], 3, 3, 3);
-	for (int i = 1; i < 4; i++)  // Start from 1 as first multiplication already done
-	{
+	for (int i = 1; i < 4; i++){  // Start from 1 as first multiplication already done
 		MultiplyMatrices(rotationMatrixPartial[i - 1], rotationMatrices[i + 1], rotationMatrixPartial[i], 3, 3, 3);
 	}
 	MultiplyMatrices(rotationMatrixPartial[3], rotationMatrices[5], endEffectorRotation, 3, 3, 3);
@@ -434,25 +411,12 @@ void FOC_Update(uint16_t time_us,float setpoint_torque_current_mA,float setpoint
 	MultiplyMatrices(rotationMatrixPartial[1], LinkElbowToWrist, linkVectors[2], 3, 3, 1);
 	MultiplyMatrices(endEffectorRotation, LinkWristToEndEffector, linkVectors[3], 3, 3, 1);
 	// Sum up the position vectors to get the end effector's position
-	for (int i = 0; i < 3; i++)
-		endEffectorPosition[i] = linkVectors[0][i] + linkVectors[1][i] + linkVectors[2][i] + linkVectors[3][i];
-	// Convert the end effector's rotation matrix to Euler angles
-	RotationMatrixToEulerAngles(endEffectorRotation, &endEffectorPosition[3]);
-	// Set the calculated position and orientation to the output pose
-	outputPose.X = endEffectorPosition[0];
-	outputPose.Y = endEffectorPosition[1];
-	outputPose.Z = endEffectorPosition[2];
-	outputPose.Roll = endEffectorPosition[3] * RADIANS_TO_DEGREES;
-	outputPose.Pitch = endEffectorPosition[4] * RADIANS_TO_DEGREES;
-	outputPose.Yaw = endEffectorPosition[5] * RADIANS_TO_DEGREES;
-	memcpy(outputPose.RotationMatrix, endEffectorRotation, 9 * sizeof(float));
-	return true;
+	for (int i = 0; i < 3; i++)Inverse kinematics calculation function
 	\end{minted}
 \end{figure}
 
-
 \newpage
-\apendixsection{Функция вычисления обратной кинематики}
+\apendixsection{Inverse kinematics calculation function}
 
 
 \begin{figure}[H]
