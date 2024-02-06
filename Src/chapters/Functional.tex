@@ -28,13 +28,15 @@ As a result of analyzing models with various parameters, it was decided to use e
 \begin{table}[H]
 	\centering
 	\caption{Technical parameters of GBM4008H-150T, GM5208-120T and GM3506 motors}\label{BLDC}
+	
 	\begin{adjustbox}{width=\textwidth}
-
+		\fontsize{10pt}{12pt}\selectfont
 		\arrayrulecolor{black}
 		\begin{tabular}{!{\color{black}\vrule}l!{\color{black}\vrule}l!{\color{black}\vrule}l!{\color{black}\vrule}l!{\color{black}\vrule}l!{\color{black}\vrule}l!{\color{black}\vrule}l!{\color{black}\vrule}l!{\color{black}\vrule}l!{\color{black}\vrule}}
 			\hline
 			Model                                                   & \begin{tabular}[c]{@{}l@{}}Diameter~\\{[}mm]\end{tabular} & \begin{tabular}[c]{@{}l@{}}Height~\\{[}mm]\end{tabular} & \begin{tabular}[c]{@{}l@{}}Weight~\\{[}g]\end{tabular} & Kv & \begin{tabular}[c]{@{}l@{}}Poles \&\\Magnets\end{tabular} & \begin{tabular}[c]{@{}l@{}}Resist.~\\{[}ohms]\end{tabular} & \begin{tabular}[c]{@{}l@{}}Torque~\\{[}kgf-cm]\end{tabular} & \begin{tabular}[c]{@{}l@{}}Max				power~\\{[}W]\end{tabular} \\
 			\hline
+			
 			\begin{tabular}[c]{@{}l@{}}GBM4008H\\-150T\end{tabular} & 46±0.05                                                                         & 21±0.2                                                                        & 107±0.5                                                                      & 68 & 24N22P                                                    & 6.7                                                                              & 1.2                                                                               & 40                                                                                 \\
 			\hline
 			\begin{tabular}[c]{@{}l@{}}GM5208\\-120T\end{tabular}   & 63±0.05                                                                         & 22.7±0.2                                                                      & 195±0.5                                                                      & 68 & 24N22P                                                    & 6.7                                                                              & 1.9                                                                               & 40                                                                                 \\
@@ -67,6 +69,7 @@ The AS5600 chip (Fig. \ref{as5600P}) with a digital output from "AMS" was chosen
 \begin{table}[H]
 	\centering
 	\caption{AS5600 axial position chip parameter table}\label{as5600T}
+	\fontsize{10pt}{12pt}\selectfont
 	\begin{tblr}{
 		width = \linewidth,
 		colspec = {Q[468]Q[445]},
@@ -117,7 +120,7 @@ These requirements are met by the single-board mini-computer "Raspberry Pi Zero 
 \begin{table}[H]
 	\centering
 	\caption{Table of parameters of the Raspberry Pi Zero W 2 single-board mini-computer}\label{ZeroT}
-
+	\fontsize{10pt}{12pt}\selectfont
 	\begin{tblr}{
 		width = \linewidth,
 		colspec = {Q[180]Q[594]},
@@ -224,6 +227,7 @@ The \ref{TestT} table lists the microcontrollers used, their clock speeds, and p
 \begin{table}[H]
 	\centering
 	\caption{List of microcontrollers and their characteristics}\label{TestT}
+	\fontsize{10pt}{12pt}\selectfont
 	\begin{tblr}{
 		width = \linewidth,
 		colspec = {Q[269]Q[274]Q[146]Q[248]},
@@ -270,7 +274,7 @@ The essence of the program in the microcontroller was to calculate the time spen
 	\caption{Table of measured time to calculate mathematical operations}\label{TestTimeT}
 
 	\begin{adjustbox}{width=\textwidth}
-
+		\fontsize{10pt}{12pt}\selectfont
 		\begin{tblr}{
 				cell{2}{2} = {DeYork},
 				cell{2}{3} = {Salomie},
@@ -370,7 +374,7 @@ The essence of the program in the microcontroller was to calculate the time spen
 \begin{figure}[H]
 	\centering
 
-	\begin{tikzpicture}[scale=0.65]
+	\begin{tikzpicture}[scale=0.7]
 		\begin{axis}[
 			x tick label style={rotate=45, anchor=east, align=right},
 			title=Total operation calculation time,
@@ -419,7 +423,7 @@ The provided data did not give clear information about the advantages of a speci
 	\caption{Table comparing thousands of operations per second to calculate mathematical operations of each MCs}\label{TestTimeT2}
 
 	\begin{adjustbox}{width=\textwidth}
-
+		\fontsize{10pt}{12pt}\selectfont
 		\begin{tblr}{
 				cell{2}{2} = {Salmon,r},
 				cell{2}{3} = {AtomicTangerine,r},
@@ -511,7 +515,7 @@ The cumulative results of the recalculation of time into the values of thousands
 \definecolor{Salomie10}{rgb}{1,0.89,0.513}
 \begin{figure}[H]
 	\centering
-	\begin{tikzpicture}[scale=0.65]
+	\begin{tikzpicture}[scale=0.7]
 		\begin{axis}[
 			x tick label style={rotate=45, anchor=east, align=right},
 			title=Thousands of operations per second,
@@ -550,7 +554,7 @@ In the calculations provided, the microcontrollers performed operations at the m
 \end{ceqn}
 \begin{figure}[H]
 	\centering
-	\begin{tikzpicture}[scale=0.65]
+	\begin{tikzpicture}[scale=0.7]
 		\begin{axis}[
 			x tick label style={rotate=45, anchor=east, align=right},
 			title=Efficiency of microcontrollers,
@@ -577,7 +581,7 @@ Additionally, the presence of the "CORDIC" co-processor for hardware acceleratio
 \begin{table}[H]
 	\centering
 	\caption{Table of main characteristics of STM32G431 microcontroller}\label{MCUData}
-
+	\fontsize{10pt}{12pt}\selectfont
 	\begin{tblr}{
 		width = \linewidth,
 		colspec = {Q[345]Q[541]},
@@ -650,7 +654,7 @@ Power transistor switches form a three-phase inverter for controlling the electr
 \begin{table}[H]
 	\centering
 	\caption{Table of main characteristics of transistor SIR680DP}\label{SIR680DPT}
-
+	\fontsize{10pt}{12pt}\selectfont
 	\begin{tblr}{
 		width = \linewidth,
 		colspec = {Q[547]Q[374]},
@@ -705,7 +709,7 @@ In this implementation of the executive system, general-purpose drivers L6385ED 
 \begin{table}[H]
 	\centering
 	\caption{Table of L6385ED driver main characteristic}\label{L6385EDP}
-
+	\fontsize{10pt}{12pt}\selectfont
 	\begin{tblr}{
 		width = \linewidth,
 		colspec = {Q[324]Q[317]},
@@ -755,7 +759,7 @@ Based on the selected microcontroller model in Chapter 3.5 and technical data fr
 \begin{table}[H]
 	\centering
 	\caption{Table of main characteristics of the TCAN1462DRQ1 transmitter}\label{TCAN1462DRQ1T}
-
+	\fontsize{10pt}{12pt}\selectfont
 	\begin{tblr}{
 		width = \linewidth,
 		colspec = {Q[324]Q[317]},
@@ -799,12 +803,11 @@ The AP64502QSP DC-DC step-down converter chip was selected, shown in Fig. \ref{�
 The main advantage of this choice is the ability to convert a high current of 5A (Table \ref{АP64PT}), without the use of external switches and the smaller number of \citep{AP64502Q} elements required to operate this chip.
 
 
-% \usepackage{color}
-% \usepackage{tabularray}
 \begin{table}[H]
 	\centering
 	\caption{Table of main characteristics of the AP64502QSP DC-DC converter}
 	\label{АP64PT}
+	\fontsize{10pt}{12pt}\selectfont
 	\begin{tblr}{
 		width = \linewidth,
 		colspec = {Q[362]Q[499]},
